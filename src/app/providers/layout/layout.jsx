@@ -1,16 +1,22 @@
-import React from 'react'
-import { Outlet } from 'react-router'
-import Header from '../../../widgets/header/header'
-import Footer from '../../../widgets/footer/footer'
+import React from "react";
+import { Outlet } from "react-router";
+import Header from "../../../widgets/header/header";
+import Footer from "../../../widgets/footer/footer";
 
 const Layout = () => {
   return (
     <div>
-        <Header/>
-        <Outlet/>
-        <Footer/>
+      <header>
+        <Header />
+      </header>
+      <main className="max-w-[85%] m-auto">
+        <Outlet />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
