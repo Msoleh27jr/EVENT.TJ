@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Header = () => {
   function handleClick() {
@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <div>
       <section className="flex max-w-[1600px] m-auto justify-between my-5">
-        <h1 className="text-5xl font-bold text-[#9F00FF]">EVENT.TJ</h1>
+        <Link to="/"><h1 className="text-5xl font-bold text-[#9F00FF] cursor-pointer">EVENT.TJ</h1></Link>
         <div className="flex items-center gap-4">
           <button
             onClick={handleClick}
@@ -48,13 +48,13 @@ const Header = () => {
           </button>
         </div>
       </section>
-      <hr className="max-w-[1700px] m-auto shadow-2xl border-0.5" />
+      <hr className="max-w-[85%] m-auto shadow-2xl border-0.5" />
       <nav>
         <ul className="my-5 max-w-[85%] m-auto flex justify-between text-xl">
           <NavLink
             to={"/"}
             className={({ isActive }) =>
-              `relative text-[#9F00FF] font-medium pb-1 
+              `relative text-gray-600 font-medium pb-1 
     before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
     before:bg-[#9F00FF] before:transition-all before:duration-300 
     ${isActive ? "before:w-full" : "before:w-0 hover:before:w-full"}`
@@ -66,7 +66,7 @@ const Header = () => {
           <NavLink
             to={"theatres"}
             className={({ isActive }) =>
-              `relative text-[#9F00FF] font-medium pb-1 
+              `relative text-gray-600 font-medium pb-1 
     before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
     before:bg-[#9F00FF] before:transition-all before:duration-300 
     ${isActive ? "before:w-full" : "before:w-0 hover:before:w-full"}`
@@ -78,7 +78,7 @@ const Header = () => {
           <NavLink
             to={"movie"}
             className={({ isActive }) =>
-              `relative text-[#9F00FF] font-medium pb-1 
+              `relative text-gray-600 font-medium pb-1 
     before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
     before:bg-[#9F00FF] before:transition-all before:duration-300 
     ${isActive ? "before:w-full" : "before:w-0 hover:before:w-full"}`
@@ -90,7 +90,7 @@ const Header = () => {
           <NavLink
             to={"pictures"}
             className={({ isActive }) =>
-              `relative text-[#9F00FF] font-medium pb-1 
+              `relative text-gray-600 font-medium pb-1 
     before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
     before:bg-[#9F00FF] before:transition-all before:duration-300 
     ${isActive ? "before:w-full" : "before:w-0 hover:before:w-full"}`
@@ -102,7 +102,7 @@ const Header = () => {
           <NavLink
             to={"digets"}
             className={({ isActive }) =>
-              `relative text-[#9F00FF] font-medium pb-1 
+              `relative text-gray-600 font-medium pb-1 
     before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
     before:bg-[#9F00FF] before:transition-all before:duration-300 
     ${isActive ? "before:w-full" : "before:w-0 hover:before:w-full"}`
@@ -114,7 +114,7 @@ const Header = () => {
           <NavLink
             to={"video"}
             className={({ isActive }) =>
-              `relative text-[#9F00FF] font-medium pb-1 
+              `relative text-gray-600 font-medium pb-1 
     before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
     before:bg-[#9F00FF] before:transition-all before:duration-300 
     ${isActive ? "before:w-full" : "before:w-0 hover:before:w-full"}`
@@ -126,7 +126,7 @@ const Header = () => {
           <NavLink
             to={"news"}
             className={({ isActive }) =>
-              `relative text-[#9F00FF] font-medium pb-1 
+              `relative text-gray-600 font-medium pb-1 
     before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
     before:bg-[#9F00FF] before:transition-all before:duration-300 
     ${isActive ? "before:w-full" : "before:w-0 hover:before:w-full"}`
@@ -138,7 +138,7 @@ const Header = () => {
           <NavLink
             to={"events"}
             className={({ isActive }) =>
-              `relative text-[#9F00FF] font-medium pb-1 
+              `relative text-gray-600 font-medium pb-1 
     before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
     before:bg-[#9F00FF] before:transition-all before:duration-300 
     ${isActive ? "before:w-full" : "before:w-0 hover:before:w-full"}`
