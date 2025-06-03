@@ -26,7 +26,7 @@ const Header = () => {
   };
   return (
     <div>
-      <section className="flex max-w-[1600px] m-auto justify-between my-5">
+      <section className="flex max-w-[85%] m-auto justify-between my-5">
         <Link to="/"><h1 className="text-5xl font-bold text-[#9F00FF] cursor-pointer">EVENT.TJ</h1></Link>
         <div className="flex items-center gap-4">
           <button
