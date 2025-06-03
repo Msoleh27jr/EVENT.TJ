@@ -48,9 +48,9 @@ const Header = () => {
           </button>
         </div>
       </section>
-      <hr className="max-w-[1700px] m-auto" />
+      <hr className="max-w-[1700px] m-auto shadow-2xl border-0.5" />
       <nav>
-        <ul className="my-5 max-w-[1700px] m-auto flex justify-between text-xl">
+        <ul className="my-5 max-w-[85%] m-auto flex justify-between text-xl">
           <NavLink
             to={"/"}
             className={({ isActive }) =>
