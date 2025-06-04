@@ -11,6 +11,7 @@ import {
   Home,
   Movie,
   News,
+  NewsById,
   PictureById,
   Pictures,
   Theatres,
@@ -38,6 +39,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="digets" element={<Digets />} />
           <Route path="video/:id" element={<VideoById />} />
           <Route path="video" element={<Video />} />
+          <Route path="news/:id" element={<NewsById />} />
           <Route path="news" element={<News />} />
           <Route path="events/:id" element={<EventsById />} />
           <Route path="events" element={<Events />} />
