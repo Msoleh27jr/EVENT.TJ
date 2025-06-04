@@ -24,9 +24,9 @@ const Header = () => {
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };
-  useEffect(()=> {
-    handleClick()
-  } , [])
+  useEffect(() => {
+    handleClick();
+  }, []);
   return (
     <div>
       <section className="flex text-2xl max-w-[85%] m-auto justify-between my-5 items-center">
@@ -215,6 +215,21 @@ const Header = () => {
           </NavLink>
 
           <NavLink
+            to={"events"}
+            className={({ isActive }) =>
+              `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
+         before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
+         before:bg-[#9F00FF] before:transition-all before:duration-300 
+         ${
+           isActive
+             ? "before:w-full text-[#9F00FF]"
+             : "before:w-0 hover:before:w-full"
+         }`
+            }
+          >
+            <li>{t("events")}</li>
+          </NavLink>
+          <NavLink
             to={"news"}
             className={({ isActive }) =>
               `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
@@ -228,22 +243,6 @@ const Header = () => {
             }
           >
             <li>{t("news")}</li>
-          </NavLink>
-
-          <NavLink
-            to={"events"}
-            className={({ isActive }) =>
-              `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
-     before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
-     before:bg-[#9F00FF] before:transition-all before:duration-300 
-     ${
-       isActive
-         ? "before:w-full text-[#9F00FF]"
-         : "before:w-0 hover:before:w-full"
-     }`
-            }
-          >
-            <li>{t("events")}</li>
           </NavLink>
         </ul>
       </nav>
