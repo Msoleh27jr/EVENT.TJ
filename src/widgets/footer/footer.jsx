@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <div className="w-[100%] bg-gray-800 py-8 my-5">
+    <div className="w-[100%] bg-gray-800 py-8 mt-5">
       <footer className="max-w-[85%] m-auto">
         <section className="flex items-center justify-between md:flex-row flex-col">
           <div className="flex items-center md:gap-20 md:flex-row flex-col justify-center">
