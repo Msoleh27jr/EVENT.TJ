@@ -1,9 +1,8 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 const Evevnts = () => {
-  return (
-    <div>Evevnts</div>
-  )
+ return (
+  <div>Events</div>
+ ) 
 }
 
 export default Evevnts

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router'
+import React from 'react'
+import { Link, useNavigate, useParams } from 'react-router'
 
-const News = () => {
+const NewsById = () => {
   const newsProduct = [
     {
       id: 11,
@@ -139,109 +139,102 @@ const News = () => {
       title: "Новости Таджикистан",
     },
   ]
-
-  const [modal, setModal] = useState(false)
+  const { id } = useParams()
   const navigate = useNavigate()
 
   function newsById(id) {
     navigate(`/news/${id}`)
   }
 
+  const news = newsProduct.find((e) => e.id == id)
+  console.log(news);
+
   return (
-    <div className='flex items-start justify-between mt-[30px] md:mt-[70px] mb-[50px] '>
-      <div className='md:w-[65%]'>
-        <div className='flex md:items-center justify-between flex-col md:flex-row gap-[10px] '>
-          <h1 className="md:text-[40px] text-[20px] font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Новости</h1>
+    <div className='md:mt-[50px] mb-[100px] '>
+      <div className='items-center gap-[20px] hidden md:flex'>
+        <Link to='/' ><h1 className='text-[18px] transition-colors duration-300 hover:text-[#9F00FF]'>Главная</h1></Link>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+        <Link to='/news' ><h1 className='text-[18px] transition-colors duration-300 hover:text-[#9F00FF]'>Новости</h1></Link>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+        <h1 className='w-[300px] truncate '>{news.news}</h1>
+      </div>
+      <div className='mt-[20px] md:mt-[50px] w-[100%] flex flex-col md:flex-row items-start justify-between gap-[30px] '>
+        <div className='flex flex-col md:w-[65%] items-start gap-[15px]'>
+          <h1 className='font-bold md:text-[30px] '>{news.news}</h1>
           <div className='flex items-center gap-[20px] '>
-            <li className='list-none '>
-              <NavLink
-                to="/news"
-                className={({ isActive }) =>
-                  `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
-         before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
-         before:bg-[#9F00FF] before:transition-all before:duration-300 dark:text-white
-         ${isActive
-                    ? "before:w-full text-[#9F00FF]"
-                    : "before:w-0 hover:before:w-full"
-                  }`
-                }
-              >
-                Все
-              </NavLink>
-            </li>
-            <li className='list-none '>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
-         before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
-         before:bg-[#9F00FF] before:transition-all before:duration-300 dark:text-white
-         ${isActive
-                    ? "before:w-full text-[#9F00FF]"
-                    : "before:w-0 hover:before:w-full"
-                  }`
-                }
-              >
-                Популярные
-              </NavLink>
-            </li>
+            <div className='flex items-center gap-[5px] '>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              </svg>
+              <h1 className='text-[18px] '>{news.views}</h1>
+            </div>
+            <h1 className='text-[18px] '>{news.date}</h1>
           </div>
+          <img className='w-full rounded-[10px] ' src={news.image} alt="" />
+          <h1>{news.aboutNews1 && news.aboutNews1}</h1>
+          <h1>{news.aboutNews2 && news.aboutNews2}</h1>
+          <h1>{news.aboutNews3 && news.aboutNews3}</h1>
+          <h1>{news.aboutNews4 && news.aboutNews4}</h1>
+          <h1>{news.aboutNews5 && news.aboutNews5}</h1>
+          <h1>{news.aboutNews6 && news.aboutNews6}</h1>
+          <h1>{news.aboutNews7 && news.aboutNews7}</h1>
+          <h1>{news.aboutNews8 && news.aboutNews8}</h1>
+          <div className='flex items-center gap-[10px] '>
+            <h1 className='font-[600] '>Поделиться:</h1>
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.anons.uz/ru/news/iz-tashkenta-v-issyk-kul-zapuskayutsya-sezonnye-avtobusnye-reysy"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" className='p-[3px] bg-blue-500 rounded-[5px] ' viewBox="0 0 24 24" fill="none"><path d="M14 9.3v2.9h2.6c.2 0 .3.2.3.4l-.4 1.9c0 .1-.2.2-.3.2H14V22h-3v-7.2H9.3c-.2 0-.3-.1-.3-.3v-1.9c0-.2.1-.3.3-.3H11V9c0-1.7 1.3-3 3-3h2.7c.2 0 .3.1.3.3v2.4c0 .2-.1.3-.3.3h-2.4c-.2 0-.3.1-.3.3Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"></path><path d="M15 22H9c-5 0-7-2-7-7V9c0-5 2-7 7-7h6c5 0 7 2 7 7v6c0 5-2 7-7 7Z" stroke=" " stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            <a href="https://t.me/share/url?url=https://www.anons.uz/ru/news/iz-tashkenta-v-issyk-kul-zapuskayutsya-sezonnye-avtobusnye-reysy&text=%D0%98%D0%B7%20%D0%A2%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82%D0%B0%20%D0%B2%20%D0%98%D1%81%D1%81%D1%8B%D0%BA-%D0%9A%D1%83%D0%BB%D1%8C%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D1%8E%D1%82%D1%81%D1%8F%20%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%B0%D0%B2%D1%82%D0%BE%D0%B1%D1%83%D1%81%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B9%D1%81%D1%8B" target="_blank"><div className='p-[5px] rounded-[4px] bg-blue-800 '>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5  text-white">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+              </svg>
+            </div></a>
+          </div>
+          <Link to='/events'><button className='mt-[60px] p-[10px_20px] rounded-[5px] bg-gray-200 hover:bg-gray-400 hover:text-gray-200 transform transition duration-500 '>Новости</button></Link>
+          <h1 className='font-bold text-[20px] md:text-[30px] mt-[40px] '>Комментарии</h1>
+          <textarea
+            id="comment"
+            name="comment"
+            rows="4"
+            className='w-full bg-purple-50  p-2 focus:outline-none focus:ring-2 rounded-[10px] border-[1px] border-gray-300 h-[200px] '
+            placeholder="Шарҳи худро нависед..."
+          ></textarea>
+          <button className='mt-[30px] p-[10px_20px] text-white rounded-[10px] hover:bg-blue-600 bg-[#9F00FF] transform transition duration-600'>Войти</button>
         </div>
-        <div className='flex flex-col items-start w-[100%] gap-[20px] mt-[30px] '>
-          {
-            newsProduct.slice(0, 7).map((e) => {
-              return (
-                <div onClick={() => newsById(e.id)} key={e.id} className="md:shadow-none dark:shadow-gray-800 shadow-[5px_5px_5px_5px] shadow-gray-200 md:border-0 md:rounded-[0px] md:mt-[20px] border-[1px] rounded-[10px] group overflow-hidden transform transition duration-600 flex items-center gap-[20px] w-full flex-col md:flex-row md:border-b border-gray-300 pb-5">
-                  <div className="md:w-[40%] overflow-hidden rounded-[10px]">
-                    <img
-                      className="w-full md:h-[200px] object-cover transform transition duration-700 group-hover:scale-110"
-                      src={e.image}
-                      alt=""
-                    />
+        <div className='md:w-[32%] '>
+          <div>
+            <h1 className='font-bold md:text-[30px] mb-[15px] '>Так же вам может быть интересно</h1>
+            {
+              newsProduct.slice(5, 9).map((e) => {
+                return (
+                  <div onClick={() => newsById(e.id)} key={e.id} className="md:shadow-none shadow-[5px_5px_5px_5px] shadow-gray-200 md:border-0 md:rounded-[0px] md:mt-[20px] border-[1px] rounded-[10px] group overflow-hidden transform transition duration-600 flex items-center gap-[20px] w-full flex-col md:flex-row md:border-b border-gray-300 pb-5">
+                    <div className="md:w-[40%] overflow-hidden rounded-[10px]">
+                      <img
+                        className="w-full object-cover transform transition duration-700 group-hover:scale-110"
+                        src={e.image}
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex flex-col items-start gap-[10px] md:w-[60%] md:p-[0px] p-[5px_0px_5px_10px] ">
+                      <h1 className="text-[#9F00FF] font-[500]">{e.title}</h1>
+                      <h1 className="text-[12px] font-[600] transition-colors duration-500 group-hover:text-[#9F00FF]">
+                        {e.news}
+                      </h1>
+                      <h1>{e.date}</h1>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-start gap-[10px] md:w-[60%] md:p-[0px] p-[5px_0px_5px_10px] ">
-                    <h1 className="text-[#9F00FF] font-[500]">{e.title}</h1>
-                    <h1 className="text-[25px] font-[600] transition-colors duration-500 group-hover:text-[#9F00FF]">
-                      {e.news}
-                    </h1>
-                    <h1>{e.date}</h1>
-                  </div>
-                </div>
-              )
-            })
-          }
-          {
-            modal && newsProduct.slice(7, 14).map((e) => {
-              return (
-                <div
-                  onClick={() => newsById(e.id)}
-                  key={e.id}
-                  className="md:shadow-none shadow-[5px_5px_5px_5px] shadow-gray-200 md:border-0 border-[1px] rounded-[10px] group overflow-hidden transform transition duration-600 flex items-center gap-[20px] w-full flex-col md:flex-row border-b border-gray-300 pb-5"
-                >
-                  <div className="md:w-[40%] overflow-hidden rounded-[10px]">
-                    <img
-                      className="w-full h-full object-cover transform transition duration-700 group-hover:scale-110"
-                      src={e.image}
-                      alt=""
-                    />
-                  </div>
-                  <div className="flex flex-col items-start gap-[10px] md:w-[60%] md:p-0 p-[5px_0px_5px_10px] ">
-                    <h1 className="text-[#9F00FF] font-[500]">{e.title}</h1>
-                    <h1 className="text-[25px] font-[600] transition-colors duration-500 group-hover:text-[#9F00FF]">
-                      {e.news}
-                    </h1>
-                    <h1>{e.date}</h1>
-                  </div>
-                </div>
-              )
-            })
-          }
-          {!modal && <button className='p-[10px_30px] text-white rounded-[10px] hover:bg-blue-600 bg-[#9F00FF] transform transition duration-600' onClick={() => setModal(true)}>Показать еще</button>}
+                )
+              })
+            }
+          </div>
+          <div className='mt-[30px] hidden md:block w-full h-[450px] rounded-[10px] bg-purple-100 '></div>
         </div>
       </div>
-      <div className='hidden md:block w-[28%] h-[450px] rounded-[10px] bg-purple-100 '></div>
-    </div >
+    </div>
   )
 }
 
-export default News
+export default NewsById
