@@ -3,12 +3,13 @@ import { Link, NavLink } from 'react-router'
 import CalendarComponent from '../../shared/ui/custom/calendar-swiper/calendar-swiper'
 
 const Movie = () => {
-  
+  const [cinema, setCinema] = useState('all')
   let [data] = useState([
         {
           id: 1,
           image: 'https://www.kino-teatr.ru/movie/posters/big/4/0/176904.jpg',
           name: 'Каратэ-пацан: Легенды',
+          cinema: 'kayhon',
           genres: [
             {
               genre: 'Семейный',
@@ -44,6 +45,7 @@ const Movie = () => {
           id: 2,
           image: 'https://upload.wikimedia.org/wikipedia/ru/thumb/1/19/Mission-_Impossible_%E2%80%93_The_Final_Reckoning.jpg/330px-Mission-_Impossible_%E2%80%93_The_Final_Reckoning.jpg',
           name: 'Миссия невыполнима: Финальная расплата',
+          cinema: 'navruz',
           genres: [
             {
               genre: 'Боевик',
@@ -71,6 +73,7 @@ const Movie = () => {
           id: 3,
           image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSU13E6WdhYqkaVtEbYqIRZkoyik7J4iMMhdULtdwMmjSMuM07x',
           name: 'Лило и Стич',
+          cinema: 'siema',
           genres: [
             {
               genre: 'Семейный',
@@ -94,6 +97,7 @@ const Movie = () => {
           id: 4,
           image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGDkrEcx5SHpSuj2i6xBiFtFTbpe4tPEmWqg&s',
           name: 'Игры возмездия',
+          cinema: 'vatan',
           genres: [
             {
               genre: 'Боевик',
@@ -118,23 +122,24 @@ const Movie = () => {
   return (
     <>
       <section>
-        <div className='flex gap-[20px]'>
+        <div className='flex items-center gap-[20px]'>
           <Link to={'/'}>
             <h3>Главная</h3>
           </Link>
-          <p>-</p>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
           <h3>Кино</h3>
         </div>
         
         <div className='my-[20px] flex md:flex-row flex-col gap-[10px] items-center justify-between'>
           <div className='flex items-center gap-[15px]'>
             <h2 className='text-[30px] font-bold'>Кино</h2>
-            <select className='border rounded-[4px] w-[200px] p-[5px] hover:bg-[#9F00FF] hover:text-[#FAFAFA] transition-colors duration-500'>
-              <option className='bg-[#FAFAFA] text-[black]' selected value="all">Кинотеатры</option>
+            <select value={cinema} onChange={(e) => setCinema(e.target.value)} className='border rounded-[4px] w-[200px] p-[5px] hover:bg-[#9F00FF] hover:text-[#FAFAFA] transition-colors duration-500'>
+              <option className='bg-[#FAFAFA] text-[black]' value="all">Все кинотеатры</option>
               <option className='bg-[#FAFAFA] text-[black]' value="kayhon">Кайхон</option>
               <option className='bg-[#FAFAFA] text-[black]' value="navruz">3D Кинотеатр Навруз</option>
               <option className='bg-[#FAFAFA] text-[black]' value="siema">Кинотеатр "Премьер Зал Душанбе"</option>
-              <option className='bg-[#FAFAFA] text-[black]' value="nebo">NEBO</option>
               <option className='bg-[#FAFAFA] text-[black]' value="vatan">Кинотеатр "Ватан"</option>
             </select>
           </div>
@@ -191,12 +196,12 @@ const Movie = () => {
         
         <div className='my-[50px]'>
           <h2 className='text-[30px] my-[20px] font-bold'>Кино</h2>
-          <div className='flex items-start gap-[18px] flex-wrap'>
+          <div className='flex items-start justify-center md:justify-start gap-[18px] flex-wrap'>
             {
-              data.map((e) => {
+              data.filter((e) => cinema == 'all' || e.cinema == cinema).map((e) => {
                 return (
-                  <Link to={`${e.id}`}>
-                    <div className='w-[215px] m-auto md:m-0 h-[550px] overflow-hidden transform transition duration-600 group cursor-pointer' key={e.id}>
+                  <Link key={e.id} to={`${e.id}`}>
+                    <div className='w-[215px] m-auto md:m-0 h-[550px] overflow-hidden transform transition duration-600 group cursor-pointer'>
                       <div className='overflow-hidden rounded-[10px] mb-[20px] relative'>
                         <img src={e.image} className='w-full h-[325px] object-cover transform transition duration-700 group-hover:scale-110 rounded-[10px]' alt="image" />
                         <div style={{backgroundColor: e.rating < 5 ? 'red' : e.rating < 7 ? '#db8f00' : '#43c443'}} className='absolute top-[15px] right-[15px] w-[30px] h-[20px] rounded-[4px] flex items-center justify-center text-[#FAFAFA]'>

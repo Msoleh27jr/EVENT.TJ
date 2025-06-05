@@ -124,24 +124,28 @@ const MovieById = () => {
     return (
     <>
         <section className='my-[40px]'>
-            <div className='flex text-[18px] gap-[20px]'>
+            <div className='flex items-center flex-wrap text-[18px] gap-[20px]'>
                 <Link to={'/'}>
                     <h3>Главная</h3>
                 </Link>
-                <p>-</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
                 <Link to={'/movie'}>
                     <h3>Кино</h3>
                 </Link>
-                <p>-</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
                 <h3>{movie.name}</h3>
             </div>
 
-            <div className='flex items-start justify-between'>            
-                <div>
-                    <div className='my-[30px] flex items-start gap-[30px]'>
-                        <div className='w-[315px]'>
+            <div className='flex md:flex-row flex-col items-start justify-between'>            
+                <div className='w-[100%]'>
+                    <div className='my-[30px] w-[100%] flex md:flex-row flex-col items-start gap-[30px]'>
+                        <div className='md:w-[315px]'>
                             <div className='relative'>
-                                <img src={movie.image} alt="image" className='w-[315px] h-[475px] rounded-[10px]' />
+                                <img src={movie.image} alt="image" className='md:w-[315px] h-[475px] rounded-[10px]' />
                                 <div style={{backgroundColor: movie.rating < 5 ? 'red' : movie.rating < 7 ? '#db8f00' : '#43c443'}} className='absolute top-[15px] right-[15px] w-[30px] h-[20px] rounded-[4px] flex items-center justify-center text-[#FAFAFA]'>
                                 {movie.rating}
                                 </div>
@@ -150,8 +154,8 @@ const MovieById = () => {
                             <Button className='w-full h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer font-normal hover:bg-[gray] transition-all duration-500 bg-[#272525]'>Купить билет</Button>
                         </div>
 
-                        <div className='w-[440px]'>
-                            <div className='flex items-center gap-[20px]'>
+                        <div className='md:w-[440px] w-[100%]'>
+                            <div className='flex items-center flex-wrap gap-[20px]'>
                                 {
                                     movie.genres.map((e) => {
                                         return <h3 key={e.id} className='h-[35px] px-[5px] text-[gray] flex items-center justify-center rounded-[7px] bg-[#f5f5f5]'>{e.genre}</h3>
@@ -174,12 +178,12 @@ const MovieById = () => {
                     <h3 className='my-[50px] text-[20px] font-bold'>Описание</h3>      
                     <p className='text-[18px] mb-[50px]'>{movie.description}</p>
                     <h3 className='mb-[35px] text-[20px] font-bold'>Трейлер</h3>  
-                    <div className='overflow-hidden w-[370px] rounded-[10px]'>
+                    <div className='overflow-hidden w-[100%] md:w-[370px] rounded-[10px]'>
                         <ReactPlayer
                             controls
                             url={movie.video}
                             light={true}
-                            width={'370px'}
+                            width={'100%'}
                             height={'190px'}
                             playIcon={
                                 <svg
@@ -206,7 +210,7 @@ const MovieById = () => {
                 
                 <div>
                     <h3 className='text-[30px] mb-[30px] font-bold'>Смотрите так же</h3>
-                    <div className='flex flex-wrap w-[320px] gap-[20px] justify-between items-start'>    
+                    <div className='flex flex-wrap md:w-[320px] w-[100%] gap-[20px] justify-between items-start'>    
                         {
                         movies.slice(0, 4).map((e) => {
                             return <div key={e.id}>
