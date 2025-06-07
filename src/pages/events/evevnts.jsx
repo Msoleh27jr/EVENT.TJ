@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-import React from 'react'
-const Evevnts = () => {
- return (
-  <div>Events</div>
- ) 
-}
-=======
 import React, { useState } from "react";
 import Title from "../../shared/ui/custom/title/title";
->>>>>>> 5a0d6a52c0c672dcffbbb19d1ffcbb67276c8f61
-
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
