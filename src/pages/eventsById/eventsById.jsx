@@ -1,8 +1,10 @@
 import React from 'react'
 
 const EventsById = () => {
-  return (
-    <div>EventsById</div>
+  return(
+    <div>
+      EventsById
+    </div>
   )
 }
 
