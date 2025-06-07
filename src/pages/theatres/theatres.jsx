@@ -2,6 +2,8 @@ import React from "react";
 import Title from "../../shared/ui/custom/title/title";
 import { Link } from "react-router-dom";
 import CalendarComponent from "../../shared/ui/custom/calendar-swiper/calendar-swiper";
+import TheatresReleases from "../../shared/ui/custom/releases/releases";
+import Soon from "../../shared/ui/custom/soon/soon";
 
 const data = [
   {
@@ -23,7 +25,7 @@ const data = [
 
 const Theatres = () => {
   return (
-    <div>
+    <div className="max-w-[1440px] mx-auto">
       <div className="flex items-end gap-5">
         <Title parentPage="home" curentPage="theatres" titlePage="theatres" />
         <div className="w-full relative bottom-[5px] flex items-baseline justify-between">
@@ -53,6 +55,8 @@ const Theatres = () => {
         </div>
       </div>
       <CalendarComponent />
+      <TheatresReleases />
+      <Soon />
     </div>
   );
 };
