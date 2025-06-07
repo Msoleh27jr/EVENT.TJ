@@ -1,8 +1,11 @@
 import React from 'react'
+import { News } from '../../app/providers/lazy/lazy'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <News/>
+    </div>
   )
 }
 
