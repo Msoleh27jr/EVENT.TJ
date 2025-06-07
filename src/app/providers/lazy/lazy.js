@@ -13,3 +13,4 @@ export const VideoById = lazy(()=> import('../../../pages/videoById/videoById.js
 export const EventsById = lazy(()=> import('../../../pages/eventsById/eventsById.jsx'))
 export const PictureById = lazy(()=> import('../../../pages/picturesById/pictureById.jsx'))
 export const NewsById = lazy(()=> import('../../../pages/newsById/newsById.jsx'))
+export const MovieById = lazy(()=> import('../../../pages/movieById/movieById.jsx'))

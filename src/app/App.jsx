@@ -10,6 +10,7 @@ import {
   EventsById,
   Home,
   Movie,
+  MovieById,
   News,
   NewsById,
   PictureById,
@@ -43,6 +44,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="news" element={<News />} />
           <Route path="events/:id" element={<EventsById />} />
           <Route path="events" element={<Events />} />
+          <Route path="movie/:id" element={<MovieById />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -87,7 +87,7 @@ export default function CalendarComponent() {
   const currentYear = currentDate.getFullYear();
 
   return (
-    <div className="flex flex-col items-start h-[400px] bg-transparent mx-auto rounded-2xl m-10 p-6 w-full max-w-6xl">
+    <div className="flex flex-col items-start h-[200px] bg-transparent mx-auto rounded-2xl m-10 p-6 w-full max-w-6xl">
       {/* Header */}
       <div className="mb-4">
         <h2 className="text-xl font-bold text-gray-900">{currentMonth}</h2>
