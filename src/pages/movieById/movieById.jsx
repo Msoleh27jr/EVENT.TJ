@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 import { Button } from '../../shared/ui/custom/button/button'
 import ReactPlayer from 'react-player'
@@ -7,6 +7,8 @@ import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 
 const MovieById = () => {
     let { id } = useParams()
+    const videoRef = useRef(null);
+    
     let [data] = useState([
       {
         id: 1,
@@ -121,6 +123,10 @@ const MovieById = () => {
     let movie = data.find((e) => e.id == id)
     let movies = data.filter((e) => e.id != id)
 
+    const scrollToVideo = () => {
+      videoRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
     <>
         <section className='my-[40px]'>
@@ -140,7 +146,7 @@ const MovieById = () => {
                 <h3>{movie.name}</h3>
             </div>
 
-            <div className='flex md:flex-row flex-col items-start justify-between'>            
+            <div className='flex md:flex-row flex-col items-start gap-[20px] justify-between'>            
                 <div className='w-[100%]'>
                     <div className='my-[30px] w-[100%] flex md:flex-row flex-col items-start gap-[30px]'>
                         <div className='md:w-[315px]'>
@@ -150,7 +156,7 @@ const MovieById = () => {
                                 {movie.rating}
                                 </div>
                             </div>
-                            <Button className='w-full my-[20px] h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer hover:bg-[#4040ff] transition-all duration-500 font-normal bg-[#9F00FF]'>Трейлер</Button>
+                            <Button onClick={scrollToVideo} className='w-full my-[20px] h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer hover:bg-[#4040ff] transition-all duration-500 font-normal bg-[#9F00FF]'>Трейлер</Button>
                             <Button className='w-full h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer font-normal hover:bg-[gray] transition-all duration-500 bg-[#272525]'>Купить билет</Button>
                         </div>
 
@@ -177,7 +183,7 @@ const MovieById = () => {
 
                     <h3 className='my-[50px] text-[20px] font-bold'>Описание</h3>      
                     <p className='text-[18px] mb-[50px]'>{movie.description}</p>
-                    <h3 className='mb-[35px] text-[20px] font-bold'>Трейлер</h3>  
+                    <h3 ref={videoRef} className='mb-[35px] text-[20px] font-bold'>Трейлер</h3>  
                     <div className='overflow-hidden w-[100%] md:w-[370px] rounded-[10px]'>
                         <ReactPlayer
                             controls
@@ -205,6 +211,61 @@ const MovieById = () => {
                     <div className='flex items-center bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]'>
                         <LocalActivityIcon className='text-[#9F00FF]' />
                         <h4 className='font-bold text-[18px]'>Чтобы купить билет, нажмите на сеанс.</h4>
+                    </div>
+
+                    <h3 className='text-[20px] my-[20px] font-bold'>Душанбе</h3>
+                    
+                    <div className='bg-gray-100 p-[25px] rounded-[10px]'>
+                        <div className='flex items-center gap-[150px]'>
+                          <div>
+                            <h3 className='text-[20px] font-semibold'>Кайхон</h3>
+                            <p className='text-[#9F00FF] font-semibold text-[14px]'>№5</p>
+                            <p>(+998) 94-707-4455</p>
+                            <p>ул. Бабура, 174, внутри парка Magic Сity</p>
+                          </div>
+                          <div className='flex items-center gap-[10px]'>
+                            <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
+                              <p className='text-[18px] font-semibold'>17:40</p>
+                            </div>
+                            <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
+                              <p className='text-[18px] font-semibold'>20:45</p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div className='p-[25px]'>
+                        <div className='flex items-center gap-[150px]'>
+                          <div>
+                            <h3 className='text-[20px] font-semibold'>Кинотеатр "Ватан"</h3>
+                            <p className='text-[#9F00FF] font-semibold text-[14px]'>№4</p>
+                            <p>(+998) 94-707-4455</p>
+                            <p>ул. Бабура, 174, внутри парка Magic Сity</p>
+                          </div>
+                          <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
+                            <p className='text-[18px] font-semibold'>18:55</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div className='bg-gray-100 p-[25px] rounded-[10px]'>
+                        <div className='flex items-center gap-[150px]'>
+                          <div>
+                            <h3 className='text-[20px] font-semibold'>3D Кинотеатр Навруз</h3>
+                            <p className='text-[#9F00FF] font-semibold text-[14px]'>№3</p>
+                            <p>(+998) 94-707-4455</p>
+                            <p>ул. Бабура, 174, внутри парка Magic Сity</p>
+                          </div>
+                          <div className='flex items-center gap-[10px]'>
+                            <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
+                              <p className='text-[18px] font-semibold'>17:30</p>
+                            </div>
+                            <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
+                              <p className='text-[18px] font-semibold'>20:20</p>
+                            </div>
+                            <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
+                              <p className='text-[18px] font-semibold'>23:10</p>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                 </div>
                 
