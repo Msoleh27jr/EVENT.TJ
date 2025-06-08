@@ -232,8 +232,8 @@ const MovieById = () => {
 
                     <h3 className='text-[20px] my-[20px] font-bold'>Душанбе</h3>
                     
-                    <div className='bg-gray-100 p-[25px] rounded-[10px]'>
-                        <div className='flex items-center gap-[150px]'>
+                    <div className='bg-gray-100 dark:bg-gray-700 p-[25px] rounded-[10px]'>
+                        <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
                           <div>
                             <h3 className='text-[20px] font-semibold'>Кайхон</h3>
                             <p className='text-[#9F00FF] font-semibold text-[14px]'>№5</p>
@@ -251,7 +251,7 @@ const MovieById = () => {
                         </div>
                     </div>
                     <div className='p-[25px]'>
-                        <div className='flex items-center gap-[150px]'>
+                        <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
                           <div>
                             <h3 className='text-[20px] font-semibold'>Кинотеатр "Ватан"</h3>
                             <p className='text-[#9F00FF] font-semibold text-[14px]'>№4</p>
@@ -263,8 +263,8 @@ const MovieById = () => {
                           </div>
                         </div>
                     </div>
-                    <div className='bg-gray-100 p-[25px] rounded-[10px]'>
-                        <div className='flex items-center gap-[150px]'>
+                    <div className='bg-gray-100 dark:bg-gray-700 p-[25px] rounded-[10px]'>
+                        <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
                           <div>
                             <h3 className='text-[20px] font-semibold'>3D Кинотеатр Навруз</h3>
                             <p className='text-[#9F00FF] font-semibold text-[14px]'>№3</p>
