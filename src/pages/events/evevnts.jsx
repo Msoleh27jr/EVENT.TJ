@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import Title from "../../shared/ui/custom/title/title";
 
+
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 import CalendarComponent from "../../shared/ui/custom/calendar-swiper/calendar-swiper";
 import StarIcon from '@mui/icons-material/Star';
 
