@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Soon = () => {
   const [visibleCount, setVisibleCount] = useState(4);
 
-  const releasesData = [
+  const soonData = [
     {
       id: 23493,
       href: "/167/release/23493?date=2025-06-05",
@@ -147,19 +148,18 @@ const Soon = () => {
   ];
 
   const showMore = () => {
-    setVisibleCount((prev) => Math.min(prev + 4, releasesData.length));
+    setVisibleCount((prev) => Math.min(prev + 4, soonData.length));
   };
 
-  const isAllVisible = visibleCount >= releasesData.length;
-
+  const isAllVisible = visibleCount >= soonData.length;
   return (
     <div className="px-2 py-8" style={{ backgroundColor: "#F8F9FF" }}>
       <div>
         <h2 className="text-2xl font-semibold text-[#2C2C2C] mb-6">Скоро в кино</h2>
         <div className="flex flex-wrap justify-start gap-6">
-          {releasesData.slice(0, visibleCount).map((e) => (
-            <a key={e.id} href={e.href} className="flex flex-col rounded-[12px] shadow-md cursor-pointer bg-[#EAE6F8]" style={{ width: "260px" }}>
-              <div className="overflow-hidden rounded-t-[12px] relative pb-[100%]">
+          {soonData.slice(0, visibleCount).map((e) => (
+            <Link to={`/theatres/${e.id}`} className="flex flex-col rounded-[12px] shadow-md cursor-pointer bg-[#EAE6F8]" style={{ width: "260px" }}>
+              <div key={e.id} className="overflow-hidden rounded-t-[12px] relative pb-[100%]">
                 <img src={e.poster} alt={`Постер релиза ${e.title}`} className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
                 {e.badges.includes("БИЛЕТЫ В ПРОДАЖЕ") && (
                   <span className="absolute top-2 left-2 px-2 py-0.5 rounded-md text-xs font-bold uppercase text-white select-none" style={{ backgroundColor: "#7F00FF" }}>
@@ -184,7 +184,7 @@ const Soon = () => {
                   {e.date}
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 

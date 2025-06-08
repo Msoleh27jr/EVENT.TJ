@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const TheatresReleases = () => {
   const [visibleCount, setVisibleCount] = useState(4);
 
-  const releases = [
+  const releasesData = [
     {
       id: 23333,
       href: "/167/release/23333?date=2025-06-04",
@@ -112,69 +113,71 @@ const TheatresReleases = () => {
     setVisibleCount((prev) => prev + 4);
   };
 
-  const isAllVisible = visibleCount >= releases.length;
+  const isAllVisible = visibleCount >= releasesData.length;
 
   return (
     <div>
       <h2 className="text-2xl font-semibold text-[#2C2C2C] mb-6">Уже в кино</h2>
       <div className="flex flex-wrap justify-start gap-6 px-2" style={{ backgroundColor: "#F8F9FF" }}>
-        {releases.slice(0, visibleCount).map((movie) => (
-          <article key={movie.id} className="flex flex-col rounded-[12px] shadow-md cursor-pointer" style={{ backgroundColor: "#EAE6F8", width: "260px" }}>
-            <a href={movie.href} className="block overflow-hidden rounded-t-[12px]">
-              <img src={movie.poster} alt={movie.title} className="w-full h-[350px] object-cover transition-transform duration-300 hover:scale-105" />
-            </a>
-            <div className="p-4 flex flex-col flex-grow">
-              <h3 className="text-lg font-semibold mb-2" style={{ color: "#2C2C2C" }}>
-                {movie.title}
-              </h3>
-              <div className="flex items-center text-sm mb-3 gap-3">
-                {movie.premiere && (
-                  <span className="px-2 py-0.5 rounded-md text-xs uppercase font-bold select-none" style={{ backgroundColor: "#7F00FF", color: "white" }}>
-                    Премьера
-                  </span>
-                )}
-                <span className="px-4 py-1 shadow md bg-[#f5f5f5] font-semibold select-none" style={{ color: "#6B6B6B" }}>
-                  {movie.age}
-                </span>
+        {releasesData.slice(0, visibleCount).map((movie) => (
+          <Link to={`/theatres/${movie.id}`}>
+            <article key={movie.id} className="flex flex-col rounded-[12px] shadow-md cursor-pointer" style={{ backgroundColor: "#EAE6F8", width: "260px" }}>
+              <div className="block overflow-hidden rounded-t-[12px]">
+                <img src={movie.poster} alt={movie.title} className="w-full h-[350px] object-cover transition-transform duration-300 hover:scale-105" />
               </div>
-              <p className="text-sm mb-4" style={{ color: "#6B6B6B", minHeight: "36px" }}>
-                {movie.genres.join(", ")}
-              </p>
-              <div className="mt-auto flex flex-col gap-2">
-                {movie.sessions.map((session, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center justify-between px-3 py-1 rounded-lg"
-                    style={{
-                      backgroundColor: "white",
-                      boxShadow: "0 0 6px rgba(127,0,255,0.3)",
-                    }}
-                  >
-                    <span className="font-semibold" style={{ color: "#7F00FF", minWidth: "55px" }}>
-                      {session.time}
+              <div className="p-4 flex flex-col flex-grow">
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "#2C2C2C" }}>
+                  {movie.title}
+                </h3>
+                <div className="flex items-center text-sm mb-3 gap-3">
+                  {movie.premiere && (
+                    <span className="px-2 py-0.5 rounded-md text-xs uppercase font-bold select-none" style={{ backgroundColor: "#7F00FF", color: "white" }}>
+                      Премьера
                     </span>
-                    <span
-                      className="uppercase font-bold text-xs px-2 py-0.5 rounded-md"
+                  )}
+                  <span className="px-4 py-1 shadow md bg-[#f5f5f5] font-semibold select-none" style={{ color: "#6B6B6B" }}>
+                    {movie.age}
+                  </span>
+                </div>
+                <p className="text-sm mb-4" style={{ color: "#6B6B6B", minHeight: "36px" }}>
+                  {movie.genres.join(", ")}
+                </p>
+                <div className="mt-auto flex flex-col gap-2">
+                  {movie.sessions.map((session, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center justify-between px-3 py-1 rounded-lg"
                       style={{
-                        backgroundColor: session.format === "3D" ? "#FF6F61" : "#7F00FF",
-                        color: "white",
-                        minWidth: "30px",
-                        textAlign: "center",
+                        backgroundColor: "white",
+                        boxShadow: "0 0 6px rgba(127,0,255,0.3)",
                       }}
                     >
-                      {session.format}
-                    </span>
-                    <span className="text-base ml-2 font-semibold" style={{ color: "#2C2C2C", minWidth: "60px" }}>
-                      от {session.priceFrom} c
-                    </span>
-                    <span className="text-sm font-semibold" style={{ color: "#6B6B6B", minWidth: "55px", textAlign: "right" }}>
-                      {session.hall}
-                    </span>
-                  </div>
-                ))}
+                      <span className="font-semibold" style={{ color: "#7F00FF", minWidth: "55px" }}>
+                        {session.time}
+                      </span>
+                      <span
+                        className="uppercase font-bold text-xs px-2 py-0.5 rounded-md"
+                        style={{
+                          backgroundColor: session.format === "3D" ? "#FF6F61" : "#7F00FF",
+                          color: "white",
+                          minWidth: "30px",
+                          textAlign: "center",
+                        }}
+                      >
+                        {session.format}
+                      </span>
+                      <span className="text-base ml-2 font-semibold" style={{ color: "#2C2C2C", minWidth: "60px" }}>
+                        от {session.priceFrom} c
+                      </span>
+                      <span className="text-sm font-semibold" style={{ color: "#6B6B6B", minWidth: "55px", textAlign: "right" }}>
+                        {session.hall}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </Link>
         ))}
 
         {!isAllVisible && (
