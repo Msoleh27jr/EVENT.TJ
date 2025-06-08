@@ -208,7 +208,7 @@ const MovieById = () => {
                     
                     <CalendarComponent />
                     
-                    <div className='flex items-center bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]'>
+                    <div className='flex items-center dark:bg-gray-700 bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]'>
                         <LocalActivityIcon className='text-[#9F00FF]' />
                         <h4 className='font-bold text-[18px]'>Чтобы купить билет, нажмите на сеанс.</h4>
                     </div>
