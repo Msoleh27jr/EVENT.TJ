@@ -8,6 +8,7 @@ import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 const MovieById = () => {
     let { id } = useParams()
     const videoRef = useRef(null);
+    const ticketRef = useRef(null);
     
     let [data] = useState([
       {
@@ -127,6 +128,10 @@ const MovieById = () => {
       videoRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
+    const scrollToTicket = () => {
+      ticketRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
     <>
         <section className='my-[40px]'>
@@ -157,7 +162,7 @@ const MovieById = () => {
                                 </div>
                             </div>
                             <Button onClick={scrollToVideo} className='w-full my-[20px] h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer hover:bg-[#4040ff] transition-all duration-500 font-normal bg-[#9F00FF]'>Трейлер</Button>
-                            <Button className='w-full h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer font-normal hover:bg-[gray] transition-all duration-500 bg-[#272525]'>Купить билет</Button>
+                            <Button onClick={scrollToTicket} className='w-full h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer font-normal hover:bg-[gray] transition-all duration-500 bg-[#272525]'>Купить билет</Button>
                         </div>
 
                         <div className='md:w-[440px] w-[100%]'>
@@ -210,7 +215,7 @@ const MovieById = () => {
                     
                     <div className='flex items-center dark:bg-gray-700 bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]'>
                         <LocalActivityIcon className='text-[#9F00FF]' />
-                        <h4 className='font-bold text-[18px]'>Чтобы купить билет, нажмите на сеанс.</h4>
+                        <h4 ref={ticketRef} className='font-bold text-[18px]'>Чтобы купить билет, нажмите на сеанс.</h4>
                     </div>
 
                     <h3 className='text-[20px] my-[20px] font-bold'>Душанбе</h3>
