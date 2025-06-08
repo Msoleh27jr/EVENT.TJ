@@ -5,16 +5,21 @@ import ReactPlayer from 'react-player'
 import CalendarComponent from '../../shared/ui/custom/calendar-swiper/calendar-swiper'
 import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 
+function getRandomMovies(array, count) {
+  const random = [...array].sort(() => 0.5 - Math.random());
+  return random.slice(0, count);
+}
+
 const MovieById = () => {
     let { id } = useParams()
     const videoRef = useRef(null);
     const ticketRef = useRef(null);
-    
     let [data] = useState([
       {
         id: 1,
         image: 'https://www.kino-teatr.ru/movie/posters/big/4/0/176904.jpg',
         name: 'Каратэ-пацан: Легенды',
+        cinema: 'kayhon',
         genres: [
           {
             genre: 'Семейный',
@@ -47,31 +52,32 @@ const MovieById = () => {
         video: 'https://www.youtube.com/embed/55qOCxcLj6o&feature=youtu.be'
       },
       {
-        id: 2,
-        image: 'https://upload.wikimedia.org/wikipedia/ru/thumb/1/19/Mission-_Impossible_%E2%80%93_The_Final_Reckoning.jpg/330px-Mission-_Impossible_%E2%80%93_The_Final_Reckoning.jpg',
-        name: 'Миссия невыполнима: Финальная расплата',
-        genres: [
-          {
-            genre: 'Боевик',
-            id: 1
-          },
-          {
-            genre: 'Триллер',
-            id: 2
-          },
-          {
-            genre: 'Приключения',
-            id: 3
-          }
-        ],
-        age: 16,
-        time: '2ч 49мин',
-        country: 'США, Великобритания',
-        rating: 7.6,
-        year: 2025,
-        description: 'Итан Хант пытается разыскать инновационный искусственный интеллект, угрожающий существованию всего мира.',     
-        role: 'Том Круз, Анджела Бассетт, Джанет МакТир, Ребекка Фергюсон, Ванесса Кирби, Шей Уигэм, Хейли Этвелл, Трэмелл Тиллман, Ханна Уэддингхэм, Кэти М. О’Брайан',
-        video: 'https://www.youtube.com/embed/1bsBFEr9_Ag'
+              id: 2,
+              image: 'https://upload.wikimedia.org/wikipedia/ru/thumb/1/19/Mission-_Impossible_%E2%80%93_The_Final_Reckoning.jpg/330px-Mission-_Impossible_%E2%80%93_The_Final_Reckoning.jpg',
+              name: 'Миссия невыполнима: Финальная расплата',
+              cinema: 'navruz',
+              genres: [
+                {
+                  genre: 'Боевик',
+                  id: 1
+                },
+                {
+                  genre: 'Триллер',
+                  id: 2
+                },
+                {
+                  genre: 'Приключения',
+                  id: 3
+                }
+              ],
+              age: 16,
+              time: '2ч 49мин',
+              country: 'США, Великобритания',
+              rating: 7.6,
+              year: 2025,
+              description: 'Итан Хант пытается разыскать инновационный искусственный интеллект, угрожающий существованию всего мира.',     
+              role: 'Том Круз, Анджела Бассетт, Джанет МакТир, Ребекка Фергюсон, Ванесса Кирби, Шей Уигэм, Хейли Этвелл, Трэмелл Тиллман, Ханна Уэддингхэм, Кэти М. О’Брайан',
+              video: 'https://www.youtube.com/embed/1bsBFEr9_Ag'
       },
       {
         id: 3,
@@ -119,10 +125,71 @@ const MovieById = () => {
         role: 'Лоуренс Мэйсон, Роберт Де Ниро, Джон Легуизамо, Саид Тагмауи, Джейми Фокс, Скотт Иствуд, Рита Ора, Нора Арнезедер, Шамир Андерсон, Джои Бикиччи',
         video: 'https://www.youtube.com/embed/3m3MjEQh0qE'
       },
+      {
+        id: 5,
+        image: 'https://resizing.flixster.com/wAle06E2Nc307UwCCbqPeVIJ2fE=/206x305/v2/https://resizing.flixster.com/idSqXXW1SHplGNnq6W67KnkK-_s=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzQyMWQ0OTJhLThkYjYtNDY0MS1hMDNhLTU4NDk3YWExMDllMy5qcGc=',
+        name: 'Как приручить дракона',
+        cinema: 'vatan',
+        genres: [
+          {
+            genre: 'Фэнтези',
+            id: 1
+          },
+          {
+            genre: 'Приключения',
+            id: 2
+          },
+          {
+            genre: 'Семейный',
+            id: 3
+          },
+          {
+            genre: 'Анимация',
+            id: 4
+          },
+          {
+            genre: 'Комедия',
+            id: 5
+          }
+        ],
+        age: 0,
+        time: '2 ч. 5 минут',
+        country: 'США, Великобритания',
+        rating: 0,
+        year: '7 июня 2025',
+        description: 'Подростку Иккингу не слишком близки традиции его героического племени, много лет ведущего войну с драконами. Парень неожиданно заводит дружбу с драконом Беззубиком, который поможет ему и другим викингам увидеть мир с совершенно другой стороны.',     
+        role: 'Ник Фрост, Джерард Батлер, Нико Паркер, Джулиан Деннисон, Мэйсон Темз, Бронвин Джеймс, Рут Кодд, Gabriel Howell, Гарри Тревальдвин, Мюррэй МакАртур',
+        video: 'https://www.youtube.com/watch?v=5QrRs2-o6Qs'
+      },
+      {
+        id: 6,
+        image: 'https://www.kino-teatr.ru/movie/posters/big/2/5/168152.jpg',
+        name: 'Балерина',
+        cinema: 'kayhon',
+        genres: [
+          {
+            genre: 'Боевик',
+            id: 1
+          },
+          {
+            genre: 'Триллер',
+            id: 2
+          }
+        ],
+        age: 18,
+        time: '2 ч. 5 минут',
+        country: 'США',
+        rating: 7.3,
+        year: '2025',
+        description: 'Опытная наемница и по совместительству профессиональная балерина охотится на убийц своей семьи.',     
+        role: 'Киану Ривз, Гэбриел Бирн, Анжелика Хьюстон, Норман Ридус, Иэн МакШейн, Лэнс Реддик, Ана де Армас, Каталина Сандино Морено, Анн Парийо, Шэрон Дункан-Брюстер',
+        video: 'https://www.youtube.com/watch?v=I07NgjmlnSI&t=2s'
+      },
     ])
-
+    
     let movie = data.find((e) => e.id == id)
     let movies = data.filter((e) => e.id != id)
+    const randomProducts = getRandomMovies(movies, 4);
 
     const scrollToVideo = () => {
       videoRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -157,7 +224,7 @@ const MovieById = () => {
                         <div className='md:w-[315px]'>
                             <div className='relative'>
                                 <img src={movie.image} alt="image" className='md:w-[315px] h-[475px] rounded-[10px]' />
-                                <div style={{backgroundColor: movie.rating < 5 ? 'red' : movie.rating < 7 ? '#db8f00' : '#43c443'}} className='absolute top-[15px] right-[15px] w-[30px] h-[20px] rounded-[4px] flex items-center justify-center text-[#FAFAFA]'>
+                                <div style={{backgroundColor: movie.rating < 5 ? 'red' : movie.rating < 7 ? '#db8f00' : '#43c443', display: movie.rating == 0 ? 'none' : 'flex'}} className='absolute top-[15px] right-[15px] w-[30px] h-[20px] rounded-[4px] flex items-center justify-center text-[#FAFAFA]'>
                                 {movie.rating}
                                 </div>
                             </div>
@@ -179,7 +246,7 @@ const MovieById = () => {
                                 <li className='font-bold text-[18px]'>Возрастная категория фильма: <span className='font-normal'>{movie.age}+</span></li>
                                 <li className='font-bold text-[18px]'>Хронометраж: <span className='font-normal'>{movie.time}</span></li>
                                 <li className='font-bold text-[18px]'>Страна: <span className='font-normal'>{movie.country}</span></li>
-                                <li className='font-bold text-[18px]'>Рейтинг <span style={{backgroundColor: movie.rating < 5 ? 'red' : movie.rating < 7 ? '#db8f00' : '#43c443'}} className='font-normal text-[#FAFAFA] px-[5px] rounded-[5px] h-[20px]'>IMDb {movie.rating}</span></li>
+                                <li style={{display: movie.rating == 0 ? 'none' : 'block'}} className='font-bold text-[18px]'>Рейтинг <span style={{backgroundColor: movie.rating < 5 ? 'red' : movie.rating < 7 ? '#db8f00' : '#43c443'}} className='font-normal text-[#FAFAFA] px-[5px] rounded-[5px] h-[20px]'>IMDb {movie.rating}</span></li>
                                 <li className='font-bold text-[18px]'>Год: <span className='font-normal'>{movie.year}</span></li>
                                 <li className='font-bold text-[18px]'>В ролях: <span className='font-normal'>{movie.role}</span></li>
                             </ul>
@@ -278,7 +345,7 @@ const MovieById = () => {
                     <h3 className='text-[30px] mb-[30px] font-bold'>Смотрите так же</h3>
                     <div className='flex flex-wrap md:w-[320px] w-[100%] gap-[20px] justify-between items-start'>    
                         {
-                        movies.slice(0, 4).map((e) => {
+                        randomProducts.slice(0, 4).map((e) => {
                             return <div key={e.id}>
                                 <Link to={`/movie/${e.id}`}>
                                     <div className='w-[145px] m-auto md:m-0 overflow-hidden transform transition duration-600 group cursor-pointer' key={e.id}>
