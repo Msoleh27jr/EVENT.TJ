@@ -7,9 +7,9 @@ import { Link } from "react-router";
 const FirstSecton = () => {
     const {t} = useTranslation()
   return (
-    <section className="my-10">
+    <section className="my-10 flex items-center h-[500px] justify-between">
       <Link to={"theatres"}>
-        <div className="w-[48%] group transition translate-1 duration-500 overflow-hidden rounded-[6px] cursor-pointer">
+        <div className="w-[800px] group transition translate-1 duration-500 overflow-hidden rounded-[6px] cursor-pointer">
           <img
             className="w-[100%] transition translate-1 duration-500 group-hover:scale-110 rounded-[6px]"
             src={theatresImg}
@@ -26,7 +26,11 @@ const FirstSecton = () => {
           </div>
         </div>
       </Link>
-      <aside></aside>
+      <aside className="bg-blue-50 h-[500px] w-[48%]">
+        <section>
+          <div></div>
+        </section>
+      </aside>
     </section>
   );
 };
