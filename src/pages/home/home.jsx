@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { News } from "../../app/providers/lazy/lazy";
-import TheatresReleases from "../../shared/ui/custom/releases/releases";
-import Soon from "../../shared/ui/custom/soon/soon";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import FirstSecton from "../../shared/firstSectionHomePage/firstSecton";
+import TheatresSoon from "../../shared/ui/custom/soon/theatres-soon";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -132,8 +131,9 @@ const Home = () => {
   ]);
   return (
     <div>
-      <FirstSecton/>
+      <FirstSecton />
       {/* ....... movie */}
+      <hr className="my-6"/>
       <h2 className="text-4xl font-bold">{t("movie")}</h2>
       <section className="flex gap-[5%] my-5 overflow-x-scroll md:overflow-auto">
         {data.map((e) => {
@@ -183,8 +183,10 @@ const Home = () => {
           );
         })}
       </section>
-      <TheatresReleases />
-      <Soon />
+      <hr />
+      <h2 className="my-5 font-bold text-4xl">{t("theatres")}</h2>
+      <TheatresSoon />
+      <hr />
       <News />
     </div>
   );
