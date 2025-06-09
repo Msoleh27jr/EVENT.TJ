@@ -1,20 +1,18 @@
-import React from 'react'
-import { data } from "./dataBase"
-import { Link, NavLink, useNavigate } from 'react-router';
+import React from "react";
+import { data } from "./dataBase";
+import { Link, NavLink, useNavigate } from "react-router";
 
 const Digets = () => {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   return (
-    <div className='mb-[100px]'>
-      <div className='flex justify-between items-center mb-[30px]'>
-        <h1 className='font-[700] text-[42px]'>Дайджесты</h1>
-        <menu className='flex flex-row gap-[30px]'>
-          <NavLink
-            className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300" >
+    <div className="mb-[100px]">
+      <div className="flex justify-between items-center mb-[30px]">
+        <h1 className="font-[700] text-[42px]">Дайджесты</h1>
+        <menu className="flex flex-row gap-[30px]">
+          <NavLink className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300">
             Рекомендуемые
           </NavLink>
-          <NavLink
-            className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300" >
+          <NavLink className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300">
             Последние
           </NavLink>
           <NavLink
@@ -22,28 +20,42 @@ const Digets = () => {
               `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
      before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
      before:bg-[#9F00FF] before:transition-all before:duration-300 
-     ${isActive
-                ? "before:w-full text-[#9F00FF]"
-                : "before:w-0 hover:before:w-full"
-              }`
+     ${
+       isActive
+         ? "before:w-full text-[#9F00FF]"
+         : "before:w-0 hover:before:w-full"
+     }`
             }
           >
             Все
           </NavLink>
         </menu>
-        <h1 className='font-[700] text-[42px]'>Популярные теги</h1>
+        <h1 className="font-[700] text-[42px]">Популярные теги</h1>
       </div>
-      {data && data.map((el, i) => (
-        <div key={i} className='flex w-[65%] gap-[50px] items-center'>
-          <p className='text-[52px] text-[#9F00FF] font-[700]'>{i+1}</p>
-          <div className='py-[20px] w-[100%]' style={{borderBottom: i!=data.length-1?"1px solid #ccc":"none"}}>
-            <h1 className='text-[#9F00FF] text-[18px] font-[600]'>{el.category}</h1>
-            <p onClick={()=>navigate(`/digets/${i}`)} className='text-[22px] font-[700] cursor-pointer hover:text-[#9F00FF]'>{el.name}</p>
+      {data &&
+        data.map((el, i) => (
+          <div key={i} className="flex w-[65%] gap-[50px] items-center">
+            <p className="text-[52px] text-[#9F00FF] font-[700]">{i + 1}</p>
+            <div
+              className="py-[20px] w-[100%]"
+              style={{
+                borderBottom: i != data.length - 1 ? "1px solid #ccc" : "none",
+              }}
+            >
+              <h1 className="text-[#9F00FF] text-[18px] font-[600]">
+                {el.category}
+              </h1>
+              <p
+                onClick={() => navigate(`/digets/${i}`)}
+                className="text-[22px] font-[700] cursor-pointer hover:text-[#9F00FF]"
+              >
+                {el.name}
+              </p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
-  )
-}
+  );
+};
 
-export default Digets
+export default Digets;
