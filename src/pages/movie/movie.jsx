@@ -184,12 +184,12 @@ const Movie = () => {
       <section>
         <div className='flex items-center gap-[20px]'>
           <Link to={'/'}>
-            <h3>Главная</h3>
+            <h3>{t("home")}</h3>
           </Link>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
           </svg>
-          <h3>Кино</h3>
+          <h3>{t("movie")}</h3>
         </div>
         
         <div className='my-[20px] flex md:flex-row flex-col gap-[10px] items-center justify-between'>
@@ -202,6 +202,14 @@ const Movie = () => {
               <option className='bg-[#FAFAFA] text-[black]' value="siema">Кинотеатр "Премьер Зал Душанбе"</option>
               <option className='bg-[#FAFAFA] text-[black]' value="vatan">Кинотеатр "Ватан"</option>
             </select>
+            <h2 className='text-[30px] font-bold'>{t("movie")}</h2>
+            <select value={cinema} onChange={(e) => setCinema(e.target.value)} className="p-2 bg-gray-200 w-[250px] dark:bg-gray-700 text-black dark:text-white rounded-[8px]">
+              <option value="all">{t("theatres")}</option>
+              <option value="kayhon">Кайхон</option>
+              <option value="navruz">3D Кинотеатр Навруз</option>
+              <option value="siema">Кинотеатр "Премьер Зал Душанбе"</option>
+              <option value="vatan">Кинотеатр "Ватан"</option>
+          </select>
           </div>
           <div className='flex items-center gap-[20px]'>
             <NavLink
@@ -255,7 +263,7 @@ const Movie = () => {
         <CalendarComponent />
         
         <div className='my-[50px]'>
-          <h2 className='text-[30px] my-[20px] font-bold'>Кино</h2>
+          <h2 className='text-[30px] my-[20px] font-bold'>{t("movie")}</h2>
           <div className='flex items-start justify-center md:justify-start gap-[18px] flex-wrap'>
             {
               data.filter((e) => cinema == 'all' || e.cinema == cinema).map((e) => {
