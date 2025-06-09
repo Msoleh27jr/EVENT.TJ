@@ -11,7 +11,7 @@ const DigetInfo = () => {
 
     let navigate = useNavigate()
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     function routeById(i){
         if(i<id) navigate(`/digets/${i}`)

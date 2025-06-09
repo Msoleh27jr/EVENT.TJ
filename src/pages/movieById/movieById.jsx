@@ -4,6 +4,7 @@ import { Button } from '../../shared/ui/custom/button/button'
 import ReactPlayer from 'react-player'
 import CalendarComponent from '../../shared/ui/custom/calendar-swiper/calendar-swiper'
 import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+import { useTranslation } from 'react-i18next'
 
 function getRandomMovies(array, count) {
   const random = [...array].sort(() => 0.5 - Math.random());
@@ -14,6 +15,7 @@ const MovieById = () => {
     let { id } = useParams()
     const videoRef = useRef(null);
     const ticketRef = useRef(null);
+    const { t } = useTranslation();
     let [data] = useState([
       {
         id: 1,
@@ -205,13 +207,13 @@ const MovieById = () => {
       <section className="my-[40px]">
         <div className="flex items-center flex-wrap text-[18px] gap-[20px]">
           <Link to={"/"}>
-            <h3>Главная</h3>
+            <h3>{t("home")}</h3>
           </Link>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
           </svg>
           <Link to={"/movie"}>
-            <h3>Кино</h3>
+            <h3>{t("movie")}</h3>
           </Link>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -219,8 +221,8 @@ const MovieById = () => {
           <h3>{movie.name}</h3>
         </div>
 
-        <div className="flex md:flex-row flex-col items-start justify-between">
-          <div className="w-[100%]">
+       
+        <div className="w-[100%]">
             <div className='flex md:flex-row flex-col items-start gap-[20px] justify-between'>            
                 <div className='w-[100%]'>
                     <div className='my-[30px] w-[100%] flex md:flex-row flex-col items-start gap-[30px]'>
@@ -257,7 +259,7 @@ const MovieById = () => {
                     </div>
 
                     <h3 className='my-[50px] text-[20px] font-bold'>Описание</h3>      
-                    <p className='text-[18px] mb-[50px]'>{movie.description}</p>
+                    <p className='text-[18px] md:w-[750px] mb-[50px]'>{movie.description}</p>
                     <h3 ref={videoRef} className='mb-[35px] text-[20px] font-bold'>Трейлер</h3>  
                     <div className='overflow-hidden w-[100%] md:w-[370px] rounded-[10px]'>
                         <ReactPlayer
@@ -281,16 +283,18 @@ const MovieById = () => {
                             />
                     </div>
                     
-                    <CalendarComponent />
+                    <div className='md:w-[750px]'>
+                      <CalendarComponent />
+                    </div>
                     
-                    <div className='flex items-center dark:bg-gray-700 bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]'>
+                    <div className='flex md:w-[750px] items-center dark:bg-gray-700 bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]'>
                         <LocalActivityIcon className='text-[#9F00FF]' />
                         <h4 ref={ticketRef} className='font-bold text-[18px]'>Чтобы купить билет, нажмите на сеанс.</h4>
                     </div>
 
                     <h3 className='text-[20px] my-[20px] font-bold'>Душанбе</h3>
                     
-                    <div className='bg-gray-100 dark:bg-gray-700 p-[25px] rounded-[10px]'>
+                    <div className='bg-gray-100 md:w-[750px] dark:bg-gray-700 p-[25px] rounded-[10px]'>
                         <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
                           <div>
                             <h3 className='text-[20px] font-semibold'>Кайхон</h3>
@@ -308,7 +312,7 @@ const MovieById = () => {
                           </div>
                         </div>
                     </div>
-                    <div className='p-[25px]'>
+                    <div className='p-[25px] md:w-[750px]'>
                         <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
                           <div>
                             <h3 className='text-[20px] font-semibold'>Кинотеатр "Ватан"</h3>
@@ -321,7 +325,7 @@ const MovieById = () => {
                           </div>
                         </div>
                     </div>
-                    <div className='bg-gray-100 dark:bg-gray-700 p-[25px] rounded-[10px]'>
+                    <div className='bg-gray-100 md:w-[750px] dark:bg-gray-700 p-[25px] rounded-[10px]'>
                         <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
                           <div>
                             <h3 className='text-[20px] font-semibold'>3D Кинотеатр Навруз</h3>
@@ -374,8 +378,8 @@ const MovieById = () => {
                     </div>
                 </div>
             </div>
-          </div> 
         </div> 
+        
       </section>
     </>
   );
