@@ -1,17 +1,20 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, useNavigate, useParams } from 'react-router'
 
 const NewsById = () => {
+  const { t } = useTranslation()
+
   const newsProduct = [
     {
       id: 11,
-      news: "Когда наступит праздник Курбан-байрам в 2025 году?",
+      news: t('When is Eid al-Adha in 2025?'),
       views: 14,
       date: "3 Июня 15:14",
       image: "https://c.tadst.com/gfx/750w/sacrifice-sheep.jpg",
-      aboutNews1: "В Ид аль-Адха мусульмане демонстрируют свою покорность Аллаху, принося в жертву животное. Праздник вдохновлен историей из Корана, которая также известна христианам и иудеям.",
-      aboutNews2: "Ид аль-Адха — государственный праздник. Это выходной для населения, школы и большинство предприятий закрыты.",
-      title: "Новости Таджикистан",
+      aboutNews1: t('On Eid al-Adha, Muslims demonstrate their submission to Allah by sacrificing an animal. The holiday is inspired by a story from the Quran that is also known to Christians and Jews.'),
+      aboutNews2: t('Eid al-Adha is a public holiday. It is a day off for the population, schools and most businesses are closed.'),
+      title: t('newsOfTajukistan'),
     },
     {
       id: 1,
@@ -182,8 +185,6 @@ const NewsById = () => {
           <h1>{news.aboutNews4 && news.aboutNews4}</h1>
           <h1>{news.aboutNews5 && news.aboutNews5}</h1>
           <h1>{news.aboutNews6 && news.aboutNews6}</h1>
-          <h1>{news.aboutNews7 && news.aboutNews7}</h1>
-          <h1>{news.aboutNews8 && news.aboutNews8}</h1>
           <div className='flex items-center gap-[10px] '>
             <h1 className='font-[600] '>Поделиться:</h1>
             <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.anons.uz/ru/news/iz-tashkenta-v-issyk-kul-zapuskayutsya-sezonnye-avtobusnye-reysy"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" className='p-[3px] bg-blue-500 rounded-[5px] ' viewBox="0 0 24 24" fill="none"><path d="M14 9.3v2.9h2.6c.2 0 .3.2.3.4l-.4 1.9c0 .1-.2.2-.3.2H14V22h-3v-7.2H9.3c-.2 0-.3-.1-.3-.3v-1.9c0-.2.1-.3.3-.3H11V9c0-1.7 1.3-3 3-3h2.7c.2 0 .3.1.3.3v2.4c0 .2-.1.3-.3.3h-2.4c-.2 0-.3.1-.3.3Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"></path><path d="M15 22H9c-5 0-7-2-7-7V9c0-5 2-7 7-7h6c5 0 7 2 7 7v6c0 5-2 7-7 7Z" stroke=" " stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
@@ -193,13 +194,13 @@ const NewsById = () => {
               </svg>
             </div></a>
           </div>
-          <Link to='/events'><button className='mt-[60px] p-[10px_20px] rounded-[5px] bg-gray-200 hover:bg-gray-400 hover:text-gray-200 transform transition duration-500 '>Новости</button></Link>
+          <Link to='/events'><button className='mt-[60px] p-[10px_20px] rounded-[5px] bg-gray-200 hover:bg-gray-400 hover:text-gray-200 transform transition duration-500 dark:bg-gray-500 '>Новости</button></Link>
           <h1 className='font-bold text-[20px] md:text-[30px] mt-[40px] '>Комментарии</h1>
           <textarea
             id="comment"
             name="comment"
             rows="4"
-            className='w-full bg-purple-50  p-2 focus:outline-none focus:ring-2 rounded-[10px] border-[1px] border-gray-300 h-[200px] '
+            className='w-full dark:bg-purple-300 text-black  bg-purple-50  p-2 focus:outline-none focus:ring-2 rounded-[10px] border-[1px] border-gray-300 h-[200px] '
             placeholder="Шарҳи худро нависед..."
           ></textarea>
           <button className='mt-[30px] p-[10px_20px] text-white rounded-[10px] hover:bg-blue-600 bg-[#9F00FF] transform transition duration-600'>Войти</button>
@@ -230,7 +231,7 @@ const NewsById = () => {
               })
             }
           </div>
-          <div className='mt-[30px] hidden md:block w-full h-[450px] rounded-[10px] bg-purple-100 '></div>
+          <div className='mt-[30px] dark:bg-purple-300 hidden md:block w-full h-[450px] rounded-[10px] bg-purple-100 '></div>
         </div>
       </div>
     </div>

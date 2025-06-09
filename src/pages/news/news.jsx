@@ -1,33 +1,33 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, NavLink, useNavigate } from 'react-router'
 
 const News = () => {
+  const { t } = useTranslation()
   const newsProduct = [
     {
       id: 11,
-      news: "Когда наступит праздник Курбан-байрам в 2025 году?",
+      news: t('When is Eid al-Adha in 2025?'),
       views: 14,
       date: "3 Июня 15:14",
       image: "https://c.tadst.com/gfx/750w/sacrifice-sheep.jpg",
-      aboutNews1: "В Ид аль-Адха мусульмане демонстрируют свою покорность Аллаху, принося в жертву животное. Праздник вдохновлен историей из Корана, которая также известна христианам и иудеям.",
-      aboutNews2: "Ид аль-Адха — государственный праздник. Это выходной для населения, школы и большинство предприятий закрыты.",
-      title: "Новости Таджикистан",
+      aboutNews1: t('В Ид аль-Адха мусульмане демонстрируют свою покорность Аллаху, принося в жертву животное. Праздник вдохновлен историей из Корана, которая также известна христианам и иудеям.'),
+      aboutNews2: t('Ид аль-Адха — государственный праздник. Это выходной для населения, школы и большинство предприятий закрыты.'),
+      title: t('newsOfTajukistan'),
     },
     {
       id: 1,
-      news: "Билл Гейтс намерен направить большую часть своего состояния на поддержку стран Африки",
+      news: t('Bill Gates intends to use most of his fortune to support African countries'),
       views: 14,
       date: "3 Июня 15:14",
       image: "https://i.pcmag.com/imagery/articles/04OgpmrlJY6WuS2OEJBTi5D-1.fit_lim.size_1200x630.v1743323018.jpg",
-      aboutNews1: "Основатель Microsoft Билл Гейтс объявил, что большая часть его состояния будет инвестирована в благотворительные проекты, направленные на развитие Африки. Об этом он рассказал во время выступления в штаб-квартире Африканского союза в Аддис-Абебе, цитирует BBC.Основатель Microsoft Билл Гейтс объявил, что большая часть его состояния будет инвестирована в благотворительные проекты, направленные на развитие Африки. Об этом он рассказал во время выступления в штаб-квартире Африканского союза в Аддис-Абебе, цитирует BBC.",
-      aboutNews2: "По словам миллиардера, средства будут направлены на улучшение систем здравоохранения и образования в течение ближайших 20 лет. Ранее Гейтс планировал пожертвовать 99% своего состояния, оцениваемого в 200 миллиардов долларов, и закрыть свой благотворительный фонд к 2045 году.",
-      aboutNews3: "«Я недавно принял решение передать все свое состояние в течение следующих 20 лет. Большая часть этих ресурсов будет использована для помощи Африке в решении ключевых проблем», — подчеркнул Гейтс.",
-      aboutNews4: "Он добавил, что раскрытие потенциала через здравоохранение и образование позволит каждой африканской стране выйти на путь устойчивого развития.",
-      aboutNews5: "Филантроп отметил, что одним из приоритетов фонда станет укрепление первичной медико-санитарной помощи.",
-      aboutNews6: "«Мы узнали, что поддержка здоровья матери и хорошее питание до и во время беременности дают наилучшие результаты. Также крайне важно обеспечить правильное питание ребенка в первые четыре года жизни», — пояснил он.",
-      aboutNews7: "Гейтс призвал инновационные компании использовать искусственный интеллект для трансформации системы здравоохранения, сравнив это с тем, как мобильные телефоны изменили банковскую сферу. «Африка пропустила традиционный банкинг, и теперь у нее есть уникальный шанс создать систему здравоохранения нового поколения с применением ИИ», — отметил он. В качестве примера он привел Руанду, где уже применяют ИИ-ассистент для проведения УЗИ и выявления рисков во время беременности.",
-      aboutNews8: "Инициатива Гейтса стала особенно актуальной на фоне сокращения помощи Африке со стороны администрации президента США Дональда Трампа. Бывшая первая леди Мозамбика Граса Машел охарактеризовала проект как своевременный и подчеркнула, что он появился в «момент кризиса». «Мы рассчитываем на неизменную поддержку мистера Гейтса в этом важном пути преобразований», — сказала она.",
-      title: "Новости",
+      aboutNews1: t('Microsoft founder Bill Gates announced that the majority of his fortune will be invested in charitable projects aimed at the development of Africa.'),
+      aboutNews2: t('The billionaire said the funds would be used to improve health care and education systems over the next 20 years. Gates had previously planned to donate 99% of his $200 billion fortune and close his charitable foundation by 2045.'),
+      aboutNews3: t('"I recently made a decision to give away my entire fortune over the next 20 years. Much of these resources will be used to help Africa solve key problems," Gates said.'),
+      aboutNews4: t('He added that unlocking potential through health and education will enable every African country to embark on a path to sustainable development.'),
+      aboutNews5: t('The philanthropist noted that one of the foundation s priorities will be strengthening primary health care.'),
+      aboutNews6: t('We have learned that supporting the mothers health and good nutrition before and during pregnancy gives the best results. It is also vital to ensure that the child is well-nourished during the first four years of life, he explained.'),
+      title: t('News'),
     },
     {
       id: 5,
@@ -39,7 +39,7 @@ const News = () => {
       aboutNews2: "Подозреваемый 31 мая 2025 года примерно в 16:20 часов на улице Мира города Душанбе вступил в драку с 17-летним жителем столицы и его избил. Затем из хулиганских побуждений нанес потерпевшему 3 ножевых ранения.",
       aboutNews3: "В результате потерпевший получил телесные повреждения и был госпитализированв больницу.",
       aboutNews4: "По данному факту ведётся следствие.",
-      title: "Новости Таджикистан",
+      title: t('newsOfTajukistan'),
     },
     {
       id: 2,
@@ -50,7 +50,7 @@ const News = () => {
       aboutNews1: "Делегация Республики Таджикистан под руководством заместителя Премьер-министра Республики Таджикистан — председателя Национальной платформы РТ по снижению риска бедствий (СРБ) Зиёзода С.Р., а также председателя Комитета по чрезвычайным ситуациям и гражданской обороне генерал-полковника Раджабали Рахмонали принимает участие в работе 8-й сессии Глобальной платформы по СРБ, проходящей с 2 по 6 июня 2025 года в городе Женева, Швейцария, сообщает пресс-служба Комитета.",
       aboutNews2: "2 июня 2025 года, в рамках предконференционных мероприятий, генерал-майор Камолзода Джамшед — начальник Главного управления защиты населения и территорий КЧС РТ, ответственный секретарь Национальной платформы РТ по СРБ — принял участие в работе Форума заинтересованных сторон по СРБ, проходившего под девизом: «Подход всего общества к Сендайской рамочной программе по снижению риска бедствий: коллективная ответственность».",
       aboutNews3: "«Я недавно принял решение передать все свое состояние в течение следующих 20 лет. Большая часть этих ресурсов будет использована для помощи Африке в решении ключевых проблем», — подчеркнул Гейтс.",
-      title: "Новости Таджикистан",
+      title: t('newsOfTajukistan'),
     },
     {
       id: 9,
@@ -61,7 +61,7 @@ const News = () => {
       aboutNews1: "Быстрых прорывов ожидать не стоит, но достигнутые договоренности важны, сказал Дмитрий Песков",
       aboutNews2: "Ожидать быстрых прорывов после переговоров с Украиной неверно, но достигнутые в Стамбуле договоренности важны. Об этом журналистам на брифинге сказал пресс-секретарь президента Дмитрий Песков. Он подчеркнул, что тема урегулирования российско-украинского конфликта «чрезвычайно сложна» и состоит из «большого количества нюансов». «Конечно, ожидать каких-то сиюминутных решений, прорывов здесь было бы неверным. Но работа идет, были достигнуты определенные договоренности в Стамбуле, они важны. Действительно, в первую очередь, все-таки люди. Эти договорённости будут реализовываться. Ну а дальше работа будет продолжаться», – сказал Песков. В Кремле ожидают от Украины реакции на меморандум, который был передан.",
       aboutNews3: "Песков подтвердил подлинность опубликованного меморандума, который был подготовлен российской стороной. «Вы видели вчера опубликованный текст проекта того меморандума, который мы передали украинской стороне. Он содержит очень много положений, там есть и поливариантность. Все нацелено на то, чтобы избавиться от первопричин этого конфликта и выйти на траекторию устойчивого урегулирования», – сказал он. По словам Пескова, меморандум в закрытом режиме был передан украинской стороне, его обсудили на переговорах. Был обнародован и украинский документ, который, правда, опубликовали еще до переговоров, отметил пресс-секретарь президента Владимира Путина. Поэтому после переговоров глава переговорной группы со стороны России, помощник президента Владимир Мединский принял решение опубликовать текст российской версии меморандума. До обсуждения утечек российского текста в СМИ не было, подчеркнул Песков.",
-      title: "Новости",
+      title: t('News'),
     },
     {
       id: 3,
@@ -74,7 +74,7 @@ const News = () => {
       aboutNews3: "В результате наши женщины-изобретатели страны завоевали 5 золотых, 2 серебряных и 3 бронзовых медалей международной выставки.",
       aboutNews4: "Также 3 из них были награждены «Специальными наградами» других стран.",
       aboutNews5: "Следует отметить, что с 2012 года на выставке KIWIE таджикские женщины и девушки завоевали 79 медалей, в том числе 31 золотых, 27 серебряных и 21 бронзовых медалей.",
-      title: "Новости Таджикистан",
+      title: t('newsOfTajukistan'),
     },
     {
       id: 4,
@@ -88,7 +88,7 @@ const News = () => {
       aboutNews4: "Пезескян охарактеризовал поездку как привилегированные отношения между двумя странами и призвал к развитию культурных, научных, экономических и оборонных отношений между двумя странами. Эмомали Рахмон призвал к углублению отношений.",
       aboutNews5: "Соглашение подписали Мехди Алинежад и Золфакар Гол Ахмадзаде, соответственно генеральный секретарь и заместитель председателя национальных олимпийских комитетов Ирана и Таджикистана.",
       aboutNews6: "В документе подчеркивается сотрудничество в области тренерской работы, судейства и проведения совместных спортивных лагерей.",
-      title: "Спорт",
+      title:t('Sport'),
     },
     {
       id: 6,
@@ -99,7 +99,7 @@ const News = () => {
       aboutNews1: "В ОМВД по Гиссару поступило заявление от 32-летнего жителя Душанбе, который сообщил, что 31 мая 2025 года, когда он находился на рынке в поселке Шарора, неизвестные лица тайно похитили из его кармана 10 000 сомони и скрылись с места преступления.",
       aboutNews2: "В ходе оперативно-розыскных мероприятий сотрудниками милиции установлено, что преступление совершил 43-летний мужчина из Муминабадского района.",
       aboutNews3: "По данному факту ведётся следствие.",
-      title: "Новости Таджикистан",
+      title: t('newsOfTajukistan'),
     },
     {
       id: 10,
@@ -111,7 +111,7 @@ const News = () => {
       aboutNews2: "«Я думаю, у Ислама в полусреднем дивизионе всё будет хорошо. Он не будет гонять вес, будет себя лучше чувствовать, и там нет хороших имён, которые умеют очень хорошо бороться. Как Камару Усман, который был на пике в своё время. Это был бы очень тяжёлый бой для Ислама, так как Камару умеет хорошо боксировать, хорошо борется и физически очень сильный.",
       aboutNews3: "Сейчас там есть Шавкат, который на подъёме, но у него пока что не было боёв с крутыми топами. У Шавката хорошая чувствительность, он хорошо чувствует дистанцию, в борьбе он неплохой, но надо посмотреть его с соперником, который очень хорошо борется. Я думаю, что Ислам станет чемпионом, там же и останется, будет защищать титул, и после этой весогонки уже не будет спускаться в лёгкий вес. Я думаю, он проведёт две защиты и на этом завершит карьеру», – сказал российский боец в интервью Камилу Гаджиеву.",
       aboutNews4: "Освободив чемпионский пояс UFC в лёгком весе, в следующем поединке Ислам Махачев бросит вызов австралийцу Джеку Делла Маддалене, который в прошлом месяце победил Белала Мухаммада и стал новым чемпионом полусреднего дивизиона организации.",
-      title: "Новости",
+      title: t('News'),
     },
     {
       id: 7,
@@ -125,7 +125,7 @@ const News = () => {
       aboutNews4: "В Хатлонской области – переменная облачность, в долинах без осадков, в предгорных районах преимущественно без осадков. Ветер восточный, 5-10 м/с. Температура в долинах ночью 19-24 градуса тепла, днем 32-37, в предгорьях ночью 11-16 градусов тепла, днем 24-29.",
       aboutNews5: "В районах республиканского подчинения – переменная облачность, в долинах без осадков, в отдельных горных районах кратковременный дождь, возможна гроза. Ветер западный, 4-9 м/с. Температура в долинах ночью 16-21 градус тепла, днем 28-33, в горах ночью 8-13 градусов тепла, днем 22-27.",
       aboutNews6: "В Душанбе – переменная облачность, без осадков. Ветер восточный, 5-10 м/с. Температура ночью 19-21 градуса тепла, днем 31-33.",
-      title: "Погода",
+      title: t('Weather'),
     },
     {
       id: 8,
@@ -136,110 +136,127 @@ const News = () => {
       aboutNews1: "«Ховар»/. В рамках образовательной программы и семинара, организованного для делегации Таджикистана, корреспондент НИАТ «Ховар» получил уникальную возможность глубже ознакомиться с ключевыми аспектами китайской политики, культуры и государственного управления. Программа включала не только теоретические лекции, но и многочисленные практические занятия, посещения культурных и исторических объектов, а также общение с местными экспертами, что позволило мне получить полезный опыт и знания, применимые для дальнейшего развития своей профессиональной деятельности в Таджикистане. Об этом подробнее в материале Парвиза Файзуллозода.",
       aboutNews2: "Семинар начался с вводных встреч, участники смогли в дружеской и свободной обстановке познакомиться друг с другом и установить первые деловые контакты. Это стало основой для дальнейшей продуктивной работы и формирования команды.",
       aboutNews3: "Одним из самых запоминающихся моментов семинара стали культурные экскурсии и экспедиции, которые не только расширили кругозор, но и стали мостом для более глубокого понимания китайской культуры и истории. Мы посетили такие знаковые места, как Великая Китайская стена, Запретный город и исторический район Цинхэфан в Ханчжоу, которые показали богатство и культуру китайского архитектурного наследия",
-      title: "Новости Таджикистан",
+      title: t('newsOfTajukistan'),
     },
   ]
 
   const [modal, setModal] = useState(false)
+  const [newsRout, setnewsRout] = useState(true)
+  const [popelarRout, setpopelarRout] = useState(false)
   const navigate = useNavigate()
 
   function newsById(id) {
     navigate(`/news/${id}`)
   }
 
+  let randomProduct = [...newsProduct].sort(() => 0.5 - Math.random())
+
   return (
     <div className='flex items-start justify-between mt-[30px] md:mt-[70px] mb-[50px] '>
       <div className='md:w-[65%]'>
         <div className='flex md:items-center justify-between flex-col md:flex-row gap-[10px] '>
-          <h1 className="md:text-[40px] text-[20px] font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Новости</h1>
+          <h1 className="md:text-[40px] text-[20px] font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>{t("news")}</h1>
           <div className='flex items-center gap-[20px] '>
             <li className='list-none '>
               <NavLink
-                to="/news"
-                className={({ isActive }) =>
-                  `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
-         before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
-         before:bg-[#9F00FF] before:transition-all before:duration-300 dark:text-white
-         ${isActive
-                    ? "before:w-full text-[#9F00FF]"
-                    : "before:w-0 hover:before:w-full"
-                  }`
-                }
+                onClick={() => { setnewsRout(true), setpopelarRout(false) }}
+                className={newsRout ? 'text-[#9F00FF] border-b-[2px] ' : 'text-gray-500 '}
               >
-                Все
+                {t("All")}
               </NavLink>
             </li>
             <li className='list-none '>
               <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
-         before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
-         before:bg-[#9F00FF] before:transition-all before:duration-300 dark:text-white
-         ${isActive
-                    ? "before:w-full text-[#9F00FF]"
-                    : "before:w-0 hover:before:w-full"
-                  }`
-                }
+                to=''
+                className={popelarRout ? 'text-[#9F00FF] border-b-[2px]' : 'text-gray-500 '}
+                onClick={() => { setnewsRout(false), setpopelarRout(true) }}
               >
                 Популярные
               </NavLink>
             </li>
           </div>
         </div>
-        <div className='flex flex-col items-start w-[100%] gap-[20px] mt-[30px] '>
-          {
-            newsProduct.slice(0, 7).map((e) => {
-              return (
-                <div onClick={() => newsById(e.id)} key={e.id} className="md:shadow-none dark:shadow-gray-800 shadow-[5px_5px_5px_5px] shadow-gray-200 md:border-0 md:rounded-[0px] md:mt-[20px] border-[1px] rounded-[10px] group overflow-hidden transform transition duration-600 flex items-center gap-[20px] w-full flex-col md:flex-row md:border-b border-gray-300 pb-5">
-                  <div className="md:w-[40%] overflow-hidden rounded-[10px]">
-                    <img
-                      className="w-full md:h-[200px] object-cover transform transition duration-700 group-hover:scale-110"
-                      src={e.image}
-                      alt=""
-                    />
+        {
+          newsRout && <div className='flex flex-col items-start w-[100%] gap-[20px] mt-[30px] '>
+            {
+              newsProduct.slice(0, 7).map((e) => {
+                return (
+                  <div onClick={() => newsById(e.id)} key={e.id} className="md:shadow-none dark:shadow-gray-800 shadow-[5px_5px_5px_5px] shadow-gray-200 md:border-0 md:rounded-[0px] md:mt-[20px] border-[1px] rounded-[10px] group overflow-hidden transform transition duration-600 flex items-center gap-[20px] w-full flex-col md:flex-row md:border-b border-gray-300 pb-5">
+                    <div className="md:w-[40%] overflow-hidden rounded-[10px]">
+                      <img
+                        className="w-full md:h-[200px] object-cover transform transition duration-700 group-hover:scale-110"
+                        src={e.image}
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex flex-col items-start gap-[10px] md:w-[60%] md:p-[0px] p-[5px_0px_5px_10px] ">
+                      <h1 className="text-[#9F00FF] font-[500]">{e.title}</h1>
+                      <h1 className="text-[25px] font-[600] transition-colors duration-500 group-hover:text-[#9F00FF]">
+                        {e.news}
+                      </h1>
+                      <h1>{e.date}</h1>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-start gap-[10px] md:w-[60%] md:p-[0px] p-[5px_0px_5px_10px] ">
-                    <h1 className="text-[#9F00FF] font-[500]">{e.title}</h1>
-                    <h1 className="text-[25px] font-[600] transition-colors duration-500 group-hover:text-[#9F00FF]">
-                      {e.news}
-                    </h1>
-                    <h1>{e.date}</h1>
+                )
+              })
+            }
+            {
+              modal && newsProduct.slice(7, 14).map((e) => {
+                return (
+                  <div
+                    onClick={() => newsById(e.id)}
+                    key={e.id}
+                    className="md:shadow-none shadow-[5px_5px_5px_5px] shadow-gray-200 md:border-0 border-[1px] rounded-[10px] group overflow-hidden transform transition duration-600 flex items-center gap-[20px] w-full flex-col md:flex-row border-b border-gray-300 pb-5"
+                  >
+                    <div className="md:w-[40%] overflow-hidden rounded-[10px]">
+                      <img
+                        className="w-full h-full object-cover transform transition duration-700 group-hover:scale-110"
+                        src={e.image}
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex flex-col items-start gap-[10px] md:w-[60%] md:p-0 p-[5px_0px_5px_10px] ">
+                      <h1 className="text-[#9F00FF] font-[500]">{e.title}</h1>
+                      <h1 className="text-[25px] font-[600] transition-colors duration-500 group-hover:text-[#9F00FF]">
+                        {e.news}
+                      </h1>
+                      <h1>{e.date}</h1>
+                    </div>
                   </div>
-                </div>
-              )
-            })
-          }
-          {
-            modal && newsProduct.slice(7, 14).map((e) => {
-              return (
-                <div
-                  onClick={() => newsById(e.id)}
-                  key={e.id}
-                  className="md:shadow-none shadow-[5px_5px_5px_5px] shadow-gray-200 md:border-0 border-[1px] rounded-[10px] group overflow-hidden transform transition duration-600 flex items-center gap-[20px] w-full flex-col md:flex-row border-b border-gray-300 pb-5"
-                >
-                  <div className="md:w-[40%] overflow-hidden rounded-[10px]">
-                    <img
-                      className="w-full h-full object-cover transform transition duration-700 group-hover:scale-110"
-                      src={e.image}
-                      alt=""
-                    />
+                )
+              })
+            }
+            {!modal && <button className='p-[10px_30px] text-white rounded-[10px] hover:bg-blue-600 bg-[#9F00FF] transform transition duration-600' onClick={() => setModal(true)}>Показать еще</button>}
+          </div>
+        }
+        {
+          popelarRout && <div className='flex flex-col items-start w-[100%] gap-[20px] mt-[30px] '>
+            {
+              randomProduct.slice(0, 7).map((e) => {
+                return (
+                  <div onClick={() => newsById(e.id)} key={e.id} className="md:shadow-none dark:shadow-gray-800 shadow-[5px_5px_5px_5px] shadow-gray-200 md:border-0 md:rounded-[0px] md:mt-[20px] border-[1px] rounded-[10px] group overflow-hidden transform transition duration-600 flex items-center gap-[20px] w-full flex-col md:flex-row md:border-b border-gray-300 pb-5">
+                    <div className="md:w-[40%] overflow-hidden rounded-[10px]">
+                      <img
+                        className="w-full md:h-[200px] object-cover transform transition duration-700 group-hover:scale-110"
+                        src={e.image}
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex flex-col items-start gap-[10px] md:w-[60%] md:p-[0px] p-[5px_0px_5px_10px] ">
+                      <h1 className="text-[#9F00FF] font-[500]">{e.title}</h1>
+                      <h1 className="text-[25px] font-[600] transition-colors duration-500 group-hover:text-[#9F00FF]">
+                        {e.news}
+                      </h1>
+                      <h1>{e.date}</h1>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-start gap-[10px] md:w-[60%] md:p-0 p-[5px_0px_5px_10px] ">
-                    <h1 className="text-[#9F00FF] font-[500]">{e.title}</h1>
-                    <h1 className="text-[25px] font-[600] transition-colors duration-500 group-hover:text-[#9F00FF]">
-                      {e.news}
-                    </h1>
-                    <h1>{e.date}</h1>
-                  </div>
-                </div>
-              )
-            })
-          }
-          {!modal && <button className='p-[10px_30px] text-white rounded-[10px] hover:bg-blue-600 bg-[#9F00FF] transform transition duration-600' onClick={() => setModal(true)}>Показать еще</button>}
-        </div>
+                )
+              })
+            }
+          </div>
+        }
       </div>
-      <div className='hidden md:block w-[28%] h-[450px] rounded-[10px] bg-purple-100 '></div>
+      <div className='hidden dark:bg-purple-300 md:block w-[28%] h-[450px] rounded-[10px] bg-purple-100 '></div>
     </div >
   )
 }
