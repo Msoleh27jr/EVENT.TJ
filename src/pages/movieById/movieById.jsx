@@ -232,7 +232,7 @@ const MovieById = () => {
                             <Button onClick={scrollToTicket} className='w-full h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer font-normal hover:bg-[gray] transition-all duration-500 bg-[#272525]'>Купить билет</Button>
                         </div>
 
-<<<<<<< HEAD
+
               <div className="md:w-[440px] w-[100%]">
                 <div className="flex items-center flex-wrap gap-[20px]">
                   {movie.genres.map((e) => {
@@ -270,7 +270,7 @@ const MovieById = () => {
                 </ul>
               </div>
             </div>
-=======
+
                         <div className='md:w-[440px] w-[100%]'>
                             <div className='flex items-center flex-wrap gap-[20px]'>
                                 {
@@ -291,7 +291,7 @@ const MovieById = () => {
                             </ul>
                         </div>
                     </div>
->>>>>>> 963d496 (add movies)
+
 
                     <h3 className='my-[50px] text-[20px] font-bold'>Описание</h3>      
                     <p className='text-[18px] mb-[50px]'>{movie.description}</p>
@@ -410,7 +410,7 @@ const MovieById = () => {
                         }
                     </div>
                 </div>
-            </div> 
+            
         </section>
     </>
   );
