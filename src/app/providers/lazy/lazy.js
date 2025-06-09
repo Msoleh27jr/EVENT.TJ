@@ -15,3 +15,4 @@ export const PictureById = lazy(()=> import('../../../pages/picturesById/picture
 export const NewsById = lazy(()=> import('../../../pages/newsById/newsById.jsx'))
 export const MovieById = lazy(()=> import('../../../pages/movieById/movieById.jsx'))
 export const TheatresById = lazy(()=> import('../../../pages/theatresById/theatresById.jsx'))
+export const DigetInfo = lazy(()=>import("../../../pages/digets/digetInfo.jsx"))
