@@ -10,7 +10,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import CalendarComponent from "../../shared/ui/custom/calendar-swiper/calendar-swiper";
 import StarIcon from "@mui/icons-material/Star";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 
 const eventsData = [
   {
@@ -21,6 +21,8 @@ const eventsData = [
     eventSee: 65,
     eventDescription:
       "Традиционный фестиваль классической таджикской музыки Шашмаком, соберёт лучших исполнителей страны.",
+    eventDescriptionInfo:
+      "Фестивали Шашмақом як чорабинии муҳими фарҳангист, ки бо ҳадафи ҳифзу тарғиби мусиқии анъанавии тоҷикӣ — Шашмақом баргузор мешавад. Ин мусиқии классикӣ таърихи тӯлонии фарҳанги тоҷикро ифода мекунад ва иҷрои зиндаи он бо иштироки ҳофизони маъруфи кишвар ва гурӯҳҳои мусиқии анъанавӣ баргузор мегардад.",
     eventLocation: "Амфитеатр, Худжанд",
     eventDate: "15 июня 2025",
     eventTime: "19:00",
@@ -33,6 +35,8 @@ const eventsData = [
     eventName: "Мусобиқаи байналмилалии дзюдо Душанбе 2025",
     eventSee: 120,
     eventDescription: "Международный турнир по дзюдо, этап IJF World Tour.",
+    eventDescriptionInfo:
+      "Ин мусобиқа қисми расмии Ҷаҳонгардии Федератсияи байналмилалии дзюдо (IJF World Tour) мебошад. Варзишгарони варзида аз кишварҳои мухталиф барои гирифтани ҷоизаҳо ва холҳои рейтингӣ ширкат мекунанд. Рӯйдод дар муҳити рақобатнок баргузор гардида, имкони дидани дзюдои сатҳи баландро фароҳам меорад.",
     eventLocation: "Kasri Tennis, Душанбе",
     eventDate: "2–4 мая 2025",
     eventTime: "10:00",
@@ -45,6 +49,8 @@ const eventsData = [
     eventName: "Конфронси байналмилалӣ оид ба ҳифзи пиряхҳо",
     eventSee: 80,
     eventDescription: "Конференция ООН и Таджикистана по сохранению ледников.",
+    eventDescriptionInfo:
+      "Чорабинӣ бо ташаббуси Созмони Милали Муттаҳид ва Ҳукумати Тоҷикистон барои ҷалби таваҷҷуҳи ҷаҳонӣ ба масъалаи обшавии пиряхҳо баргузор мешавад. Дар он коршиносон, экологҳо ва сиёсатмадорон ширкат варзида, роҳҳои ҳалли мушкилоти обу иқлимро муҳокима мекунанд.",
     eventLocation: "Kokhi Somon, Душанбе",
     eventDate: "29–31 мая 2025",
     eventTime: "09:00",
@@ -58,7 +64,9 @@ const eventsData = [
     eventSee: 200,
     eventDescription:
       "Фестиваль для молодежи с культурной и спортивной программой.",
-    eventLocation: "Душанбе + поездки в Истаравшан, Пенджикент, Худжанд",
+    eventDescriptionInfo:
+      "Дар доираи таҷлили Наврӯз — иди миллии баҳорӣ, ҷавонон аз кишварҳои гуногун ба Тоҷикистон меоянд. Барномаҳо шомили озмунҳо, намоишҳои фарҳангӣ, консерту мастер-классҳо мебошанд. Ин фестивал ба рушди дӯстии ҷавонон ва ҳамкории байналмилалӣ мусоидат мекунад.",
+    eventLocation: "Душанбе + Истаравшан, Пенджикент, Худжанд",
     eventDate: "16–21 марта 2025",
     eventTime: "12:00",
     eventTag: "Культура",
@@ -71,7 +79,9 @@ const eventsData = [
     eventSee: 50,
     eventDescription:
       "Фестиваль французской культуры: кино, квизы, мастер‑классы.",
-    eventLocation: "Vatan Cinema и другие площадки, Душанбе",
+    eventDescriptionInfo:
+      "Фестивали фарҳанги франкофонӣ имкони шиносоӣ бо забон, фарҳанг ва анъанаҳои кишварҳои франкоязычиро фароҳам меорад. Дар барнома намоиши филмҳо, викторинаҳо, дидор бо устодони забон ва ҳамкориҳои фарҳангӣ пешбинӣ шудааст.",
+    eventLocation: "Vatan Cinema ва дигар ҷойҳо, Душанбе",
     eventDate: "21 апреля – 2 мая 2025",
     eventTime: "18:00",
     eventTag: "Образование",
@@ -84,7 +94,9 @@ const eventsData = [
     eventSee: 180,
     eventDescription:
       "Фестиваль национальной кухни и воздушных шаров в Душанбе.",
-    eventLocation: "Душанбе, большой стадион",
+    eventDescriptionInfo:
+      "Чорабинӣ бо намоиши таомҳои миллӣ ва парвози шарҳои рангоранг баргузор мешавад. Меҳмонон метавонанд аз таомҳои суннатӣ лаззат баранд ва манзараҳои зебои парвози шарҳоро аз наздик бинанд. Барои оилаҳо ва кӯдакон барномаи шавқовар пешбинӣ шудааст.",
+    eventLocation: "Душанбе, калонтарин майдонча",
     eventDate: "Сентябрь 2025",
     eventTime: "11:00",
     eventTag: "Еда",
@@ -96,6 +108,8 @@ const eventsData = [
     eventName: "Фестивали байналмилалии Oш",
     eventSee: 220,
     eventDescription: "Международный фестиваль плова в парке культуры Душанбе.",
+    eventDescriptionInfo:
+      "Фестивали Oш чорабинии бузургест, ки пухтупази анъанавии таоми миллӣ — палавро ҷашн мегирад. Шеф-пухтупазҳои машҳур аз кишварҳои гуногун ширкат карда, услубҳои гуногуни палавпазиро намоиш медиҳанд. Бо озмунҳо ва мусиқии зинда.",
     eventLocation: "Парк культуры, Душанбе",
     eventDate: "Октябрь 2025",
     eventTime: "07:00",
@@ -108,6 +122,8 @@ const eventsData = [
     eventName: "Фестивали мусиқии «Боми Ҷаҳон»",
     eventSee: 150,
     eventDescription: "Этно‑фестиваль музыки в Хороге, Памир.",
+    eventDescriptionInfo:
+      "Ин чорабинии фарҳангӣ ҳадаф дорад мусиқии миллӣ ва этникӣ аз гӯшаву канори ҷаҳонро муаррифӣ кунад. Гурӯҳҳои мусиқии Помир ва кишварҳои ҳамсоя бо иҷроҳои зинда иштирок мекунанд. Ҷои баргузорӣ дар табиати зебои кӯҳӣ аст.",
     eventLocation: "Парк, Хорог",
     eventDate: "Июль 2025",
     eventTime: "14:00",
@@ -120,6 +136,8 @@ const eventsData = [
     eventName: "Фестивали аспдавонӣ Ат‑Чабиш",
     eventSee: 90,
     eventDescription: "Праздник конного спорта, бузкаши и поэзии в Мургабе.",
+    eventDescriptionInfo:
+      "Фестивали анъанавии аспдавонӣ дар ноҳияи Мурғоб баргузор гардида, аспсаворӣ, бузкашӣ ва намоиши шеъру мусиқии мардумиро дар бар мегирад. Ин чорабинӣ як таҷлили фарҳанги кӯҳӣ ва варзиши миллӣ мебошад.",
     eventLocation: "Мургаб, Памир",
     eventDate: "Вторая неделя июля 2025",
     eventTime: "10:00",
@@ -132,6 +150,8 @@ const eventsData = [
     eventName: "Гузаргоҳи кӯҳии Тоҷикистон",
     eventSee: 70,
     eventDescription: "6‑дневный трейл‑рейс по Фанским горам (~165 км).",
+    eventDescriptionInfo:
+      "Ин пойгаи кӯҳӣ барои дӯстдорони сайёҳӣ ва варзиши шадид ташкил шудааст. Мусофирати 6-рӯза дар манзараҳои зебои кӯҳҳои Фон иштирокчиёнро интизор аст. Чорабинӣ сатҳи баланд дошта, бо иштироки варзишгарони хориҷӣ сурат мегирад.",
     eventLocation: "Фанские горы",
     eventDate: "9–17 августа 2025",
     eventTime: "06:00",
@@ -139,16 +159,17 @@ const eventsData = [
   },
   {
     id: 11,
-    eventImage:
-      "https://eurasianeconomic.org/files/29990/side-pic-NYBklFsQE2IMWX5b1Ip6bc7niTHHAAB1.jpg",
-    eventName: "Фестивали синамои тоҷикӣ",
-    eventSee: 140,
+    eventImage: "https://www.intracen.org/media/image/1839",
+    eventName: "Намоишгоҳи ҳунарҳои мардумии Тоҷикистон",
+    eventSee: 65,
     eventDescription:
-      "Фестиваль таджикского кино с показами фильмов, встречами с режиссёрами и мастер‑классами.",
-    eventLocation: "Кинотеатр «Ватан», Душанбе",
-    eventDate: "12–15 октября 2025",
-    eventTime: "17:00",
-    eventTag: "Кино",
+      "Выставка народных ремёсел со всей страны: текстиль, керамика, украшения.",
+    eventDescriptionInfo:
+      "Намоишгоҳ намунаҳои беҳтарини ҳунарҳои дастии тоҷиконро — аз гулдӯзӣ то сафолгариву заргарӣ — ба маъраз мегузорад. Дар он ҳунармандон аз тамоми вилоятҳо иштирок мекунанд. Меҳмонон метавонанд ҳунарҳоро на танҳо тамошо кунанд, балки харидорӣ низ кунанд.",
+    eventLocation: "Кохи Борбад, Душанбе",
+    eventDate: "5–7 октября 2025",
+    eventTime: "10:00",
+    eventTag: "Ремёсла",
   },
   {
     id: 12,
@@ -158,12 +179,15 @@ const eventsData = [
     eventSee: 110,
     eventDescription:
       "Путешествие по древнему Шёлковому пути с остановками в Истаравшане, Пенджикенте и Худжанде.",
+    eventDescriptionInfo:
+      "Ин саёҳати таърихӣ дар доираи барномаи байналмилалии мероси Роҳи Абрешим ташкил мегардад. Мусофирон аз шаҳрҳои қадимӣ дидан мекунанд ва бо таъриху фарҳанги маҳаллӣ шинос мешаванд. Гидҳои касбӣ ва барномаи маърифатӣ пешбинӣ шудааст.",
     eventLocation: "Шёлковый путь, север Таджикистана",
     eventDate: "1–7 сентября 2025",
     eventTime: "08:00",
     eventTag: "История",
   },
 ];
+
 const recommendedEvents = [
   {
     id: 11,
@@ -172,6 +196,8 @@ const recommendedEvents = [
     eventSee: 65,
     eventDescription:
       "Выставка народных ремёсел со всей страны: текстиль, керамика, украшения.",
+    eventDescriptionInfo:
+      "Намоишгоҳи ҳунарҳои мардумӣ бо иштироки устоҳои кандакорӣ, гулдӯзӣ, кулолгарӣ ва заргарии маҳаллӣ баргузор мегардад.",
     eventLocation: "Кохи Борбад, Душанбе",
     eventDate: "5–7 октября 2025",
     eventTime: "10:00",
@@ -185,6 +211,8 @@ const recommendedEvents = [
     eventSee: 40,
     eventDescription:
       "Форум по устойчивому развитию и экотуризму в Горном Бадахшане.",
+    eventDescriptionInfo:
+      "Намоишгоҳи ҳунарҳои мардумӣ бо иштироки устоҳои кандакорӣ, гулдӯзӣ, кулолгарӣ ва заргарии маҳаллӣ баргузор мегардад.",
     eventLocation: "Хорог, Памир",
     eventDate: "15–17 августа 2025",
     eventTime: "09:30",
@@ -198,6 +226,8 @@ const recommendedEvents = [
     eventSee: 110,
     eventDescription:
       "Парад молодежи в национальных костюмах, танцы, фольклор и музыка.",
+    eventDescriptionInfo:
+      "Намоишгоҳи ҳунарҳои мардумӣ бо иштироки устоҳои кандакорӣ, гулдӯзӣ, кулолгарӣ ва заргарии маҳаллӣ баргузор мегардад.",
     eventLocation: "Площадь Филармонии, Душанбе",
     eventDate: "12 сентября 2025",
     eventTime: "17:00",
@@ -211,6 +241,8 @@ const recommendedEvents = [
     eventSee: 130,
     eventDescription:
       "Гастрономический фестиваль традиционных блюд и мастер‑классы от шефов.",
+    eventDescriptionInfo:
+      "Намоишгоҳи ҳунарҳои мардумӣ бо иштироки устоҳои кандакорӣ, гулдӯзӣ, кулолгарӣ ва заргарии маҳаллӣ баргузор мегардад.",
     eventLocation: "Площадь Исмоили Сомони, Душанбе",
     eventDate: "20 июля 2025",
     eventTime: "16:00",
@@ -254,7 +286,6 @@ const Events = () => {
           >
             <Typography className="text-[#9F00FF]">
               {open ? "Пинҳон кардан" : "Намоиши бештар"}
-            
             </Typography>
           </AccordionSummary>
         </Accordion>
@@ -371,10 +402,52 @@ const Events = () => {
       </div>
       <div className="flex justify-between flex-col md:flex-row gap-[16px]">
         <h1 className="font-bold text-[30px]">{t("events")}</h1>
-        <div className="flex gap-[16px] font-bold">
-          <p>{t("soon")}</p>
-          <p>{t("today")}</p>
-          <p>{t("tomorrow")}</p>
+        <div className="flex items-center gap-[20px]">
+          <NavLink
+            to={"/events"}
+            className={({ isActive }) =>
+              `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
+                before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
+                before:bg-[#9F00FF] before:transition-all before:duration-300 
+                ${
+                  isActive
+                    ? "before:w-full text-[#9F00FF]"
+                    : "before:w-0 hover:before:w-full"
+                }`
+            }
+          >
+            <h3>Сегодня</h3>
+          </NavLink>
+          <NavLink
+            to={"/"}
+            className={({ isActive }) =>
+              `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
+                before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
+                before:bg-[#9F00FF] before:transition-all before:duration-300 
+                ${
+                  isActive
+                    ? "before:w-full text-[#9F00FF]"
+                    : "before:w-0 hover:before:w-full"
+                }`
+            }
+          >
+            <h3>Завтра</h3>
+          </NavLink>
+          <NavLink
+            to={"/"}
+            className={({ isActive }) =>
+              `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
+                before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
+                before:bg-[#9F00FF] before:transition-all before:duration-300 
+                ${
+                  isActive
+                    ? "before:w-full text-[#9F00FF]"
+                    : "before:w-0 hover:before:w-full"
+                }`
+            }
+          >
+            <h3>На этой неделе</h3>
+          </NavLink>
         </div>
       </div>
       {
@@ -400,7 +473,9 @@ const Events = () => {
                 <h2 class="text-lg font-bold mb-1 group-hover:text-[#9F00FF] transition-all duration-500 text-[19px]">
                   {event.eventName}
                 </h2>
-                <p class="text-sm text-gray-700 dark:text-[#e9e8e8af]">{event.eventDescription}</p>
+                <p class="text-sm text-gray-700 dark:text-[#e9e8e8af]">
+                  {event.eventDescription}
+                </p>
               </div>
             </div>
           ))}
@@ -445,22 +520,26 @@ const Events = () => {
         <h2 className="text-3xl font-bold mb-6">Рекомендации</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
           {recommendedEvents.map((event) => (
-            <div key={event.id}  onClick={() => eventById(event.id)} className="relative rounded-xl overflow-hidden group cursor-pointer">
-            <img
-              src={event.eventImage}
-              alt={event.eventName}
-              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
-            <div className="absolute bottom-4 left-4 z-20">
-              <div className="mb-1 inline-block bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                {event.eventTag}
+            <div
+              key={event.id}
+              onClick={() => eventById(event.id)}
+              className="relative rounded-xl overflow-hidden group cursor-pointer"
+            >
+              <img
+                src={event.eventImage}
+                alt={event.eventName}
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
+              <div className="absolute bottom-4 left-4 z-20">
+                <div className="mb-1 inline-block bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  {event.eventTag}
+                </div>
+                <h3 className="text-white font-bold text-lg leading-snug">
+                  {event.eventName}
+                </h3>
               </div>
-              <h3 className="text-white font-bold text-lg leading-snug">
-                {event.eventName}
-              </h3>
             </div>
-          </div>
           ))}
         </div>
       </div>
