@@ -19,7 +19,7 @@ const EventsById = () => {
       id: 1,
       eventImage:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHWI6exsG33eBZhSmVZ8R9mYWzW451VJDKlw&s",
-      eventName: "Shashmaqom Music Festival",
+      eventName: "Фестивали мусиқии Шашмақом",
       eventSee: 65,
       eventDescription:
         "Традиционный фестиваль классической таджикской музыки Шашмаком, соберёт лучших исполнителей страны.",
@@ -32,7 +32,7 @@ const EventsById = () => {
       id: 2,
       eventImage:
         "https://i.ytimg.com/vi/6p1D2QGC3p0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAXY0qBa5LdtdGC9zpO7bEgtcRx3Q",
-      eventName: "Judo Grand Slam Dushanbe 2025",
+      eventName: "Мусобиқаи байналмилалии дзюдо Душанбе 2025",
       eventSee: 120,
       eventDescription: "Международный турнир по дзюдо, этап IJF World Tour.",
       eventLocation: "Kasri Tennis, Душанбе",
@@ -44,7 +44,7 @@ const EventsById = () => {
       id: 3,
       eventImage:
         "https://www.un-glaciers.org/sites/default/files/2024-10/logo_iygp_dark_full%20color.png",
-      eventName: "International Conference on Glaciers’ Preservation",
+      eventName: "Конфронси байналмилалӣ оид ба ҳифзи пиряхҳо",
       eventSee: 80,
       eventDescription: "Конференция ООН и Таджикистана по сохранению ледников.",
       eventLocation: "Kokhi Somon, Душанбе",
@@ -56,7 +56,7 @@ const EventsById = () => {
       id: 4,
       eventImage:
         "https://pressa.tj/wp-content/uploads/2025/03/omodagi-ba-navruz-24.jpg",
-      eventName: "Navruz World Youth Festival",
+      eventName: "Фестивали ҷаҳонии ҷавонон Наврӯз",
       eventSee: 200,
       eventDescription:
         "Фестиваль для молодежи с культурной и спортивной программой.",
@@ -69,7 +69,7 @@ const EventsById = () => {
       id: 5,
       eventImage:
         "https://www.france.fi/wp-content/uploads/2025/02/francophonie-2025-1098x617.jpg",
-      eventName: "Francophonie Days 2025",
+      eventName: "Рӯзҳои фарҳанги франкофонӣ 2025",
       eventSee: 50,
       eventDescription:
         "Фестиваль французской культуры: кино, квизы, мастер‑классы.",
@@ -82,7 +82,7 @@ const EventsById = () => {
       id: 6,
       eventImage:
         "https://asiaplustj.info/sites/default/files/articles/258058/8.JPG",
-      eventName: "Summer Fest: Food & Balloon Festival",
+      eventName: "Фестивали тобистона: таом ва шарҳои ҳавоӣ",
       eventSee: 180,
       eventDescription:
         "Фестиваль национальной кухни и воздушных шаров в Душанбе.",
@@ -95,7 +95,7 @@ const EventsById = () => {
       id: 7,
       eventImage:
         "https://asiaplustj.info/sites/default/files/articles/279644/%D0%BF%D0%BB%D0%BE%D0%B2%20%D0%90%D0%B7%D0%B8%D1%8F-%D0%9F%D0%BB%D1%8E%D1%81.jpg",
-      eventName: "Pilaf Festival",
+      eventName: "Фестивали байналмилалии Oш",
       eventSee: 220,
       eventDescription: "Международный фестиваль плова в парке культуры Душанбе.",
       eventLocation: "Парк культуры, Душанбе",
@@ -107,7 +107,7 @@ const EventsById = () => {
       id: 8,
       eventImage:
         "https://cdn.easteast.world/uploads/post_image/5836/image/74c4d85812a3446cb38a.jpg",
-      eventName: "Roof of the World Music Festival",
+      eventName: "Фестивали мусиқии «Боми Ҷаҳон»",
       eventSee: 150,
       eventDescription: "Этно‑фестиваль музыки в Хороге, Памир.",
       eventLocation: "Парк, Хорог",
@@ -119,7 +119,7 @@ const EventsById = () => {
       id: 9,
       eventImage:
         "https://pamirtrips.com/wp-content/uploads/chabysh-horse-festival-hd-1.jpg",
-      eventName: "At‑Chabysh Horse Festival",
+      eventName: "Фестивали аспдавонӣ Ат‑Чабиш",
       eventSee: 90,
       eventDescription: "Праздник конного спорта, бузкаши и поэзии в Мургабе.",
       eventLocation: "Мургаб, Памир",
@@ -131,7 +131,7 @@ const EventsById = () => {
       id: 10,
       eventImage:
         "https://adventuresoflilnicki.com/wp-content/uploads/2020/08/Bolshoi-Allo-Fann-Mountains-Tajikistan-8.jpg",
-      eventName: "Tajik Mountain Traverse",
+      eventName: "Гузаргоҳи кӯҳии Тоҷикистон",
       eventSee: 70,
       eventDescription: "6‑дневный трейл‑рейс по Фанским горам (~165 км).",
       eventLocation: "Фанские горы",
@@ -143,7 +143,7 @@ const EventsById = () => {
       id: 11,
       eventImage:
         "https://eurasianeconomic.org/files/29990/side-pic-NYBklFsQE2IMWX5b1Ip6bc7niTHHAAB1.jpg",
-      eventName: "Tajik Film Festival",
+      eventName: "Фестивали синамои тоҷикӣ",
       eventSee: 140,
       eventDescription:
         "Фестиваль таджикского кино с показами фильмов, встречами с режиссёрами и мастер‑классами.",
@@ -156,7 +156,7 @@ const EventsById = () => {
       id: 12,
       eventImage:
         "https://eurasia-assembly.org/sites/default/files/styles/news_full/public/news/glavnaya_2_0.jpeg?itok=uZTJNhbU",
-      eventName: "Silk Road Heritage Tour",
+      eventName: "Саёҳат аз рӯи мероси Роҳи Абрешим",
       eventSee: 110,
       eventDescription:
         "Путешествие по древнему Шёлковому пути с остановками в Истаравшане, Пенджикенте и Худжанде.",
@@ -170,7 +170,7 @@ const EventsById = () => {
     {
       id: 11,
       eventImage: "https://www.intracen.org/media/image/1839",
-      eventName: "Tajikistan Handicraft Expo",
+      eventName: "Намоишгоҳи ҳунарҳои мардумии Тоҷикистон",
       eventSee: 65,
       eventDescription:
         "Выставка народных ремёсел со всей страны: текстиль, керамика, украшения.",
@@ -183,7 +183,7 @@ const EventsById = () => {
       id: 12,
       eventImage:
         "https://www.osce.org/files/imagecache/10_large_gallery/f/images/hires/b/3/427703.JPG?1565680561",
-      eventName: "Pamir Eco Forum",
+      eventName: "Форуми экологӣ дар Помир",
       eventSee: 40,
       eventDescription:
         "Форум по устойчивому развитию и экотуризму в Горном Бадахшане.",
@@ -196,7 +196,7 @@ const EventsById = () => {
       id: 13,
       eventImage:
         "https://avesta.tj/wp-content/uploads/2025/05/FB_IMG_1748060587518.jpg",
-      eventName: "Youth Culture Parade",
+      eventName: "Паради фарҳангии ҷавонон",
       eventSee: 110,
       eventDescription:
         "Парад молодежи в национальных костюмах, танцы, фольклор и музыка.",
@@ -206,23 +206,10 @@ const EventsById = () => {
       eventTag: "Культура",
     },
     {
-      id: 14,
-      eventImage:
-        "https://weproject.media/upload/iblock/c00/c00617f701975f9f8973691abc6a1152.jpg",
-      eventName: "Botanical Garden Picnic",
-      eventSee: 95,
-      eventDescription:
-        "Семейный день в ботаническом саду с мастер‑классами и фуд-кортами.",
-      eventLocation: "Ботанический сад, Душанбе",
-      eventDate: "30 июня 2025",
-      eventTime: "13:00",
-      eventTag: "Семейное",
-    },
-    {
       id: 15,
       eventImage:
         "https://trektajikistan.com/wp-content/uploads/2023/10/shakarob.webp",
-      eventName: "Taste of Tajikistan",
+      eventName: "Маззаи Тоҷикистон",
       eventSee: 130,
       eventDescription:
         "Гастрономический фестиваль традиционных блюд и мастер‑классы от шефов.",
@@ -294,7 +281,7 @@ const EventsById = () => {
           <h1>{events.eventDescription}</h1>
           <div className="flex  flex-col gap-[20px]">
             <h1 className="font-[600] text-[#9F00FF]">
-              Дополнительная информация:
+            Маълумоти иловагӣ:
             </h1>
             <div className="flex gap-[16px]">
               <CampaignIcon className="text-[#9F00FF]" />
@@ -322,7 +309,7 @@ const EventsById = () => {
             </div>
           </div>
           <NavLink to="/events">
-            <button className="mt-[60px] p-[10px_20px] rounded-[5px] bg-gray-200 hover:bg-gray-400 hover:text-gray-200 transform transition duration-500 ">
+            <button className="mt-[60px] p-[10px_20px] rounded-[5px] bg-gray-200 hover:bg-gray-400 hover:text-gray-200 transform transition duration-500 dark:text-black">
               {events.eventTag}
             </button>
           </NavLink>
