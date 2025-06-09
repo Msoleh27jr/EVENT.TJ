@@ -4,6 +4,7 @@ import { Button } from '../../shared/ui/custom/button/button'
 import ReactPlayer from 'react-player'
 import CalendarComponent from '../../shared/ui/custom/calendar-swiper/calendar-swiper'
 import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+import { useTranslation } from 'react-i18next'
 
 function getRandomMovies(array, count) {
   const random = [...array].sort(() => 0.5 - Math.random());
@@ -14,6 +15,7 @@ const MovieById = () => {
     let { id } = useParams()
     const videoRef = useRef(null);
     const ticketRef = useRef(null);
+    const { t } = useTranslation();
     let [data] = useState([
       {
         id: 1,
@@ -205,13 +207,13 @@ const MovieById = () => {
       <section className="my-[40px]">
         <div className="flex items-center flex-wrap text-[18px] gap-[20px]">
           <Link to={"/"}>
-            <h3>Главная</h3>
+            <h3>{t("home")}</h3>
           </Link>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
           </svg>
           <Link to={"/movie"}>
-            <h3>Кино</h3>
+            <h3>{t("movie")}</h3>
           </Link>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
