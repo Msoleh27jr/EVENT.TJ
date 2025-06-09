@@ -27,7 +27,7 @@ const VideoById = () => {
               playing={true}
               url={obj.url}
               light={true}
-              width={"100%"}
+              width={"80%"}
               height={"400px"}
               muted
               playIcon={
