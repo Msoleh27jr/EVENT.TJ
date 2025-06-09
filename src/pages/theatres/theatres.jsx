@@ -1,7 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Title from "../../shared/ui/custom/title/title";
 import { Link } from "react-router-dom";
 import CalendarComponent from "../../shared/ui/custom/calendar-swiper/calendar-swiper";
+import TheatresReleases from "../../shared/ui/custom/releases/theatres-releases";
+import TheatresSoon from "../../shared/ui/custom/soon/theatres-soon";
 
 const data = [
   {
@@ -15,29 +18,31 @@ const data = [
     link: "https://kayhon.tj",
   },
   {
-    id: 2,
+    id: 3,
     name: "Кинотеатр «Премьер Зал» Душанбе",
     link: "https://kinopremierzal.tj/",
   },
 ];
 
 const Theatres = () => {
+  const { t } = useTranslation();
+
   return (
-    <div>
-      <div className="flex items-end gap-5">
+    <div className="max-w-[1440px] mx-auto">
+      <div className="flex flex-col md:flex-row items-start md:items-end gap-5">
         <Title parentPage="home" curentPage="theatres" titlePage="theatres" />
-        <div className="w-full relative bottom-[5px] flex items-baseline justify-between">
+        <div className="w-full relative bottom-[5px] flex flex-col md:flex-row items-center gap-5 md:items-baseline justify-between">
           <select
             onChange={(e) => {
-              const selected = data.find((item) => item.name == e.target.value);
+              const selected = data.find((item) => item.name === e.target.value);
               if (selected) {
                 window.open(selected.link, "_blank", "noopener,noreferrer");
               }
             }}
-            className="p-2 bg-gray-200 rounded-[8px] "
+            className="p-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-[8px]"
           >
             <option value="" disabled selected hidden>
-              Театры
+              {t("theatres")}
             </option>
             {data.map((e) => (
               <option key={e.id} value={e.name}>
@@ -45,14 +50,18 @@ const Theatres = () => {
               </option>
             ))}
           </select>
-          <div className="flex gap-5 font-semibold">
-            <Link to="#">Сегодня</Link>
-            <Link to="#">Завтра</Link>
-            <Link to="#">На этой неделе</Link>
+          <div className="flex gap-5 font-semibold text-black dark:text-white">
+            <Link to="#">{t("today")}</Link>
+            <Link to="#">{t("tomorrow")}</Link>
+            <Link to="#">{t("this_week")}</Link>
           </div>
         </div>
       </div>
-      <CalendarComponent />
+      <div className="flex flex-col items-center">
+        <CalendarComponent />
+        <TheatresReleases />
+        <TheatresSoon />
+      </div>
     </div>
   );
 };
