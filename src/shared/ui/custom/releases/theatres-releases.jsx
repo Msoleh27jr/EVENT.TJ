@@ -115,7 +115,7 @@ const TheatresReleases = () => {
       <h2 className="text-2xl font-semibold text-[#2C2C2C] dark:text-gray-100 mb-6">{t("already_in_cinema")}</h2>
       <div className="flex flex-wrap justify-center md:items-stretch md:justify-between gap-6 px-2 dark:bg-gray-900">
         {releasesData.slice(0, visibleCount).map((movie) => (
-          <article key={movie.id} className="flex flex-col md:w-[260px] rounded-[12px] shadow-md bg-[#EAE6F8] dark:bg-gray-800">
+          <article key={movie.id} className="flex flex-col w-full md:w-[260px] rounded-[12px] shadow-md bg-[#EAE6F8] dark:bg-gray-800">
             <Link to={`/theatres/${movie.id}`}>
               <div className="block overflow-hidden rounded-t-[12px]">
                 <img src={movie.poster} alt={movie.title} className="w-full h-[350px] object-cover transition-transform duration-300 hover:scale-105" />

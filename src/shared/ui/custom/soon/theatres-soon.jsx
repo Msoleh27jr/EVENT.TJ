@@ -134,7 +134,7 @@ const TheatresSoon = () => {
       badges: [],
     },
   ];
-  
+
   const showMore = () => {
     setVisibleCount((prev) => Math.min(prev + 4, soonData.length));
   };
@@ -147,7 +147,7 @@ const TheatresSoon = () => {
         <h2 className="text-2xl font-semibold text-[#2C2C2C] dark:text-white mb-6">{t("soon")}</h2>
         <div className="flex flex-wrap justify-center md:items-stretch md:justify-between gap-6 px-2 dark:bg-gray-900">
           {soonData.slice(0, visibleCount).map((e) => (
-            <div key={e.id} className="flex flex-col md:w-[23%] rounded-[12px] shadow-md cursor-pointer bg-[#EAE6F8] dark:bg-gray-800">
+            <div key={e.id} className="flex flex-col w-full md:w-[23%] rounded-[12px] shadow-md cursor-pointer bg-[#EAE6F8] dark:bg-gray-800">
               <Link to={`/theatres/${e.id}`}>
                 <div className="overflow-hidden rounded-t-[12px] relative pb-[100%]">
                   <img src={e.poster} alt={e.title} className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
