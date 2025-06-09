@@ -484,7 +484,7 @@ const Events = () => {
               <div
                 onClick={() => eventById(event.id)}
                 key={event.id}
-                class="max-w-sm rounded-2xl  shadow-lg bg-white overflow-hidden transform transition duration-600 group cursor-pointer"
+                class="max-w-sm dark:bg-[#222] rounded-2xl  shadow-lg bg-white overflow-hidden transform transition duration-600 group cursor-pointer"
               >
                 <img
                   class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110"
@@ -501,7 +501,7 @@ const Events = () => {
                   <h2 class="text-lg font-bold mb-1 group-hover:text-[#9F00FF] transition-all duration-500 text-[19px]">
                     {event.eventName}
                   </h2>
-                  <p class="text-sm text-gray-700">{event.eventDescription}</p>
+                  <p class="text-sm text-gray-700 dark:text-[#e9e8e8af]">{event.eventDescription}</p>
                 </div>
               </div>
             ))}

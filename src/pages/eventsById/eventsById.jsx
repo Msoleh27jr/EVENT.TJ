@@ -237,7 +237,7 @@ const EventsById = () => {
           </NavLink>
           <span>›</span>
           <NavLink
-            to="/theatres"
+            to="/events"
             className="hover:underline hover:text-gray-700 dark:hover:text-gray-200"
           >
             {t("events")}
