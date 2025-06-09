@@ -68,5 +68,17 @@
   "about_movie": "About the Performance",
   "age_limit": "Age Limit",
   "sessions": "Sessions",
-  "release_date": "Release Date"
+  "release_date": "Release Date",
+  "latest": "Latest",
+  "all": "All",
+  "recomended": "Recommended",
+  "popularTages": "Popular tags",
+  "time": "Working hours",
+  "address": "Address",
+  "phone": "Phone",
+  "tariffs": "Tariffs",
+  "conditions": "Additional services",
+  "important": "Important",
+  "share": "Share",
+  "intersting": "You may also be interested"
 }
