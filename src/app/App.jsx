@@ -4,21 +4,8 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import "./styles/App.css";
 import "../app/providers/i18n/i18next";
 import Layout from "./providers/layout/layout";
-import {
-  Digets,
-  Events,
-  EventsById,
-  Home,
-  Movie,
-  MovieById,
-  News,
-  NewsById,
-  PictureById,
-  Pictures,
-  Theatres,
-  Video,
-  VideoById,
-} from "./providers/lazy/lazy";
+import { Digets, Events, EventsById, Home, Movie, MovieById, News, NewsById, PictureById, Pictures, Theatres, TheatresById, Video, VideoById } from "./providers/lazy/lazy";
+import Loading from "../shared/loading/loading";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -27,7 +14,9 @@ createRoot(document.getElementById("root")).render(
         <Route
           path="/"
           element={
-            <Suspense fallback={<p>loading</p>}>
+            <Suspense
+              fallback={<Loading/>}
+            >
               <Layout />
             </Suspense>
           }
@@ -45,6 +34,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="events/:id" element={<EventsById />} />
           <Route path="events" element={<Events />} />
           <Route path="movie/:id" element={<MovieById />} />
+          <Route path="theatres/:id" element={<TheatresById />} />
         </Route>
       </Routes>
     </BrowserRouter>

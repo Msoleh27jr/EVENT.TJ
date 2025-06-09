@@ -1,11 +1,368 @@
-import React from 'react'
-
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { NavLink, useNavigate, useParams } from "react-router";
+import CampaignIcon from "@mui/icons-material/Campaign";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import CallIcon from "@mui/icons-material/Call";
+import LocationPinIcon from "@mui/icons-material/LocationPin";
 const EventsById = () => {
-  return(
-    <div>
-      EventsById
-    </div>
-  )
-}
+  const { t } = useTranslation();
+  const { id } = useParams();
+  const navigate = useNavigate();
+  function eventById(id) {
+    navigate(`/events/${id}`);
+  }
 
-export default EventsById
+  const eventsData = [
+    {
+      id: 1,
+      eventImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHWI6exsG33eBZhSmVZ8R9mYWzW451VJDKlw&s",
+      eventName: "Shashmaqom Music Festival",
+      eventSee: 65,
+      eventDescription:
+        "Традиционный фестиваль классической таджикской музыки Шашмаком, соберёт лучших исполнителей страны.",
+      eventLocation: "Амфитеатр, Худжанд",
+      eventDate: "15 июня 2025",
+      eventTime: "19:00",
+      eventTag: "Музыка",
+    },
+    {
+      id: 2,
+      eventImage:
+        "https://i.ytimg.com/vi/6p1D2QGC3p0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAXY0qBa5LdtdGC9zpO7bEgtcRx3Q",
+      eventName: "Judo Grand Slam Dushanbe 2025",
+      eventSee: 120,
+      eventDescription: "Международный турнир по дзюдо, этап IJF World Tour.",
+      eventLocation: "Kasri Tennis, Душанбе",
+      eventDate: "2–4 мая 2025",
+      eventTime: "10:00",
+      eventTag: "Спорт",
+    },
+    {
+      id: 3,
+      eventImage:
+        "https://www.un-glaciers.org/sites/default/files/2024-10/logo_iygp_dark_full%20color.png",
+      eventName: "International Conference on Glaciers’ Preservation",
+      eventSee: 80,
+      eventDescription: "Конференция ООН и Таджикистана по сохранению ледников.",
+      eventLocation: "Kokhi Somon, Душанбе",
+      eventDate: "29–31 мая 2025",
+      eventTime: "09:00",
+      eventTag: "Экология",
+    },
+    {
+      id: 4,
+      eventImage:
+        "https://pressa.tj/wp-content/uploads/2025/03/omodagi-ba-navruz-24.jpg",
+      eventName: "Navruz World Youth Festival",
+      eventSee: 200,
+      eventDescription:
+        "Фестиваль для молодежи с культурной и спортивной программой.",
+      eventLocation: "Душанбе + поездки в Истаравшан, Пенджикент, Худжанд",
+      eventDate: "16–21 марта 2025",
+      eventTime: "12:00",
+      eventTag: "Культура",
+    },
+    {
+      id: 5,
+      eventImage:
+        "https://www.france.fi/wp-content/uploads/2025/02/francophonie-2025-1098x617.jpg",
+      eventName: "Francophonie Days 2025",
+      eventSee: 50,
+      eventDescription:
+        "Фестиваль французской культуры: кино, квизы, мастер‑классы.",
+      eventLocation: "Vatan Cinema и другие площадки, Душанбе",
+      eventDate: "21 апреля – 2 мая 2025",
+      eventTime: "18:00",
+      eventTag: "Образование",
+    },
+    {
+      id: 6,
+      eventImage:
+        "https://asiaplustj.info/sites/default/files/articles/258058/8.JPG",
+      eventName: "Summer Fest: Food & Balloon Festival",
+      eventSee: 180,
+      eventDescription:
+        "Фестиваль национальной кухни и воздушных шаров в Душанбе.",
+      eventLocation: "Душанбе, большой стадион",
+      eventDate: "Сентябрь 2025",
+      eventTime: "11:00",
+      eventTag: "Еда",
+    },
+    {
+      id: 7,
+      eventImage:
+        "https://asiaplustj.info/sites/default/files/articles/279644/%D0%BF%D0%BB%D0%BE%D0%B2%20%D0%90%D0%B7%D0%B8%D1%8F-%D0%9F%D0%BB%D1%8E%D1%81.jpg",
+      eventName: "Pilaf Festival",
+      eventSee: 220,
+      eventDescription: "Международный фестиваль плова в парке культуры Душанбе.",
+      eventLocation: "Парк культуры, Душанбе",
+      eventDate: "Октябрь 2025",
+      eventTime: "07:00",
+      eventTag: "Еда",
+    },
+    {
+      id: 8,
+      eventImage:
+        "https://cdn.easteast.world/uploads/post_image/5836/image/74c4d85812a3446cb38a.jpg",
+      eventName: "Roof of the World Music Festival",
+      eventSee: 150,
+      eventDescription: "Этно‑фестиваль музыки в Хороге, Памир.",
+      eventLocation: "Парк, Хорог",
+      eventDate: "Июль 2025",
+      eventTime: "14:00",
+      eventTag: "Музыка",
+    },
+    {
+      id: 9,
+      eventImage:
+        "https://pamirtrips.com/wp-content/uploads/chabysh-horse-festival-hd-1.jpg",
+      eventName: "At‑Chabysh Horse Festival",
+      eventSee: 90,
+      eventDescription: "Праздник конного спорта, бузкаши и поэзии в Мургабе.",
+      eventLocation: "Мургаб, Памир",
+      eventDate: "Вторая неделя июля 2025",
+      eventTime: "10:00",
+      eventTag: "Спорт",
+    },
+    {
+      id: 10,
+      eventImage:
+        "https://adventuresoflilnicki.com/wp-content/uploads/2020/08/Bolshoi-Allo-Fann-Mountains-Tajikistan-8.jpg",
+      eventName: "Tajik Mountain Traverse",
+      eventSee: 70,
+      eventDescription: "6‑дневный трейл‑рейс по Фанским горам (~165 км).",
+      eventLocation: "Фанские горы",
+      eventDate: "9–17 августа 2025",
+      eventTime: "06:00",
+      eventTag: "Экстрим",
+    },
+    {
+      id: 11,
+      eventImage:
+        "https://eurasianeconomic.org/files/29990/side-pic-NYBklFsQE2IMWX5b1Ip6bc7niTHHAAB1.jpg",
+      eventName: "Tajik Film Festival",
+      eventSee: 140,
+      eventDescription:
+        "Фестиваль таджикского кино с показами фильмов, встречами с режиссёрами и мастер‑классами.",
+      eventLocation: "Кинотеатр «Ватан», Душанбе",
+      eventDate: "12–15 октября 2025",
+      eventTime: "17:00",
+      eventTag: "Кино",
+    },
+    {
+      id: 12,
+      eventImage:
+        "https://eurasia-assembly.org/sites/default/files/styles/news_full/public/news/glavnaya_2_0.jpeg?itok=uZTJNhbU",
+      eventName: "Silk Road Heritage Tour",
+      eventSee: 110,
+      eventDescription:
+        "Путешествие по древнему Шёлковому пути с остановками в Истаравшане, Пенджикенте и Худжанде.",
+      eventLocation: "Шёлковый путь, север Таджикистана",
+      eventDate: "1–7 сентября 2025",
+      eventTime: "08:00",
+      eventTag: "История",
+    },
+  ];
+  const recommendedEvents = [
+    {
+      id: 11,
+      eventImage: "https://www.intracen.org/media/image/1839",
+      eventName: "Tajikistan Handicraft Expo",
+      eventSee: 65,
+      eventDescription:
+        "Выставка народных ремёсел со всей страны: текстиль, керамика, украшения.",
+      eventLocation: "Кохи Борбад, Душанбе",
+      eventDate: "5–7 октября 2025",
+      eventTime: "10:00",
+      eventTag: "Ремёсла",
+    },
+    {
+      id: 12,
+      eventImage:
+        "https://www.osce.org/files/imagecache/10_large_gallery/f/images/hires/b/3/427703.JPG?1565680561",
+      eventName: "Pamir Eco Forum",
+      eventSee: 40,
+      eventDescription:
+        "Форум по устойчивому развитию и экотуризму в Горном Бадахшане.",
+      eventLocation: "Хорог, Памир",
+      eventDate: "15–17 августа 2025",
+      eventTime: "09:30",
+      eventTag: "Экология",
+    },
+    {
+      id: 13,
+      eventImage:
+        "https://avesta.tj/wp-content/uploads/2025/05/FB_IMG_1748060587518.jpg",
+      eventName: "Youth Culture Parade",
+      eventSee: 110,
+      eventDescription:
+        "Парад молодежи в национальных костюмах, танцы, фольклор и музыка.",
+      eventLocation: "Площадь Филармонии, Душанбе",
+      eventDate: "12 сентября 2025",
+      eventTime: "17:00",
+      eventTag: "Культура",
+    },
+    {
+      id: 14,
+      eventImage:
+        "https://weproject.media/upload/iblock/c00/c00617f701975f9f8973691abc6a1152.jpg",
+      eventName: "Botanical Garden Picnic",
+      eventSee: 95,
+      eventDescription:
+        "Семейный день в ботаническом саду с мастер‑классами и фуд-кортами.",
+      eventLocation: "Ботанический сад, Душанбе",
+      eventDate: "30 июня 2025",
+      eventTime: "13:00",
+      eventTag: "Семейное",
+    },
+    {
+      id: 15,
+      eventImage:
+        "https://trektajikistan.com/wp-content/uploads/2023/10/shakarob.webp",
+      eventName: "Taste of Tajikistan",
+      eventSee: 130,
+      eventDescription:
+        "Гастрономический фестиваль традиционных блюд и мастер‑классы от шефов.",
+      eventLocation: "Площадь Исмоили Сомони, Душанбе",
+      eventDate: "20 июля 2025",
+      eventTime: "16:00",
+      eventTag: "Еда",
+    },
+  ];
+
+  const events = eventsData.find((event) => event.id === Number(id)) || recommendedEvents.find((event) => event.id === Number(id));
+
+  return (
+    <div>
+      <section>
+        <nav className="flex items-center gap-2 text-base text-gray-500 dark:text-gray-400 mb-8 select-none">
+          <NavLink
+            to="/"
+            className="hover:underline hover:text-gray-700 dark:hover:text-gray-200"
+          >
+            {t("home")}
+          </NavLink>
+          <span>›</span>
+          <NavLink
+            to="/theatres"
+            className="hover:underline hover:text-gray-700 dark:hover:text-gray-200"
+          >
+            {t("events")}
+          </NavLink>
+          <span>›</span>
+          <span className="text-gray-800 dark:text-gray-100 font-semibold truncate max-w-xs">
+            {events.eventName}
+          </span>
+        </nav>
+      </section>
+      <div className="mt-[20px] md:mt-[50px] w-[100%] flex flex-col md:flex-row items-start justify-between gap-[30px] ">
+        <div className="flex flex-col md:w-[65%] items-start gap-[15px]">
+          <h1 className="font-bold md:text-[30px] ">{events.eventName}</h1>
+          <div className="flex items-center gap-[20px] ">
+            <div className="flex items-center gap-[5px] ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              <h1 className="text-[18px] ">{events.eventSee}</h1>
+            </div>
+            <h1 className="text-[18px] ">{events.eventDate}</h1>
+          </div>
+          <img
+            className="w-full rounded-[10px] "
+            src={events.eventImage}
+            alt=""
+          />
+          <h1>{events.eventDescription}</h1>
+          <div className="flex  flex-col gap-[20px]">
+            <h1 className="font-[600] text-[#9F00FF]">
+              Дополнительная информация:
+            </h1>
+            <div className="flex gap-[16px]">
+              <CampaignIcon className="text-[#9F00FF]" />
+              <p className="font-bold">{t("events")} :</p>
+              <p>{events.eventName}</p>
+            </div>
+            <div className="flex gap-[16px]">
+              <CalendarMonthIcon className="text-[#9F00FF]" />
+              <p className="font-bold">Дата проведения :</p>
+              <p>{events.eventDate}</p>
+            </div>
+            <div className="flex gap-[16px]">
+              <AccessTimeFilledIcon className="text-[#9F00FF]" />
+              <p className="font-bold">Время проведения :</p>
+              <p>{events.eventTime}</p>
+            </div>
+            <div className="flex gap-[16px]">
+              <CallIcon className="text-[#9F00FF]" />
+              <p className="font-bold">+992 9876 543 21</p>
+            </div>
+            <div className="flex gap-[16px]">
+              <LocationPinIcon className="text-[#9F00FF]" />
+              <p className="font-bold">Локация: </p>
+              <p>{events.eventLocation}</p>
+            </div>
+          </div>
+          <NavLink to="/events">
+            <button className="mt-[60px] p-[10px_20px] rounded-[5px] bg-gray-200 hover:bg-gray-400 hover:text-gray-200 transform transition duration-500 ">
+              {events.eventTag}
+            </button>
+          </NavLink>
+        </div>
+        <div className="md:w-[32%] ">
+          <div>
+            <h1 className="font-bold text-[22px] mb-[15px] md:text-[30px]">
+              Так же вам может быть интересно
+            </h1>
+            <div className="flex flex-col gap-[16px]">
+              {eventsData.slice(5, 9).map((e) => {
+                return (
+                  <div
+                    onClick={() => eventById(e.id)}
+                    key={e.id}
+                    className="md:shadow-none shadow-[5px_5px_5px_5px] shadow-gray-200 md:border-0 md:rounded-[0px] md:mt-[20px] border-[1px] rounded-[10px] group overflow-hidden transform transition duration-600 flex items-center gap-[20px] w-full flex-col md:flex-row md:border-b border-gray-300 pb-5 "
+                  >
+                    <div className="md:w-[40%] overflow-hidden rounded-[10px]">
+                      <img
+                        className="w-full object-cover transform transition duration-700 group-hover:scale-110"
+                        src={e.eventImage}
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex flex-col items-start gap-[10px] md:w-[60%] md:p-[0px] p-[5px_0px_5px_10px] ">
+                      <h1 className="text-[#9F00FF] font-[500]">{e.title}</h1>
+                      <h1 className="text-[22px] font-[600] transition-colors duration-500 group-hover:text-[#9F00FF]">
+                        {e.eventName}
+                      </h1>
+                      <h1>{e.eventDate}</h1>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default EventsById;
