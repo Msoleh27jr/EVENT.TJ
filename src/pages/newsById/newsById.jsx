@@ -231,7 +231,6 @@ const NewsById = () => {
               })
             }
           </div>
-          <div className='mt-[30px] dark:bg-purple-300 hidden md:block w-full h-[450px] rounded-[10px] bg-purple-100 '></div>
         </div>
       </div>
     </div>

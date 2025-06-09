@@ -256,7 +256,6 @@ const News = () => {
           </div>
         }
       </div>
-      <div className='hidden dark:bg-purple-300 md:block w-[28%] h-[450px] rounded-[10px] bg-purple-100 '></div>
     </div >
   )
 }
