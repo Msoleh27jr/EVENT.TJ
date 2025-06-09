@@ -221,55 +221,6 @@ const MovieById = () => {
 
         <div className="flex md:flex-row flex-col items-start justify-between">
           <div className="w-[100%]">
-            <div className="my-[30px] w-[100%] flex md:flex-row flex-col items-start gap-[30px]">
-              <div className="md:w-[315px]">
-                <div className="relative">
-                  <img src={movie.image} alt="image" className="md:w-[315px] h-[475px] rounded-[10px]" />
-                  <div style={{ backgroundColor: movie.rating < 5 ? "red" : movie.rating < 7 ? "#db8f00" : "#43c443" }} className="absolute top-[15px] right-[15px] w-[30px] h-[20px] rounded-[4px] flex items-center justify-center text-[#FAFAFA]">
-                    {movie.rating}
-                  </div>
-                </div>
-                <Button className="w-full my-[20px] h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer hover:bg-[#4040ff] transition-all duration-500 font-normal bg-[#9F00FF]">Трейлер</Button>
-                <Button className="w-full h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer font-normal hover:bg-[gray] transition-all duration-500 bg-[#272525]">Купить билет</Button>
-              </div>
-
-              <div className="md:w-[440px] w-[100%]">
-                <div className="flex items-center flex-wrap gap-[20px]">
-                  {movie.genres.map((e) => {
-                    return (
-                      <h3 key={e.id} className="h-[35px] px-[5px] text-[gray] flex items-center justify-center rounded-[7px] bg-[#f5f5f5]">
-                        {e.genre}
-                      </h3>
-                    );
-                  })}
-                </div>
-                <h2 className="my-[20px] text-[35px] font-bold">{movie.name}</h2>
-                <h3 className="mb-[20px] text-[#9F00FF] text-[18px] font-semibold">Детали:</h3>
-                <ul>
-                  <li className="font-bold text-[18px]">
-                    Возрастная категория фильма: <span className="font-normal">{movie.age}+</span>
-                  </li>
-                  <li className="font-bold text-[18px]">
-                    Хронометраж: <span className="font-normal">{movie.time}</span>
-                  </li>
-                  <li className="font-bold text-[18px]">
-                    Страна: <span className="font-normal">{movie.country}</span>
-                  </li>
-                  <li className="font-bold text-[18px]">
-                    Рейтинг{" "}
-                    <span style={{ backgroundColor: movie.rating < 5 ? "red" : movie.rating < 7 ? "#db8f00" : "#43c443" }} className="font-normal text-[#FAFAFA] px-[5px] rounded-[5px] h-[20px]">
-                      IMDb {movie.rating}
-                    </span>
-                  </li>
-                  <li className="font-bold text-[18px]">
-                    Год: <span className="font-normal">{movie.year}</span>
-                  </li>
-                  <li className="font-bold text-[18px]">
-                    В ролях: <span className="font-normal">{movie.role}</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
             <div className='flex md:flex-row flex-col items-start gap-[20px] justify-between'>            
                 <div className='w-[100%]'>
                     <div className='my-[30px] w-[100%] flex md:flex-row flex-col items-start gap-[30px]'>
@@ -422,8 +373,10 @@ const MovieById = () => {
                         }
                     </div>
                 </div>
-            </div> 
-        </section>
+            </div>
+          </div> 
+        </div> 
+      </section>
     </>
   );
 };

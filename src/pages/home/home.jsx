@@ -1,9 +1,164 @@
 import React, { useState } from "react";
 import { News } from "../../app/providers/lazy/lazy";
+import TheatresReleases from "../../shared/ui/custom/releases/theatres-releases";
+import Soon from "../../shared/ui/custom/soon/theatres-soon";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import FirstSecton from "../../shared/firstSectionHomePage/firstSecton";
 import TheatresSoon from "../../shared/ui/custom/soon/theatres-soon";
+
+const eventsData = [
+  {
+    id: 1,
+    eventImage:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHWI6exsG33eBZhSmVZ8R9mYWzW451VJDKlw&s",
+    eventName: "Shashmaqom Music Festival",
+    eventSee: 65,
+    eventDescription:
+      "Традиционный фестиваль классической таджикской музыки Шашмаком, соберёт лучших исполнителей страны.",
+    eventLocation: "Амфитеатр, Худжанд",
+    eventDate: "15 июня 2025",
+    eventTime: "19:00",
+    eventTag: "Музыка",
+  },
+  {
+    id: 2,
+    eventImage:
+      "https://i.ytimg.com/vi/6p1D2QGC3p0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAXY0qBa5LdtdGC9zpO7bEgtcRx3Q",
+    eventName: "Judo Grand Slam Dushanbe 2025",
+    eventSee: 120,
+    eventDescription: "Международный турнир по дзюдо, этап IJF World Tour.",
+    eventLocation: "Kasri Tennis, Душанбе",
+    eventDate: "2–4 мая 2025",
+    eventTime: "10:00",
+    eventTag: "Спорт",
+  },
+  {
+    id: 3,
+    eventImage:
+      "https://www.un-glaciers.org/sites/default/files/2024-10/logo_iygp_dark_full%20color.png",
+    eventName: "International Conference on Glaciers’ Preservation",
+    eventSee: 80,
+    eventDescription: "Конференция ООН и Таджикистана по сохранению ледников.",
+    eventLocation: "Kokhi Somon, Душанбе",
+    eventDate: "29–31 мая 2025",
+    eventTime: "09:00",
+    eventTag: "Экология",
+  },
+  {
+    id: 4,
+    eventImage:
+      "https://pressa.tj/wp-content/uploads/2025/03/omodagi-ba-navruz-24.jpg",
+    eventName: "Navruz World Youth Festival",
+    eventSee: 200,
+    eventDescription:
+      "Фестиваль для молодежи с культурной и спортивной программой.",
+    eventLocation: "Душанбе + поездки в Истаравшан, Пенджикент, Худжанд",
+    eventDate: "16–21 марта 2025",
+    eventTime: "12:00",
+    eventTag: "Культура",
+  },
+  {
+    id: 5,
+    eventImage:
+      "https://www.france.fi/wp-content/uploads/2025/02/francophonie-2025-1098x617.jpg",
+    eventName: "Francophonie Days 2025",
+    eventSee: 50,
+    eventDescription:
+      "Фестиваль французской культуры: кино, квизы, мастер‑классы.",
+    eventLocation: "Vatan Cinema и другие площадки, Душанбе",
+    eventDate: "21 апреля – 2 мая 2025",
+    eventTime: "18:00",
+    eventTag: "Образование",
+  },
+  {
+    id: 6,
+    eventImage:
+      "https://asiaplustj.info/sites/default/files/articles/258058/8.JPG",
+    eventName: "Summer Fest: Food & Balloon Festival",
+    eventSee: 180,
+    eventDescription:
+      "Фестиваль национальной кухни и воздушных шаров в Душанбе.",
+    eventLocation: "Душанбе, большой стадион",
+    eventDate: "Сентябрь 2025",
+    eventTime: "11:00",
+    eventTag: "Еда",
+  },
+  {
+    id: 7,
+    eventImage:
+      "https://asiaplustj.info/sites/default/files/articles/279644/%D0%BF%D0%BB%D0%BE%D0%B2%20%D0%90%D0%B7%D0%B8%D1%8F-%D0%9F%D0%BB%D1%8E%D1%81.jpg",
+    eventName: "Pilaf Festival",
+    eventSee: 220,
+    eventDescription: "Международный фестиваль плова в парке культуры Душанбе.",
+    eventLocation: "Парк культуры, Душанбе",
+    eventDate: "Октябрь 2025",
+    eventTime: "07:00",
+    eventTag: "Еда",
+  },
+  {
+    id: 8,
+    eventImage:
+      "https://cdn.easteast.world/uploads/post_image/5836/image/74c4d85812a3446cb38a.jpg",
+    eventName: "Roof of the World Music Festival",
+    eventSee: 150,
+    eventDescription: "Этно‑фестиваль музыки в Хороге, Памир.",
+    eventLocation: "Парк, Хорог",
+    eventDate: "Июль 2025",
+    eventTime: "14:00",
+    eventTag: "Музыка",
+  },
+  {
+    id: 9,
+    eventImage:
+      "https://pamirtrips.com/wp-content/uploads/chabysh-horse-festival-hd-1.jpg",
+    eventName: "At‑Chabysh Horse Festival",
+    eventSee: 90,
+    eventDescription: "Праздник конного спорта, бузкаши и поэзии в Мургабе.",
+    eventLocation: "Мургаб, Памир",
+    eventDate: "Вторая неделя июля 2025",
+    eventTime: "10:00",
+    eventTag: "Спорт",
+  },
+  {
+    id: 10,
+    eventImage:
+      "https://adventuresoflilnicki.com/wp-content/uploads/2020/08/Bolshoi-Allo-Fann-Mountains-Tajikistan-8.jpg",
+    eventName: "Tajik Mountain Traverse",
+    eventSee: 70,
+    eventDescription: "6‑дневный трейл‑рейс по Фанским горам (~165 км).",
+    eventLocation: "Фанские горы",
+    eventDate: "9–17 августа 2025",
+    eventTime: "06:00",
+    eventTag: "Экстрим",
+  },
+  {
+    id: 11,
+    eventImage:
+      "https://eurasianeconomic.org/files/29990/side-pic-NYBklFsQE2IMWX5b1Ip6bc7niTHHAAB1.jpg",
+    eventName: "Tajik Film Festival",
+    eventSee: 140,
+    eventDescription:
+      "Фестиваль таджикского кино с показами фильмов, встречами с режиссёрами и мастер‑классами.",
+    eventLocation: "Кинотеатр «Ватан», Душанбе",
+    eventDate: "12–15 октября 2025",
+    eventTime: "17:00",
+    eventTag: "Кино",
+  },
+  {
+    id: 12,
+    eventImage:
+      "https://eurasia-assembly.org/sites/default/files/styles/news_full/public/news/glavnaya_2_0.jpeg?itok=uZTJNhbU",
+    eventName: "Silk Road Heritage Tour",
+    eventSee: 110,
+    eventDescription:
+      "Путешествие по древнему Шёлковому пути с остановками в Истаравшане, Пенджикенте и Худжанде.",
+    eventLocation: "Шёлковый путь, север Таджикистана",
+    eventDate: "1–7 сентября 2025",
+    eventTime: "08:00",
+    eventTag: "История",
+  },
+];
 
 const Home = () => {
   const { t } = useTranslation();
@@ -129,11 +284,77 @@ const Home = () => {
       video: "https://www.youtube.com/embed/3m3MjEQh0qE",
     },
   ]);
+  const [modal, setModal] = useState(false);
   return (
     <div>
       <FirstSecton />
+      {/* ////////////// events */}
+      <hr className="my-5" />
+      <h2 className="text-4xl font-bold">{t("events")}</h2>
+      <section className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {eventsData.slice(0, 9).map((event) => (
+          <div
+            key={event.id}
+            class="max-w-sm rounded-2xl shadow-lg overflow-hidden transform transition duration-600 group cursor-pointer dark:shadow-[#bababaae]"
+          >
+            <Link to={`events/${event.id}`}>
+              <img
+                class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110"
+                src={event.eventImage}
+                alt="{event.eventName}"
+              />
+              <div class="p-4">
+                <p class="text-sm text-gray-500 mb-1">
+                  <span>{event.eventDate}</span> ·
+                  <span class="text-purple-600 font-medium">
+                    {event.eventTag}
+                  </span>
+                </p>
+                <h2 class="text-lg font-bold mb-1 group-hover:text-[#9F00FF] transition-all duration-500 text-[19px]">
+                  {event.eventName}
+                </h2>
+                <p class="text-sm text-gray-700">{event.eventDescription}</p>
+              </div>
+            </Link>
+          </div>
+        ))}
+        {modal &&
+          eventsData.slice(9).map((event) => (
+            <div
+              key={event.id}
+              class="max-w-sm rounded-2xl  shadow-lg bg-white overflow-hidden transform transition duration-600 group cursor-pointer"
+            >
+              <img
+                class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110"
+                src={event.eventImage}
+                alt="{event.eventName}"
+              />
+              <div class="p-4">
+                <p class="text-sm text-gray-500 mb-1">
+                  <span>{event.eventDate}</span> ·
+                  <span class="text-purple-600 font-medium">
+                    {event.eventTag}
+                  </span>
+                </p>
+                <h2 class="text-lg font-bold mb-1 group-hover:text-[#9F00FF] transition-all duration-500 text-[19px]">
+                  {event.eventName}
+                </h2>
+                <p class="text-sm text-gray-700">{event.eventDescription}</p>
+              </div>
+            </div>
+          ))}
+
+        {!modal && (
+          <button
+            className="p-[10px_30px] text-white rounded-[10px] hover:bg-blue-600 bg-[#9F00FF] transform transition duration-600"
+            onClick={() => setModal(true)}
+          >
+            Показать еще
+          </button>
+        )}
+      </section>
       {/* ....... movie */}
-      <hr className="my-6"/>
+      <hr className="my-6" />
       <h2 className="text-4xl font-bold">{t("movie")}</h2>
       <section className="flex gap-[5%] my-5 overflow-x-scroll md:overflow-auto">
         {data.map((e) => {
