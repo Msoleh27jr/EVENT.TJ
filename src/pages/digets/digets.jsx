@@ -9,7 +9,7 @@ const Digets = () => {
   const { t, i18n } = useTranslation();
   return (
     <div className='mb-[100px]'>
-      <div className='flex justify-between items-center mb-[30px]'>
+      <div className='flex justify-between md:flex-row flex-col items-center mb-[30px]'>
         <h1 className='font-[700] text-[42px]'>{t("digets")}</h1>
         <menu className='flex flex-row gap-[30px]'>
           <NavLink
@@ -35,12 +35,12 @@ const Digets = () => {
             {t("all")}
           </NavLink>
         </menu>
-        <i></i>
-        <h1 className='font-[700] text-[42px] fixed left-[70%]'>{t("popularTages")}</h1>
+        <i className='w-[30%]'></i>
+        <h1 className='font-[700] top-[27vh] text-center right-[5%] text-[42px] md:fixed left-[70%]'>{t("popularTages")}</h1>
       </div>
       {data &&
         data.map((el, i) => (
-          <div key={i} className="flex w-[65%] gap-[50px] items-center">
+          <div key={i} className="flex w-[100%] md:w-[65%] gap-[50px] items-center">
             <p className="text-[52px] text-[#9F00FF] font-[700]">{i + 1}</p>
             <div
               className="py-[20px] w-[100%]"
@@ -49,13 +49,13 @@ const Digets = () => {
               }}
             >
               <h1 className="text-[#9F00FF] text-[18px] font-[600]">
-                {el.category}
+                {t(el.category)}
               </h1>
               <p
                 onClick={() => navigate(`/digets/${i}`)}
                 className="text-[22px] font-[700] cursor-pointer hover:text-[#9F00FF]"
               >
-                {el.name}
+                {t(el.name)}
               </p>
             </div>
           </div>
