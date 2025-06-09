@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { News } from "../../app/providers/lazy/lazy";
+import TheatresReleases from "../../shared/ui/custom/releases/theatres-releases";
+import Soon from "../../shared/ui/custom/soon/theatres-soon";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import FirstSecton from "../../shared/firstSectionHomePage/firstSecton";

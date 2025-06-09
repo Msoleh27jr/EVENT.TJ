@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router'
 import CalendarComponent from '../../shared/ui/custom/calendar-swiper/calendar-swiper'
+import { useTranslation } from 'react-i18next'
 
 const Movie = () => {
   const [cinema, setCinema] = useState('all')
+  const { t } = useTranslation();
   let [data] = useState([
         {
           id: 1,
@@ -195,13 +197,13 @@ const Movie = () => {
         <div className='my-[20px] flex md:flex-row flex-col gap-[10px] items-center justify-between'>
           <div className='flex items-center gap-[15px]'>
             <h2 className='text-[30px] font-bold'>Кино</h2>
-            <select value={cinema} onChange={(e) => setCinema(e.target.value)} className='border rounded-[4px] w-[200px] p-[5px] hover:bg-[#9F00FF] hover:text-[#FAFAFA] transition-colors duration-500'>
-              <option className='bg-[#FAFAFA] text-[black]' value="all">Все кинотеатры</option>
-              <option className='bg-[#FAFAFA] text-[black]' value="kayhon">Кайхон</option>
-              <option className='bg-[#FAFAFA] text-[black]' value="navruz">3D Кинотеатр Навруз</option>
-              <option className='bg-[#FAFAFA] text-[black]' value="siema">Кинотеатр "Премьер Зал Душанбе"</option>
-              <option className='bg-[#FAFAFA] text-[black]' value="vatan">Кинотеатр "Ватан"</option>
-            </select>
+            <select value={cinema} onChange={(e) => setCinema(e.target.value)} className="p-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-[8px]">
+              <option value="all">{t("theatres")}</option>
+              <option value="kayhon">Кайхон</option>
+              <option value="navruz">3D Кинотеатр Навруз</option>
+              <option value="siema">Кинотеатр "Премьер Зал Душанбе"</option>
+              <option value="vatan">Кинотеатр "Ватан"</option>
+          </select>
           </div>
           <div className='flex items-center gap-[20px]'>
             <NavLink
