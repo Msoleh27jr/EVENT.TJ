@@ -225,7 +225,7 @@ const scrollToTicket = () => {
         </div>
         <div className="w-[100%]">
             <div className='flex md:flex-row flex-col items-start gap-[20px] justify-between'>            
-                <div className='w-[100%]'>
+                <div>
                     <div className='my-[30px] w-[100%] flex md:flex-row flex-col items-start gap-[30px]'>
                         <div className='md:w-[315px]'>
                             <div className='relative'>
@@ -298,7 +298,7 @@ const scrollToTicket = () => {
 
 
                     <h3 className='my-[50px] text-[20px] font-bold'>Описание</h3>      
-                    <p className='text-[18px] mb-[50px]'>{movie.description}</p>
+                    <p className='text-[18px] w-[790px] mb-[50px]'>{movie.description}</p>
                     <h3 ref={videoRef} className='mb-[35px] text-[20px] font-bold'>Трейлер</h3>  
                     <div className='overflow-hidden w-[100%] md:w-[370px] rounded-[10px]'>
                         <ReactPlayer
