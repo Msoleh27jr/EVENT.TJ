@@ -1,35 +1,29 @@
-
 import React from 'react'
 import { data } from "./dataBase"
-import { Link, NavLink, useNavigate } from 'react-router';
+import { NavLink, useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next';
 
 const Digets = () => {
-  let navigate = useNavigate()
-  const { t, i18n } = useTranslation();
+  const navigate = useNavigate()
+  const { t } = useTranslation()
+
   return (
     <div className='mb-[100px]'>
       <div className='flex justify-between md:flex-row flex-col items-center mb-[30px]'>
         <h1 className='font-[700] text-[42px]'>{t("digets")}</h1>
         <menu className='flex flex-row gap-[30px]'>
-          <NavLink
-            className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300" >
+          <NavLink className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300">
             {t("recomended")}
           </NavLink>
-          <NavLink
-            className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300" >
+          <NavLink className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300">
             {t("latest")}
           </NavLink>
           <NavLink
             className={({ isActive }) =>
-              `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
-     before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
-     before:bg-[#9F00FF] before:transition-all before:duration-300 
-     ${
-       isActive
-         ? "before:w-full text-[#9F00FF]"
-         : "before:w-0 hover:before:w-full"
-     }`
+              `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] 
+              before:content-[''] before:absolute before:left-0 before:bottom-0 
+              before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300 
+              ${isActive ? 'before:w-full text-[#9F00FF]' : 'before:w-0 hover:before:w-full'}`
             }
           >
             {t("all")}
@@ -59,9 +53,11 @@ const Digets = () => {
               </p>
             </div>
           </div>
-        ))}
+        </div>
+      ))}
     </div>
-  );
-};
+  )
+}
 
 export default Digets;
+

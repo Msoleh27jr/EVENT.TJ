@@ -10,7 +10,6 @@ const DigetInfo = () => {
     let recomended = data.filter((el, i) => i != id)
 
     let navigate = useNavigate()
-
     const { t } = useTranslation();
 
     function routeById(i){
@@ -88,7 +87,7 @@ const DigetInfo = () => {
                                     <p className='text-[18px]'>{t(el.description)}</p>
                                 )}
                                 {el.tariffs && (<div>
-                                    <p className='text-[18px] font-[700]'>{t("tariffs")}:</p>
+                                    <p className='text-[18px] font-[700]'>Тарифы:</p>
                                     <ol className="list-disc list-inside">
                                         {el.tariffs.map((item, i) => (
                                             <li key={i}>
@@ -161,6 +160,9 @@ const DigetInfo = () => {
                         </div>
                     ))}
                 </div>
+            </div>
+            <div>
+                <p><span>Поделиться:</span></p>
             </div>
         </div>
     )

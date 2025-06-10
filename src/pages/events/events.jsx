@@ -7,185 +7,157 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import AccordionSummary from "@mui/material/AccordionSummary";
 
-import CalendarComponent from "../../shared/ui/custom/calendar-swiper/calendar-swiper";
 import StarIcon from "@mui/icons-material/Star";
 import { useTranslation } from "react-i18next";
 import { NavLink, useNavigate } from "react-router";
+import CalendarComponent2 from "../../shared/ui/custom/calendar-swiper/calendarevents";
 
-const eventsData = [
+
+export const eventsData = [
   {
     id: 1,
-    eventImage:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHWI6exsG33eBZhSmVZ8R9mYWzW451VJDKlw&s",
+    eventImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHWI6exsG33eBZhSmVZ8R9mYWzW451VJDKlw&s",
     eventName: "Фестивали мусиқии Шашмақом",
     eventSee: 65,
-    eventDescription:
-      "Традиционный фестиваль классической таджикской музыки Шашмаком, соберёт лучших исполнителей страны.",
-    eventDescriptionInfo:
-      "Фестивали Шашмақом як чорабинии муҳими фарҳангист, ки бо ҳадафи ҳифзу тарғиби мусиқии анъанавии тоҷикӣ — Шашмақом баргузор мешавад. Ин мусиқии классикӣ таърихи тӯлонии фарҳанги тоҷикро ифода мекунад ва иҷрои зиндаи он бо иштироки ҳофизони маъруфи кишвар ва гурӯҳҳои мусиқии анъанавӣ баргузор мегардад.",
+    eventDescription: "Традиционный фестиваль классической таджикской музыки Шашмаком, соберёт лучших исполнителей страны.",
+    eventDescriptionInfo: "Фестивали Шашмақом як чорабинии муҳими фарҳангист, ки бо ҳадафи ҳифзу тарғиби мусиқии анъанавии тоҷикӣ — Шашмақом баргузор мешавад. Ин мусиқии классикӣ таърихи тӯлонии фарҳанги тоҷикро ифода мекунад ва иҷрои зиндаи он бо иштироки ҳофизони маъруфи кишвар ва гурӯҳҳои мусиқии анъанавӣ баргузор мегардад.",
     eventLocation: "Амфитеатр, Худжанд",
-    eventDate: "15 июня 2025",
+    eventDate: "2025-06-10",
     eventTime: "19:00",
-    eventTag: "Музыка",
+    eventTag: "Музыка"
   },
   {
     id: 2,
-    eventImage:
-      "https://i.ytimg.com/vi/6p1D2QGC3p0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAXY0qBa5LdtdGC9zpO7bEgtcRx3Q",
+    eventImage: "https://i.ytimg.com/vi/6p1D2QGC3p0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAXY0qBa5LdtdGC9zpO7bEgtcRx3Q",
     eventName: "Мусобиқаи байналмилалии дзюдо Душанбе 2025",
     eventSee: 120,
     eventDescription: "Международный турнир по дзюдо, этап IJF World Tour.",
-    eventDescriptionInfo:
-      "Ин мусобиқа қисми расмии Ҷаҳонгардии Федератсияи байналмилалии дзюдо (IJF World Tour) мебошад. Варзишгарони варзида аз кишварҳои мухталиф барои гирифтани ҷоизаҳо ва холҳои рейтингӣ ширкат мекунанд. Рӯйдод дар муҳити рақобатнок баргузор гардида, имкони дидани дзюдои сатҳи баландро фароҳам меорад.",
+    eventDescriptionInfo: "Ин мусобиқа қисми расмии Ҷаҳонгардии Федератсияи байналмилалии дзюдо (IJF World Tour) мебошад. Варзишгарони варзида аз кишварҳои мухталиф барои гирифтани ҷоизаҳо ва холҳои рейтингӣ ширкат мекунанд. Рӯйдод дар муҳити рақобатнок баргузор гардида, имкони дидани дзюдои сатҳи баландро фароҳам меорад.",
     eventLocation: "Kasri Tennis, Душанбе",
-    eventDate: "2–4 мая 2025",
+    eventDate: "2025-06-12",
     eventTime: "10:00",
-    eventTag: "Спорт",
+    eventTag: "Спорт"
   },
   {
     id: 3,
-    eventImage:
-      "https://www.un-glaciers.org/sites/default/files/2024-10/logo_iygp_dark_full%20color.png",
+    eventImage: "https://www.un-glaciers.org/sites/default/files/2024-10/logo_iygp_dark_full%20color.png",
     eventName: "Конфронси байналмилалӣ оид ба ҳифзи пиряхҳо",
     eventSee: 80,
     eventDescription: "Конференция ООН и Таджикистана по сохранению ледников.",
-    eventDescriptionInfo:
-      "Чорабинӣ бо ташаббуси Созмони Милали Муттаҳид ва Ҳукумати Тоҷикистон барои ҷалби таваҷҷуҳи ҷаҳонӣ ба масъалаи обшавии пиряхҳо баргузор мешавад. Дар он коршиносон, экологҳо ва сиёсатмадорон ширкат варзида, роҳҳои ҳалли мушкилоти обу иқлимро муҳокима мекунанд.",
+    eventDescriptionInfo: "Чорабинӣ бо ташаббуси Созмони Милали Муттаҳид ва Ҳукумати Тоҷикистон барои ҷалби таваҷҷуҳи ҷаҳонӣ ба масъалаи обшавии пиряхҳо баргузор мешавад. Дар он коршиносон, экологҳо ва сиёсатмадорон ширкат варзида, роҳҳои ҳалли мушкилоти обу иқлимро муҳокима мекунанд.",
     eventLocation: "Kokhi Somon, Душанбе",
-    eventDate: "29–31 мая 2025",
+    eventDate: "2025-06-11",
     eventTime: "09:00",
-    eventTag: "Экология",
+    eventTag: "Экология"
   },
   {
     id: 4,
-    eventImage:
-      "https://pressa.tj/wp-content/uploads/2025/03/omodagi-ba-navruz-24.jpg",
+    eventImage: "https://pressa.tj/wp-content/uploads/2025/03/omodagi-ba-navruz-24.jpg",
     eventName: "Фестивали ҷаҳонии ҷавонон Наврӯз",
     eventSee: 200,
-    eventDescription:
-      "Фестиваль для молодежи с культурной и спортивной программой.",
-    eventDescriptionInfo:
-      "Дар доираи таҷлили Наврӯз — иди миллии баҳорӣ, ҷавонон аз кишварҳои гуногун ба Тоҷикистон меоянд. Барномаҳо шомили озмунҳо, намоишҳои фарҳангӣ, консерту мастер-классҳо мебошанд. Ин фестивал ба рушди дӯстии ҷавонон ва ҳамкории байналмилалӣ мусоидат мекунад.",
+    eventDescription: "Фестиваль для молодежи с культурной и спортивной программой.",
+    eventDescriptionInfo: "Дар доираи таҷлили Наврӯз — иди миллии баҳорӣ, ҷавонон аз кишварҳои гуногун ба Тоҷикистон меоянд. Барномаҳо шомили озмунҳо, намоишҳои фарҳангӣ, консерту мастер-классҳо мебошанд. Ин фестивал ба рушди дӯстии ҷавонон ва ҳамкории байналмилалӣ мусоидат мекунад.",
     eventLocation: "Душанбе + Истаравшан, Пенджикент, Худжанд",
-    eventDate: "16–21 марта 2025",
+    eventDate: "2025-06-14",
     eventTime: "12:00",
-    eventTag: "Культура",
+    eventTag: "Культура"
   },
   {
     id: 5,
-    eventImage:
-      "https://www.france.fi/wp-content/uploads/2025/02/francophonie-2025-1098x617.jpg",
+    eventImage: "https://www.france.fi/wp-content/uploads/2025/02/francophonie-2025-1098x617.jpg",
     eventName: "Рӯзҳои фарҳанги франкофонӣ 2025",
     eventSee: 50,
-    eventDescription:
-      "Фестиваль французской культуры: кино, квизы, мастер‑классы.",
-    eventDescriptionInfo:
-      "Фестивали фарҳанги франкофонӣ имкони шиносоӣ бо забон, фарҳанг ва анъанаҳои кишварҳои франкоязычиро фароҳам меорад. Дар барнома намоиши филмҳо, викторинаҳо, дидор бо устодони забон ва ҳамкориҳои фарҳангӣ пешбинӣ шудааст.",
+    eventDescription: "Фестиваль французской культуры: кино, квизы, мастер‑классы.",
+    eventDescriptionInfo: "Фестивали фарҳанги франкофонӣ имкони шиносоӣ бо забон, фарҳанг ва анъанаҳои кишварҳои франкоязычиро фароҳам меорад. Дар барнома намоиши филмҳо, викторинаҳо, дидор бо устодони забон ва ҳамкориҳои фарҳангӣ пешбинӣ шудааст.",
     eventLocation: "Vatan Cinema ва дигар ҷойҳо, Душанбе",
-    eventDate: "21 апреля – 2 мая 2025",
+    eventDate: "2025-06-10",
     eventTime: "18:00",
-    eventTag: "Образование",
+    eventTag: "Образование"
   },
   {
     id: 6,
-    eventImage:
-      "https://asiaplustj.info/sites/default/files/articles/258058/8.JPG",
+    eventImage: "https://asiaplustj.info/sites/default/files/articles/258058/8.JPG",
     eventName: "Фестивали тобистона: таом ва шарҳои ҳавоӣ",
     eventSee: 180,
-    eventDescription:
-      "Фестиваль национальной кухни и воздушных шаров в Душанбе.",
-    eventDescriptionInfo:
-      "Чорабинӣ бо намоиши таомҳои миллӣ ва парвози шарҳои рангоранг баргузор мешавад. Меҳмонон метавонанд аз таомҳои суннатӣ лаззат баранд ва манзараҳои зебои парвози шарҳоро аз наздик бинанд. Барои оилаҳо ва кӯдакон барномаи шавқовар пешбинӣ шудааст.",
+    eventDescription: "Фестиваль национальной кухни и воздушных шаров в Душанбе.",
+    eventDescriptionInfo: "Чорабинӣ бо намоиши таомҳои миллӣ ва парвози шарҳои рангоранг баргузор мешавад. Меҳмонон метавонанд аз таомҳои суннатӣ лаззат баранд ва манзараҳои зебои парвози шарҳоро аз наздик бинанд. Барои оилаҳо ва кӯдакон барномаи шавқовар пешбинӣ шудааст.",
     eventLocation: "Душанбе, калонтарин майдонча",
-    eventDate: "Сентябрь 2025",
+    eventDate: "2025-06-12",
     eventTime: "11:00",
-    eventTag: "Еда",
+    eventTag: "Еда"
   },
   {
     id: 7,
-    eventImage:
-      "https://asiaplustj.info/sites/default/files/articles/279644/%D0%BF%D0%BB%D0%BE%D0%B2%20%D0%90%D0%B7%D0%B8%D1%8F-%D0%9F%D0%BB%D1%8E%D1%81.jpg",
+    eventImage: "https://asiaplustj.info/sites/default/files/articles/279644/%D0%BF%D0%BB%D0%BE%D0%B2%20%D0%90%D0%B7%D0%B8%D1%8F-%D0%9F%D0%BB%D1%8E%D1%81.jpg",
     eventName: "Фестивали байналмилалии Oш",
     eventSee: 220,
     eventDescription: "Международный фестиваль плова в парке культуры Душанбе.",
-    eventDescriptionInfo:
-      "Фестивали Oш чорабинии бузургест, ки пухтупази анъанавии таоми миллӣ — палавро ҷашн мегирад. Шеф-пухтупазҳои машҳур аз кишварҳои гуногун ширкат карда, услубҳои гуногуни палавпазиро намоиш медиҳанд. Бо озмунҳо ва мусиқии зинда.",
+    eventDescriptionInfo: "Фестивали Oш чорабинии бузургест, ки пухтупази анъанавии таоми миллӣ — палавро ҷашн мегирад. Шеф-пухтупазҳои машҳур аз кишварҳои гуногун ширкат карда, услубҳои гуногуни палавпазиро намоиш медиҳанд. Бо озмунҳо ва мусиқии зинда.",
     eventLocation: "Парк культуры, Душанбе",
-    eventDate: "Октябрь 2025",
+    eventDate: "2025-06-15",
     eventTime: "07:00",
-    eventTag: "Еда",
+    eventTag: "Еда"
   },
   {
     id: 8,
-    eventImage:
-      "https://cdn.easteast.world/uploads/post_image/5836/image/74c4d85812a3446cb38a.jpg",
+    eventImage: "https://cdn.easteast.world/uploads/post_image/5836/image/74c4d85812a3446cb38a.jpg",
     eventName: "Фестивали мусиқии «Боми Ҷаҳон»",
     eventSee: 150,
     eventDescription: "Этно‑фестиваль музыки в Хороге, Памир.",
-    eventDescriptionInfo:
-      "Ин чорабинии фарҳангӣ ҳадаф дорад мусиқии миллӣ ва этникӣ аз гӯшаву канори ҷаҳонро муаррифӣ кунад. Гурӯҳҳои мусиқии Помир ва кишварҳои ҳамсоя бо иҷроҳои зинда иштирок мекунанд. Ҷои баргузорӣ дар табиати зебои кӯҳӣ аст.",
+    eventDescriptionInfo: "Ин чорабинии фарҳангӣ ҳадаф дорад мусиқии миллӣ ва этникӣ аз гӯшаву канори ҷаҳонро муаррифӣ кунад. Гурӯҳҳои мусиқии Помир ва кишварҳои ҳамсоя бо иҷроҳои зинда иштирок мекунанд. Ҷои баргузорӣ дар табиати зебои кӯҳӣ аст.",
     eventLocation: "Парк, Хорог",
-    eventDate: "Июль 2025",
+    eventDate: "2025-06-13",
     eventTime: "14:00",
-    eventTag: "Музыка",
+    eventTag: "Музыка"
   },
   {
     id: 9,
-    eventImage:
-      "https://pamirtrips.com/wp-content/uploads/chabysh-horse-festival-hd-1.jpg",
+    eventImage: "https://pamirtrips.com/wp-content/uploads/chabysh-horse-festival-hd-1.jpg",
     eventName: "Фестивали аспдавонӣ Ат‑Чабиш",
     eventSee: 90,
     eventDescription: "Праздник конного спорта, бузкаши и поэзии в Мургабе.",
-    eventDescriptionInfo:
-      "Фестивали анъанавии аспдавонӣ дар ноҳияи Мурғоб баргузор гардида, аспсаворӣ, бузкашӣ ва намоиши шеъру мусиқии мардумиро дар бар мегирад. Ин чорабинӣ як таҷлили фарҳанги кӯҳӣ ва варзиши миллӣ мебошад.",
+    eventDescriptionInfo: "Фестивали анъанавии аспдавонӣ дар ноҳияи Мурғоб баргузор гардида, аспсаворӣ, бузкашӣ ва намоиши шеъру мусиқии мардумиро дар бар мегирад. Ин чорабинӣ як таҷлили фарҳанги кӯҳӣ ва варзиши миллӣ мебошад.",
     eventLocation: "Мургаб, Памир",
-    eventDate: "Вторая неделя июля 2025",
+    eventDate: "2025-06-12",
     eventTime: "10:00",
-    eventTag: "Спорт",
+    eventTag: "Спорт"
   },
   {
     id: 10,
-    eventImage:
-      "https://adventuresoflilnicki.com/wp-content/uploads/2020/08/Bolshoi-Allo-Fann-Mountains-Tajikistan-8.jpg",
+    eventImage: "https://adventuresoflilnicki.com/wp-content/uploads/2020/08/Bolshoi-Allo-Fann-Mountains-Tajikistan-8.jpg",
     eventName: "Гузаргоҳи кӯҳии Тоҷикистон",
     eventSee: 70,
     eventDescription: "6‑дневный трейл‑рейс по Фанским горам (~165 км).",
-    eventDescriptionInfo:
-      "Ин пойгаи кӯҳӣ барои дӯстдорони сайёҳӣ ва варзиши шадид ташкил шудааст. Мусофирати 6-рӯза дар манзараҳои зебои кӯҳҳои Фон иштирокчиёнро интизор аст. Чорабинӣ сатҳи баланд дошта, бо иштироки варзишгарони хориҷӣ сурат мегирад.",
+    eventDescriptionInfo: "Ин пойгаи кӯҳӣ барои дӯстдорони сайёҳӣ ва варзиши шадид ташкил шудааст. Мусофирати 6-рӯза дар манзараҳои зебои кӯҳҳои Фон иштирокчиёнро интизор аст. Чорабинӣ сатҳи баланд дошта, бо иштироки варзишгарони хориҷӣ сурат мегирад.",
     eventLocation: "Фанские горы",
-    eventDate: "9–17 августа 2025",
+    eventDate: "2025-06-16",
     eventTime: "06:00",
-    eventTag: "Экстрим",
+    eventTag: "Экстрим"
   },
   {
     id: 11,
     eventImage: "https://www.intracen.org/media/image/1839",
     eventName: "Намоишгоҳи ҳунарҳои мардумии Тоҷикистон",
     eventSee: 65,
-    eventDescription:
-      "Выставка народных ремёсел со всей страны: текстиль, керамика, украшения.",
-    eventDescriptionInfo:
-      "Намоишгоҳ намунаҳои беҳтарини ҳунарҳои дастии тоҷиконро — аз гулдӯзӣ то сафолгариву заргарӣ — ба маъраз мегузорад. Дар он ҳунармандон аз тамоми вилоятҳо иштирок мекунанд. Меҳмонон метавонанд ҳунарҳоро на танҳо тамошо кунанд, балки харидорӣ низ кунанд.",
+    eventDescription: "Выставка народных ремёсел со всей страны: текстиль, керамика, украшения.",
+    eventDescriptionInfo: "Намоишгоҳ намунаҳои беҳтарини ҳунарҳои дастии тоҷиконро — аз гулдӯзӣ то сафолгариву заргарӣ — ба маъраз мегузорад. Дар он ҳунармандон аз тамоми вилоятҳо иштирок мекунанд. Меҳмонон метавонанд ҳунарҳоро на танҳо тамошо кунанд, балки харидорӣ низ кунанд.",
     eventLocation: "Кохи Борбад, Душанбе",
-    eventDate: "5–7 октября 2025",
+    eventDate: "2025-06-14",
     eventTime: "10:00",
-    eventTag: "Ремёсла",
+    eventTag: "Ремёсла"
   },
   {
     id: 12,
-    eventImage:
-      "https://eurasia-assembly.org/sites/default/files/styles/news_full/public/news/glavnaya_2_0.jpeg?itok=uZTJNhbU",
+    eventImage: "https://eurasia-assembly.org/sites/default/files/styles/news_full/public/news/glavnaya_2_0.jpeg?itok=uZTJNhbU",
     eventName: "Саёҳат аз рӯи мероси Роҳи Абрешим",
     eventSee: 110,
-    eventDescription:
-      "Путешествие по древнему Шёлковому пути с остановками в Истаравшане, Пенджикенте и Худжанде.",
-    eventDescriptionInfo:
-      "Ин саёҳати таърихӣ дар доираи барномаи байналмилалии мероси Роҳи Абрешим ташкил мегардад. Мусофирон аз шаҳрҳои қадимӣ дидан мекунанд ва бо таъриху фарҳанги маҳаллӣ шинос мешаванд. Гидҳои касбӣ ва барномаи маърифатӣ пешбинӣ шудааст.",
+    eventDescription: "Путешествие по древнему Шёлковому пути с остановками в Истаравшане, Пенджикенте и Худжанде.",
+    eventDescriptionInfo: "Ин саёҳати таърихӣ дар доираи барномаи байналмилалии мероси Роҳи Абрешим ташкил мегардад. Мусофирон аз шаҳрҳои қадимӣ дидан мекунанд ва бо таъриху фарҳанги маҳаллӣ шинос мешаванд. Гидҳои касбӣ ва барномаи маърифатӣ пешбинӣ шудааст.",
     eventLocation: "Шёлковый путь, север Таджикистана",
-    eventDate: "1–7 сентября 2025",
+    eventDate: "2025-06-16",
     eventTime: "08:00",
-    eventTag: "История",
-  },
+    eventTag: "История"
+  }
 ];
 
 const recommendedEvents = [
@@ -250,9 +222,12 @@ const recommendedEvents = [
   },
 ];
 
+
 const Events = () => {
   const [open, setOpen] = useState(false);
   const [modal, setModal] = useState(false);
+  const [filteredEvents, setFilteredEvents] = useState([]);
+
 
   const handleToggle = () => {
     setOpen((prev) => !prev);
@@ -398,7 +373,7 @@ const Events = () => {
         </section>
       )}
       <div className="">
-        <CalendarComponent />
+        <CalendarComponent2 onFilterChange={setFilteredEvents}/>
       </div>
       <div className="flex justify-between flex-col md:flex-row gap-[16px]">
         <h1 className="font-bold text-[30px]">{t("events")}</h1>
@@ -452,11 +427,11 @@ const Events = () => {
       </div>
       {
         <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {eventsData.slice(0, 9).map((event) => (
+          {(filteredEvents.length > 0 ? filteredEvents : eventsData).map((event) => (
             <div
               onClick={() => eventById(event.id)}
               key={event.id}
-              class="max-w-sm rounded-2xl  shadow-lg bg-white overflow-hidden transform transition duration-600 group cursor-pointer dark:bg-[#222]"
+              class="max-w-sm rounded-2xl  shadow-lg bg-white overflow-hidden transform transition duration-600 group cursor-pointer dark:bg-gray-800"
             >
               <img
                 class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110"
@@ -484,7 +459,7 @@ const Events = () => {
               <div
                 onClick={() => eventById(event.id)}
                 key={event.id}
-                class="max-w-sm dark:bg-[#222] rounded-2xl  shadow-lg bg-white overflow-hidden transform transition duration-600 group cursor-pointer"
+                class="max-w-sm dark:bg-gray-800 rounded-2xl  shadow-lg bg-white overflow-hidden transform transition duration-600 group cursor-pointer"
               >
                 <img
                   class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110"
@@ -506,18 +481,22 @@ const Events = () => {
               </div>
             ))}
 
-          {!modal && (
+        
+        </div>
+        
+      }
+      <div className="flex justify-center items-center mt-[50px]">
+      {!modal && (
             <button
               className="p-[10px_30px] text-white rounded-[10px] hover:bg-blue-600 bg-[#9F00FF] transform transition duration-600"
               onClick={() => setModal(true)}
             >
-              Показать еще
+              Нишон додани бештар
             </button>
           )}
-        </div>
-      }
-      <div className="mt-10">
-        <h2 className="text-3xl font-bold mb-6">Рекомендации</h2>
+      </div>
+      <div className="my-30 ">
+        <h2 className="text-3xl font-bold mb-6">Тавсияҳо</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
           {recommendedEvents.map((event) => (
             <div
