@@ -1,19 +1,24 @@
-import React from "react";
-import { data } from "./dataBase";
-import { Link, NavLink, useNavigate } from "react-router";
+
+import React from 'react'
+import { data } from "./dataBase"
+import { Link, NavLink, useNavigate } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 const Digets = () => {
-  let navigate = useNavigate();
+  let navigate = useNavigate()
+  const { t, i18n } = useTranslation();
   return (
-    <div className="mb-[100px]">
-      <div className="flex justify-between items-center mb-[30px]">
-        <h1 className="font-[700] text-[42px]">Дайджесты</h1>
-        <menu className="flex flex-row gap-[30px]">
-          <NavLink className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300">
-            Рекомендуемые
+    <div className='mb-[100px]'>
+      <div className='flex justify-between items-center mb-[30px]'>
+        <h1 className='font-[700] text-[42px]'>{t("digets")}</h1>
+        <menu className='flex flex-row gap-[30px]'>
+          <NavLink
+            className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300" >
+            {t("recomended")}
           </NavLink>
-          <NavLink className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300">
-            Последние
+          <NavLink
+            className="relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF] before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 before:bg-[#9F00FF] before:transition-all before:duration-300" >
+            {t("latest")}
           </NavLink>
           <NavLink
             className={({ isActive }) =>
@@ -27,10 +32,11 @@ const Digets = () => {
      }`
             }
           >
-            Все
+            {t("all")}
           </NavLink>
         </menu>
-        <h1 className="font-[700] text-[42px]">Популярные теги</h1>
+        <i></i>
+        <h1 className='font-[700] text-[42px] fixed left-[70%]'>{t("popularTages")}</h1>
       </div>
       {data &&
         data.map((el, i) => (
