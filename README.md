@@ -13,8 +13,11 @@
 
 ## 🔧 Tech Stack
 
-- **Frontend**: React.js / Tailwind CSS (or your stack)  
-- **Backend**: Node.js / Express (or your backend stack)  
-- **Database**: MongoDB / PostgreSQL (or your DB)  
-- **Authentication**: JWT or similar (if used)
+- **Frontend**: React.js / Tailwind 
+- **Backend**: Node.js
+  
+## 🖼️ Picutes of Event.tj
+![image](https://github.com/user-attachments/assets/0d121d6b-b16d-4129-8aef-50d309b58c16)
+![image](https://github.com/user-attachments/assets/64c2e4db-d66f-404a-b997-6c329af0ac45)
+
 
