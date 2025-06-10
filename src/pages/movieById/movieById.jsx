@@ -12,203 +12,196 @@ function getRandomMovies(array, count) {
 }
 
 const MovieById = () => {
-  let { id } = useParams();
-  const videoRef = useRef(null);
-  const ticketRef = useRef(null);
-  const { t } = useTranslation();
-  let [data] = useState([
-    {
-      id: 1,
-      image: "https://www.kino-teatr.ru/movie/posters/big/4/0/176904.jpg",
-      name: "Каратэ-пацан: Легенды",
-      cinema: "kayhon",
-      genres: [
-        {
-          genre: "Семейный",
-          id: 1,
-        },
-        {
-          genre: "Спорт",
-          id: 2,
-        },
-        {
-          genre: "Драма",
-          id: 3,
-        },
-        {
-          genre: "Боевик",
-          id: 5,
-        },
-        {
-          genre: "Анимадок",
-          id: 4,
-        },
-      ],
-      age: 12,
-      time: "1 ч. 58 минут",
-      country: "США",
-      rating: 6.6,
-      year: 2025,
-      description:
-        "Продолжение истории об американском мальчишке, победившем в соревнованиях по кунг-фу, и пожилом мастере, помогавшем ему в этом непростом деле.",
-      role: "Джеки Чан, Джошуа Джексон, Арамис Найт, Ральф Маччио, Мин-На Вэнь, Шонетт Рене Уилсон, Сэди Стэнли, Уайатт Олефф, Бен Ван, Jennifer-Lynn Christie",
-      video: "https://www.youtube.com/embed/55qOCxcLj6o&feature=youtu.be",
-    },
-    {
-      id: 2,
-      image:
-        "https://upload.wikimedia.org/wikipedia/ru/thumb/1/19/Mission-_Impossible_%E2%80%93_The_Final_Reckoning.jpg/330px-Mission-_Impossible_%E2%80%93_The_Final_Reckoning.jpg",
-      name: "Миссия невыполнима: Финальная расплата",
-      cinema: "navruz",
-      genres: [
-        {
-          genre: "Боевик",
-          id: 1,
-        },
-        {
-          genre: "Триллер",
-          id: 2,
-        },
-        {
-          genre: "Приключения",
-          id: 3,
-        },
-      ],
-      age: 16,
-      time: "2ч 49мин",
-      country: "США, Великобритания",
-      rating: 7.6,
-      year: 2025,
-      description:
-        "Итан Хант пытается разыскать инновационный искусственный интеллект, угрожающий существованию всего мира.",
-      role: "Том Круз, Анджела Бассетт, Джанет МакТир, Ребекка Фергюсон, Ванесса Кирби, Шей Уигэм, Хейли Этвелл, Трэмелл Тиллман, Ханна Уэддингхэм, Кэти М. О’Брайан",
-      video: "https://www.youtube.com/embed/1bsBFEr9_Ag",
-    },
-    {
-      id: 3,
-      image:
-        "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSU13E6WdhYqkaVtEbYqIRZkoyik7J4iMMhdULtdwMmjSMuM07x",
-      name: "Лило и Стич",
-      genres: [
-        {
-          genre: "Семейный",
-          id: 1,
-        },
-        {
-          genre: "Анимация",
-          id: 2,
-        },
-      ],
-      age: 6,
-      time: "1 ч. 25 минут",
-      country: "США",
-      rating: 7.2,
-      year: 2025,
-      description:
-        "О дружбе, возникшей между девочкой по имени Лило и похожим на собаку/коалу пришельцем по имени Стич, который создан для создания хаоса и разрушений…",
-      role: "Джейсон Скотт Ли, Зак Галифианакис, Кортни Б. Вэнс, Крис Сандерс, Тиа Каррере, Билли Магнуссен, Ханна Уэддингхэм, Sofia Lone, Сидни Агудонг, Maia Kealoha",
-      video: "https://www.youtube.com/embed/5WXweoj_1Z0",
-    },
-    {
-      id: 4,
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGDkrEcx5SHpSuj2i6xBiFtFTbpe4tPEmWqg&s",
-      name: "Игры возмездия",
-      genres: [
-        {
-          genre: "Боевик",
-          id: 1,
-        },
-        {
-          genre: "Триллер",
-          id: 2,
-        },
-      ],
-      age: 18,
-      time: "1 ч. 26 минут",
-      country: "Великобритания, США",
-      rating: 3.4,
-      year: "29 мая 2025",
-      description:
-        "Бокуши строит неприступную крепость, собирает в ней целый арсенал оружия и преданных ему ветеранов боевых действий. Правительство пытается проникнуть в организацию, чтобы узнать его планы. После нескольких неудачных попыток власти вербуют Нэша Кавано, бывшего спецназовца, который когда-то был учеником Бокуши. Наконец-то у Нэша появляется возможность отомстить человеку, который отнял у него все, включая любовь всей его жизни.",
-      role: "Лоуренс Мэйсон, Роберт Де Ниро, Джон Легуизамо, Саид Тагмауи, Джейми Фокс, Скотт Иствуд, Рита Ора, Нора Арнезедер, Шамир Андерсон, Джои Бикиччи",
-      video: "https://www.youtube.com/embed/3m3MjEQh0qE",
-    },
-    {
-      id: 5,
-      image:
-        "https://resizing.flixster.com/wAle06E2Nc307UwCCbqPeVIJ2fE=/206x305/v2/https://resizing.flixster.com/idSqXXW1SHplGNnq6W67KnkK-_s=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzQyMWQ0OTJhLThkYjYtNDY0MS1hMDNhLTU4NDk3YWExMDllMy5qcGc=",
-      name: "Как приручить дракона",
-      cinema: "vatan",
-      genres: [
-        {
-          genre: "Фэнтези",
-          id: 1,
-        },
-        {
-          genre: "Приключения",
-          id: 2,
-        },
-        {
-          genre: "Семейный",
-          id: 3,
-        },
-        {
-          genre: "Анимация",
-          id: 4,
-        },
-        {
-          genre: "Комедия",
-          id: 5,
-        },
-      ],
-      age: 0,
-      time: "2 ч. 5 минут",
-      country: "США, Великобритания",
-      rating: 0,
-      year: "7 июня 2025",
-      description:
-        "Подростку Иккингу не слишком близки традиции его героического племени, много лет ведущего войну с драконами. Парень неожиданно заводит дружбу с драконом Беззубиком, который поможет ему и другим викингам увидеть мир с совершенно другой стороны.",
-      role: "Ник Фрост, Джерард Батлер, Нико Паркер, Джулиан Деннисон, Мэйсон Темз, Бронвин Джеймс, Рут Кодд, Gabriel Howell, Гарри Тревальдвин, Мюррэй МакАртур",
-      video: "https://www.youtube.com/watch?v=5QrRs2-o6Qs",
-    },
-    {
-      id: 6,
-      image: "https://www.kino-teatr.ru/movie/posters/big/2/5/168152.jpg",
-      name: "Балерина",
-      cinema: "kayhon",
-      genres: [
-        {
-          genre: "Боевик",
-          id: 1,
-        },
-        {
-          genre: "Триллер",
-          id: 2,
-        },
-      ],
-      age: 18,
-      time: "2 ч. 5 минут",
-      country: "США",
-      rating: 7.3,
-      year: "2025",
-      description:
-        "Опытная наемница и по совместительству профессиональная балерина охотится на убийц своей семьи.",
-      role: "Киану Ривз, Гэбриел Бирн, Анжелика Хьюстон, Норман Ридус, Иэн МакШейн, Лэнс Реддик, Ана де Армас, Каталина Сандино Морено, Анн Парийо, Шэрон Дункан-Брюстер",
-      video: "https://www.youtube.com/watch?v=I07NgjmlnSI&t=2s",
-    },
-  ]);
+    let { id } = useParams()
+    const videoRef = useRef(null);
+    const ticketRef = useRef(null);
+    const { t } = useTranslation();
 
-  let movie = data.find((e) => e.id == id);
-  let movies = data.filter((e) => e.id != id);
-  const randomProducts = getRandomMovies(movies, 4);
-  const scrollToVideo = () => {
-    videoRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-  const scrollToTicket = () => {
-    ticketRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+    let [data] = useState([
+      {
+        id: 1,
+        image: 'https://www.kino-teatr.ru/movie/posters/big/4/0/176904.jpg',
+        name: 'Каратэ-пацан: Легенды',
+        cinema: 'kayhon',
+        genres: [
+          {
+            genre: 'Семейный',
+            id: 1
+          },
+          {
+            genre: 'Спорт',
+            id: 2
+          },
+          {
+            genre: 'Драма',
+            id: 3
+          },
+          {
+            genre: 'Боевик',
+            id: 5
+          },
+          {
+            genre: 'Анимадок',
+            id: 4
+          }
+        ],
+        age: 12,
+        time: '1 ч. 58 минут',
+        country: 'США',
+        rating: 6.6,
+        year: 2025,
+        description: 'Продолжение истории об американском мальчишке, победившем в соревнованиях по кунг-фу, и пожилом мастере, помогавшем ему в этом непростом деле.',     
+        role: 'Джеки Чан, Джошуа Джексон, Арамис Найт, Ральф Маччио, Мин-На Вэнь, Шонетт Рене Уилсон, Сэди Стэнли, Уайатт Олефф, Бен Ван, Jennifer-Lynn Christie',
+        video: 'https://www.youtube.com/embed/55qOCxcLj6o&feature=youtu.be'
+      },
+      {
+              id: 2,
+              image: 'https://upload.wikimedia.org/wikipedia/ru/thumb/1/19/Mission-_Impossible_%E2%80%93_The_Final_Reckoning.jpg/330px-Mission-_Impossible_%E2%80%93_The_Final_Reckoning.jpg',
+              name: 'Миссия невыполнима: Финальная расплата',
+              cinema: 'navruz',
+              genres: [
+                {
+                  genre: 'Боевик',
+                  id: 1
+                },
+                {
+                  genre: 'Триллер',
+                  id: 2
+                },
+                {
+                  genre: 'Приключения',
+                  id: 3
+                }
+              ],
+              age: 16,
+              time: '2ч 49мин',
+              country: 'США, Великобритания',
+              rating: 7.6,
+              year: 2025,
+              description: 'Итан Хант пытается разыскать инновационный искусственный интеллект, угрожающий существованию всего мира.',     
+              role: 'Том Круз, Анджела Бассетт, Джанет МакТир, Ребекка Фергюсон, Ванесса Кирби, Шей Уигэм, Хейли Этвелл, Трэмелл Тиллман, Ханна Уэддингхэм, Кэти М. О’Брайан',
+              video: 'https://www.youtube.com/embed/1bsBFEr9_Ag'
+      },
+      {
+        id: 3,
+        image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSU13E6WdhYqkaVtEbYqIRZkoyik7J4iMMhdULtdwMmjSMuM07x',
+        name: 'Лило и Стич',
+        genres: [
+          {
+            genre: 'Семейный',
+            id: 1
+          },
+          {
+            genre: 'Анимация',
+            id: 2
+          }
+        ],
+        age: 6,
+        time: '1 ч. 25 минут',
+        country: 'США',
+        rating: 7.2,
+        year: 2025,
+        description: 'О дружбе, возникшей между девочкой по имени Лило и похожим на собаку/коалу пришельцем по имени Стич, который создан для создания хаоса и разрушений…',     
+        role: 'Джейсон Скотт Ли, Зак Галифианакис, Кортни Б. Вэнс, Крис Сандерс, Тиа Каррере, Билли Магнуссен, Ханна Уэддингхэм, Sofia Lone, Сидни Агудонг, Maia Kealoha',
+        video: 'https://www.youtube.com/watch?v=5WXweoj_1Z0'
+      },
+      {
+        id: 4,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGDkrEcx5SHpSuj2i6xBiFtFTbpe4tPEmWqg&s',
+        name: 'Игры возмездия',
+        genres: [
+          {
+            genre: 'Боевик',
+            id: 1
+          },
+          {
+            genre: 'Триллер',
+            id: 2
+          }
+        ],
+        age: 18,
+        time: '1 ч. 26 минут',
+        country: 'Великобритания, США',
+        rating: 3.4,
+        year: '29 мая 2025',
+        description: 'Бокуши строит неприступную крепость, собирает в ней целый арсенал оружия и преданных ему ветеранов боевых действий. Правительство пытается проникнуть в организацию, чтобы узнать его планы. После нескольких неудачных попыток власти вербуют Нэша Кавано, бывшего спецназовца, который когда-то был учеником Бокуши. Наконец-то у Нэша появляется возможность отомстить человеку, который отнял у него все, включая любовь всей его жизни.',     
+        role: 'Лоуренс Мэйсон, Роберт Де Ниро, Джон Легуизамо, Саид Тагмауи, Джейми Фокс, Скотт Иствуд, Рита Ора, Нора Арнезедер, Шамир Андерсон, Джои Бикиччи',
+        video: 'https://www.youtube.com/embed/3m3MjEQh0qE'
+      },
+      {
+        id: 5,
+        image: 'https://resizing.flixster.com/wAle06E2Nc307UwCCbqPeVIJ2fE=/206x305/v2/https://resizing.flixster.com/idSqXXW1SHplGNnq6W67KnkK-_s=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzQyMWQ0OTJhLThkYjYtNDY0MS1hMDNhLTU4NDk3YWExMDllMy5qcGc=',
+        name: 'Как приручить дракона',
+        cinema: 'vatan',
+        genres: [
+          {
+            genre: 'Фэнтези',
+            id: 1
+          },
+          {
+            genre: 'Приключения',
+            id: 2
+          },
+          {
+            genre: 'Семейный',
+            id: 3
+          },
+          {
+            genre: 'Анимация',
+            id: 4
+          },
+          {
+            genre: 'Комедия',
+            id: 5
+          }
+        ],
+        age: 0,
+        time: '2 ч. 5 минут',
+        country: 'США, Великобритания',
+        rating: 0,
+        year: '7 июня 2025',
+        description: 'Подростку Иккингу не слишком близки традиции его героического племени, много лет ведущего войну с драконами. Парень неожиданно заводит дружбу с драконом Беззубиком, который поможет ему и другим викингам увидеть мир с совершенно другой стороны.',     
+        role: 'Ник Фрост, Джерард Батлер, Нико Паркер, Джулиан Деннисон, Мэйсон Темз, Бронвин Джеймс, Рут Кодд, Gabriel Howell, Гарри Тревальдвин, Мюррэй МакАртур',
+        video: 'https://www.youtube.com/watch?v=5QrRs2-o6Qs'
+      },
+      {
+        id: 6,
+        image: 'https://www.kino-teatr.ru/movie/posters/big/2/5/168152.jpg',
+        name: 'Балерина',
+        cinema: 'kayhon',
+        genres: [
+          {
+            genre: 'Боевик',
+            id: 1
+          },
+          {
+            genre: 'Триллер',
+            id: 2
+          }
+        ],
+        age: 18,
+        time: '2 ч. 5 минут',
+        country: 'США',
+        rating: 7.3,
+        year: '2025',
+        description: 'Опытная наемница и по совместительству профессиональная балерина охотится на убийц своей семьи.',     
+        role: 'Киану Ривз, Гэбриел Бирн, Анжелика Хьюстон, Норман Ридус, Иэн МакШейн, Лэнс Реддик, Ана де Армас, Каталина Сандино Морено, Анн Парийо, Шэрон Дункан-Брюстер',
+        video: 'https://www.youtube.com/watch?v=I07NgjmlnSI&t=2s'
+      },
+    ])
+    
+    let movie = data.find((e) => e.id == id)
+    let movies = data.filter((e) => e.id != id)
+    const randomProducts = getRandomMovies(movies, 4);
 
+    const scrollToVideo = () => {
+      videoRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const scrollToTicket = () => {
+      ticketRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+ 
   return (
     <>
       <section className="my-[40px]">
@@ -249,9 +242,10 @@ const MovieById = () => {
           </svg>
           <h3>{movie.name}</h3>
         </div>
+
         <div className="w-[100%]">
           <div className="flex md:flex-row flex-col items-start gap-[20px] justify-between">
-            <div>
+            <div className="w-[100%]">
               <div className="my-[30px] w-[100%] flex md:flex-row flex-col items-start gap-[30px]">
                 <div className="md:w-[315px]">
                   <div className="relative">
@@ -345,69 +339,10 @@ const MovieById = () => {
                   </ul>
                 </div>
               </div>
-
-              <div className="md:w-[440px] w-[100%]">
-                <div className="flex items-center flex-wrap gap-[20px]">
-                  {movie.genres.map((e) => {
-                    return (
-                      <h3
-                        key={e.id}
-                        className="h-[35px] px-[5px] text-[gray] flex items-center justify-center rounded-[7px] bg-[#f5f5f5]"
-                      >
-                        {e.genre}
-                      </h3>
-                    );
-                  })}
-                </div>
-                <h2 className="my-[20px] text-[35px] font-bold">
-                  {movie.name}
-                </h2>
-                <h3 className="mb-[20px] text-[#9F00FF] text-[18px] font-semibold">
-                  Детали:
-                </h3>
-                <ul>
-                  <li className="font-bold text-[18px]">
-                    Возрастная категория фильма:{" "}
-                    <span className="font-normal">{movie.age}+</span>
-                  </li>
-                  <li className="font-bold text-[18px]">
-                    Хронометраж:{" "}
-                    <span className="font-normal">{movie.time}</span>
-                  </li>
-                  <li className="font-bold text-[18px]">
-                    Страна: <span className="font-normal">{movie.country}</span>
-                  </li>
-                  <li
-                    style={{ display: movie.rating == 0 ? "none" : "block" }}
-                    className="font-bold text-[18px]"
-                  >
-                    Рейтинг{" "}
-                    <span
-                      style={{
-                        backgroundColor:
-                          movie.rating < 5
-                            ? "red"
-                            : movie.rating < 7
-                            ? "#db8f00"
-                            : "#43c443",
-                      }}
-                      className="font-normal text-[#FAFAFA] px-[5px] rounded-[5px] h-[20px]"
-                    >
-                      IMDb {movie.rating}
-                    </span>
-                  </li>
-                  <li className="font-bold text-[18px]">
-                    Год: <span className="font-normal">{movie.year}</span>
-                  </li>
-                  <li className="font-bold text-[18px]">
-                    В ролях: <span className="font-normal">{movie.role}</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            
 
             <h3 className="my-[50px] text-[20px] font-bold">Описание</h3>
-            <p className="text-[18px] w-[790px] mb-[50px]">
+            <p className="text-[18px] md:w-[790px] mb-[50px]">
               {movie.description}
             </p>
             <h3 ref={videoRef} className="mb-[35px] text-[20px] font-bold">
@@ -449,12 +384,6 @@ const MovieById = () => {
                 Чтобы купить билет, нажмите на сеанс.
               </h4>
             </div>
-
-            <LocalActivityIcon className="text-[#9F00FF]" />
-            <h4 ref={ticketRef} className="font-bold text-[18px]">
-              Чтобы купить билет, нажмите на сеанс.
-            </h4>
-          </div>
 
           <h3 className="text-[20px] my-[20px] font-bold">Душанбе</h3>
           <div className="bg-gray-100 dark:bg-gray-700 p-[25px] rounded-[10px]">
@@ -554,6 +483,8 @@ const MovieById = () => {
                 </div>
               );
             })}
+          </div>
+        </div>
           </div>
         </div>
       </section>
