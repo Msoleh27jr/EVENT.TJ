@@ -194,8 +194,8 @@ const Movie = () => {
           <h3>{t("movie")}</h3>
         </div>
         
-        <div className='my-[20px] flex md:flex-row flex-col gap-[10px] items-center justify-between'>
-          <div className='flex items-center gap-[15px]'>
+        <div className='my-[20px] flex md:flex-row flex-col gap-[10px] md:items-center justify-between'>
+          <div className='flex items-start md:items-center gap-[15px] md:flex-row flex-col'>
             <h2 className='text-[30px] font-bold'>{t("movie")}</h2>
             <select value={cinema} onChange={(e) => setCinema(e.target.value)} className="p-2 bg-gray-200 w-[250px] dark:bg-gray-700 text-black dark:text-white rounded-[8px]">
               <option value="all">{t("theatres")}</option>
@@ -203,7 +203,7 @@ const Movie = () => {
               <option value="navruz">3D Кинотеатр Навруз</option>
               <option value="siema">Кинотеатр "Премьер Зал Душанбе"</option>
               <option value="vatan">Кинотеатр "Ватан"</option>
-          </select>
+            </select>
           </div>
           <div className='flex items-center gap-[20px]'>
             <NavLink
@@ -262,10 +262,10 @@ const Movie = () => {
             {
               data.filter((e) => cinema == 'all' || e.cinema == cinema).map((e) => {
                 return (
-                  <Link key={e.id} to={`${e.id}`}>
-                    <div className='w-[215px] m-auto md:m-0 h-[560px] overflow-hidden transform transition duration-600 group cursor-pointer'>
+                  <Link key={e.id} to={`${e.id}`} className='max-md:w-[45%]'>
+                    <div className='md:w-[215px] m-auto md:m-0 md:h-[560px] overflow-hidden transform transition duration-600 group cursor-pointer'>
                       <div className='overflow-hidden rounded-[10px] mb-[20px] relative'>
-                        <img src={e.image} className='w-full h-[325px] object-cover transform transition duration-700 group-hover:scale-110 rounded-[10px]' alt="image" />
+                        <img src={e.image} className='w-full h-[250px] md:h-[325px] object-cover transform transition duration-700 group-hover:scale-110 rounded-[10px]' alt="image" />
                         <div style={{backgroundColor: e.rating < 5 ? 'red' : e.rating < 7 ? '#db8f00' : '#43c443', display: e.rating == 0 ? 'none' : 'flex'}} className='absolute top-[15px] right-[15px] w-[30px] h-[20px] rounded-[4px] flex items-center justify-center text-[#FAFAFA]'>
                           {e.rating}
                         </div>                   
