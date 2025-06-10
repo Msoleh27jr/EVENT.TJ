@@ -359,37 +359,37 @@ export const data = [
             {
                 name:"Space",
                 description: "Компания «Space» имеют большой опыт в сфере фотографии, так как занимается этим с 2017 года. Агентство проводит фотосессию как во время свадьбы, так и предсвадебную фотосессию, или как по-другому называют это – «Love story». ",
-                link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_vGQpLAO8oNFKXCG4qkKo_xh3FTQChvRSgw&s",
+                link: "https://asiaplustj.info/sites/default/files/articles/326569/Space2.jpg",
                 phone: "(+992) 984 445 445."
             },
             {
                 name:"Marry me",
                 description: "Фотографы этой студии в сфере фотографий уже более 10 лет. Здесь вам организуют как свадебную, так и предсвадебную фотосессии.",
-                link: "https://img.mywed.com/PfxqTwllE11LANpQvdmDT66bMxsDA4ZrOm-X_hIxupWHI0i4qIoOlp_oVECBFJUuolu_YX5sAyFR9BBgfWv4feTPRi5drjNr_fDFsw=w486-h324-e30",
+                link: "https://asiaplustj.info/sites/default/files/articles/326569/Marry%20me%281%29.jpg",
                 phone: "(+992) 555 700 800."
             },
             {
                 name:"Али Валиев ",
                 description: "Известный молодой таджикский фотограф в этом бизнесе с 2019 года. Основное направление фотографа – свадьбы. Здесь у Али уже большой опыт.",
-                link: "https://img.mywed.com/o4bDksOWEQXjxwbgalp7gncQg2JYg0JPIDv6Xg2BPKHEErJ-ZMjFTBRrBa-t5CDfy-tYeip9SdrM2gaLe0QXZs3HwuQlvo_S-BavQjI=w486-h324-e30",
+                link: "https://asiaplustj.info/sites/default/files/articles/326569/Valiev%20Ali%281%29.jpg",
                 phone: "(+992) 555 745 555."
             },
             {
                 name:"Фазлиддин Салимов",
                 description: "Фотограф, который профессионально занимается фотографиями более 10 лет. Он предоставляет услуги свадебной и предсвадебной фотосессий, также занимается съемкой видеороликов «Love story».",
-                link: "https://img.mywed.com/qlLf6DQgOU-tF_1y4cwZ7zsfECLeIWHXXFPYUol8yeTXxxuHljudbM9E3qi6RO4SOicbJaVopmK5STSkmLUeVqCirPXQX7PeT1LT7A=w486-h324-e30",
+                link: "https://asiaplustj.info/sites/default/files/articles/326569/%D0%A4%D0%B0%D0%B7%D0%BB%D0%B8%D0%B4%D0%B4%D0%B8%D0%BD%20%D0%A1%D0%B0%D0%BB%D0%B8%D0%BC%D0%BE%D0%B2.jpg",
                 phone: "(+992) 904 404 277."
             },
             {
                 name:"Сомон Назаров",
                 description: "Известный в Душанбе фотограф, у которого есть своя студия. Сомон в сфере фотографии уже более 7 лет, редко принимает заказы на фотосессию в день свадьбы, чаще он проводит предсвадебную фотосессию и «Love Story». ",
-                link: "https://img.mywed.com/wytmZLKLSpvWpw_RqO90q-G81a1OmpbFMl6eR1Al7NE4buda7R_7amArSofap_wtacHsffsy8_k2EczQurYmfxGMGplgaeG3zjPfNg=w486-h324-e30",
+                link: "https://asiaplustj.info/sites/default/files/articles/326569/%D0%A1%D0%BE%D0%BC%D0%BE%D0%BD%20%D0%9D%D0%B0%D0%B7%D0%B0%D1%80%D0%BE%D0%B2.jpg",
                 phone: "(+992) 919 222 332"
             },
             {
                 name:"Ильхом Юнусов",
                 description: "Коммерческий фотограф, который на протяжении многих лет задает тренды в своей сфере. Ильхом может провести вам различные виды съемок – начиная от фотосессий на виньетку до свадебных и предсвадебных фотосессий. ",
-                link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoniOWY9_H5a_djj53dJQ8QQnm17FAkEJMMVuO4hM4FYRFneOHpHgb55hLvwPM1zKr46I&usqp=CAU",
+                link: "https://asiaplustj.info/sites/default/files/articles/326569/%D0%98%D0%BB%D1%8C%D1%85%D0%BE%D0%BC%20%D0%AE%D0%BD%D1%83%D1%81%D0%BE%D0%B2%281%29.jpg",
                 phone: "(+992) 930 330 198."
             }
         ]

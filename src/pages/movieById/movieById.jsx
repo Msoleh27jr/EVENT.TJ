@@ -192,17 +192,20 @@ const MovieById = () => {
     let movie = data.find((e) => e.id == id)
     let movies = data.filter((e) => e.id != id)
     const randomProducts = getRandomMovies(movies, 4);
+const scrollToVideo = () => {
+  videoRef.current?.scrollIntoView({ behavior: 'smooth' });
+};
 
-    const scrollToVideo = () => {
-      videoRef.current?.scrollIntoView({ behavior: 'smooth' });
-    };
+const scrollToTicket = () => {
+  ticketRef.current?.scrollIntoView({ behavior: 'smooth' });
+};
+
 
     const scrollToTicket = () => {
       ticketRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
-
-  return (
+    return (
     <>
       <section className="my-[40px]">
         <div className="flex items-center flex-wrap text-[18px] gap-[20px]">
@@ -220,8 +223,6 @@ const MovieById = () => {
           </svg>
           <h3>{movie.name}</h3>
         </div>
-
-       
         <div className="w-[100%]">
             <div className='flex md:flex-row flex-col items-start gap-[20px] justify-between'>            
                 <div className='w-[100%]'>
@@ -236,6 +237,43 @@ const MovieById = () => {
                             <Button onClick={scrollToVideo} className='w-full my-[20px] h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer hover:bg-[#4040ff] transition-all duration-500 font-normal bg-[#9F00FF]'>Трейлер</Button>
                             <Button onClick={scrollToTicket} className='w-full h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer font-normal hover:bg-[gray] transition-all duration-500 bg-[#272525]'>Купить билет</Button>
                         </div>
+              <div className="md:w-[440px] w-[100%]">
+                <div className="flex items-center flex-wrap gap-[20px]">
+                  {movie.genres.map((e) => {
+                    return (
+                      <h3 key={e.id} className="h-[35px] px-[5px] text-[gray] flex items-center justify-center rounded-[7px] bg-[#f5f5f5]">
+                        {e.genre}
+                      </h3>
+                    );
+                  })}
+                </div>
+                <h2 className="my-[20px] text-[35px] font-bold">{movie.name}</h2>
+                <h3 className="mb-[20px] text-[#9F00FF] text-[18px] font-semibold">Детали:</h3>
+                <ul>
+                  <li className="font-bold text-[18px]">
+                    Возрастная категория фильма: <span className="font-normal">{movie.age}+</span>
+                  </li>
+                  <li className="font-bold text-[18px]">
+                    Хронометраж: <span className="font-normal">{movie.time}</span>
+                  </li>
+                  <li className="font-bold text-[18px]">
+                    Страна: <span className="font-normal">{movie.country}</span>
+                  </li>
+                  <li className="font-bold text-[18px]">
+                    Рейтинг{" "}
+                    <span style={{ backgroundColor: movie.rating < 5 ? "red" : movie.rating < 7 ? "#db8f00" : "#43c443" }} className="font-normal text-[#FAFAFA] px-[5px] rounded-[5px] h-[20px]">
+                      IMDb {movie.rating}
+                    </span>
+                  </li>
+                  <li className="font-bold text-[18px]">
+                    Год: <span className="font-normal">{movie.year}</span>
+                  </li>
+                  <li className="font-bold text-[18px]">
+                    В ролях: <span className="font-normal">{movie.role}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
                         <div className='md:w-[440px] w-[100%]'>
                             <div className='flex items-center flex-wrap gap-[20px]'>
@@ -258,8 +296,9 @@ const MovieById = () => {
                         </div>
                     </div>
 
+
                     <h3 className='my-[50px] text-[20px] font-bold'>Описание</h3>      
-                    <p className='text-[18px] md:w-[750px] mb-[50px]'>{movie.description}</p>
+                    <p className='text-[18px] mb-[50px]'>{movie.description}</p>
                     <h3 ref={videoRef} className='mb-[35px] text-[20px] font-bold'>Трейлер</h3>  
                     <div className='overflow-hidden w-[100%] md:w-[370px] rounded-[10px]'>
                         <ReactPlayer
@@ -283,18 +322,21 @@ const MovieById = () => {
                             />
                     </div>
                     
-                    <div className='md:w-[750px]'>
-                      <CalendarComponent />
-                    </div>
-                    
-                    <div className='flex md:w-[750px] items-center dark:bg-gray-700 bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]'>
+<div className='md:w-[750px]'>
+  <CalendarComponent />
+</div>
+
+<div className='flex md:w-[750px] items-center dark:bg-gray-700 bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]'>
+  <LocalActivityIcon className='text-[#9F00FF]' />
+  <h4 ref={ticketRef} className='font-bold text-[18px]'>Чтобы купить билет, нажмите на сеанс.</h4>
+</div>
+
                         <LocalActivityIcon className='text-[#9F00FF]' />
                         <h4 ref={ticketRef} className='font-bold text-[18px]'>Чтобы купить билет, нажмите на сеанс.</h4>
                     </div>
 
                     <h3 className='text-[20px] my-[20px] font-bold'>Душанбе</h3>
-                    
-                    <div className='bg-gray-100 md:w-[750px] dark:bg-gray-700 p-[25px] rounded-[10px]'>
+                    <div className='bg-gray-100 dark:bg-gray-700 p-[25px] rounded-[10px]'>
                         <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
                           <div>
                             <h3 className='text-[20px] font-semibold'>Кайхон</h3>
@@ -312,7 +354,7 @@ const MovieById = () => {
                           </div>
                         </div>
                     </div>
-                    <div className='p-[25px] md:w-[750px]'>
+                    <div className='p-[25px]'>
                         <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
                           <div>
                             <h3 className='text-[20px] font-semibold'>Кинотеатр "Ватан"</h3>
@@ -325,7 +367,7 @@ const MovieById = () => {
                           </div>
                         </div>
                     </div>
-                    <div className='bg-gray-100 md:w-[750px] dark:bg-gray-700 p-[25px] rounded-[10px]'>
+                    <div className='bg-gray-100 dark:bg-gray-700 p-[25px] rounded-[10px]'>
                         <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
                           <div>
                             <h3 className='text-[20px] font-semibold'>3D Кинотеатр Навруз</h3>
@@ -377,10 +419,7 @@ const MovieById = () => {
                         }
                     </div>
                 </div>
-            </div>
-        </div> 
-        
-      </section>
+        </section>
     </>
   );
 };
