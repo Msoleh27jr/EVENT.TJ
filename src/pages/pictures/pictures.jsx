@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 const Pictures = () => {
@@ -10,10 +11,10 @@ const Pictures = () => {
       title: "В Ташкенте стартовал фестиваль цветов.",
       date: "1 мая",
       category: "Фестивали",
-      imageUrl: "https://anons.uz/storage/uploads/2025/5/1/1746115842_SNG09044_resized_crop.jpg",
+      imageUrl: "https://www.gazeta.uz/media/img/2025/05/IgvcSS17461014091353_l.webp",
       images: [
         {
-          img: "https://anons.uz/storage/uploads/2025/5/1/1746115842_SNG09044_resized_crop.jpg",
+          img: "https://www.gazeta.uz/media/img/2025/05/IgvcSS17461014091353_l.webp",
           desc: "Цветочная композиция на площади у Национальной библиотеки Узбекистана во время Ташкентского фестиваля цветов."
         },
         {
@@ -67,9 +68,7 @@ const Pictures = () => {
         aboutAuthor: {
           name: "Дмитрий Смирнов",
           bio: "Дмитрий — ландшафтный дизайнер и фотограф, увлеченный природными пейзажами. Его снимки передают всю красоту и гармонию флоры, подчеркивая уникальность каждого растения и уголка сада.",
-
-
-avatar: "https://img.freepik.com/free-photo/portrait-handsome-man-with-beard-garden_1112-132.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user"
+          avatar: "https://img.freepik.com/free-photo/portrait-handsome-man-with-beard-garden_1112-132.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user"
         },
         relatedFacts: [
           {
@@ -88,7 +87,7 @@ avatar: "https://img.freepik.com/free-photo/portrait-handsome-man-with-beard-gar
       title: "Парад цветов на главной площади",
       date: "3 мая",
       category: "Фестивали",
-      imageUrl: "https://img.freepik.com/free-photo/beautiful-decorated-street-with-flowers_1203-3932.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user",
+      imageUrl: "https://s.rfi.fr/media/display/35d7a1a0-5baf-11ef-916e-005056a97e36/w:980/p:16x9/2024-08-15T114752Z_769966374_RC2BG9AT1FWC_RTRMADP_3_BELGIUM-FLOWERS.JPG",
       images: [
         {
           img: "https://img.freepik.com/free-photo/flower-parade-at-carnival-in-portugal_1203-3882.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user",
@@ -126,16 +125,13 @@ avatar: "https://img.freepik.com/free-photo/portrait-handsome-man-with-beard-gar
       title: "Ночной световой шоу-фестиваль",
       date: "3 мая",
       category: "Фестивали",
-      imageUrl: "https://img.freepik.com/free-photo/laser-show-at-music-festival_23-2148782390.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user",
+      imageUrl: "https://russian.shanghai.gov.cn/cmsres/36/3614705893d8458d9e468a1e152ec567/9f6b906bbc9d8fb520bc173e9ec37ed6.jpg",
       images: [
         {
           img: "https://img.freepik.com/free-photo/blue-stage-lights_1203-2479.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user",
           desc: "Потрясающие световые инсталляции и проекции на зданиях в ночи, создающие футуристический и завораживающий пейзаж."
         },
-        {
-
-
-img: "https://img.freepik.com/free-photo/party-crowd-with-colorful-lights_23-2148782434.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user",
+        {img: "https://img.freepik.com/free-photo/party-crowd-with-colorful-lights_23-2148782434.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user",
           desc: "Толпы людей наблюдают шоу под музыку и свет, завороженно следя за каждым движением лучей и наслаждаясь атмосферой праздника."
         },
         {
@@ -166,7 +162,7 @@ img: "https://img.freepik.com/free-photo/party-crowd-with-colorful-lights_23-214
       title: "Выставка экзотических цветов",
       date: "4 мая",
       category: "Выставки",
-      imageUrl: "https://img.freepik.com/free-photo/exotic-flower-arrangement_1203-2412.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user",
+      imageUrl: "https://gtrk-kaluga.ru/public/upload/news/17651/gallery/cvetov020213.jpg",
       images: [
         {
           img: "https://img.freepik.com/free-photo/beautiful-orchid-flowers_1203-2417.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user",
@@ -193,10 +189,7 @@ img: "https://img.freepik.com/free-photo/party-crowd-with-colorful-lights_23-214
             factImage: "https://img.freepik.com/free-photo/tropical-plants-in-a-botanical-garden_1112-257.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user"
           },
           {
-
-
-factText: "Посетители могут получить консультации по уходу за экзотическими цветами от ведущих специалистов и узнать о последних достижениях в области цветоводства.",
-            factImage: "https://img.freepik.com/free-photo/gardener-working-in-greenhouse_1112-249.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user"
+            factText: "Посетители могут получить консультации по уходу за экзотическими цветами от ведущих специалистов и узнать о последних достижениях в области цветоводства.",factImage: "https://img.freepik.com/free-photo/gardener-working-in-greenhouse_1112-249.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user"
           }
         ]
       }
@@ -206,7 +199,7 @@ factText: "Посетители могут получить консультац
       title: "Конкурс флористического искусства",
       date: "5 мая",
       category: "Конкурсы",
-      imageUrl: "https://img.freepik.com/free-photo/flower-arrangement-competition_1203-2410.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user",
+      imageUrl: "https://krasfair.ru/upload/medialibrary/4e6/img_6158.jpg",
       images: [
         {
           img: "https://img.freepik.com/free-photo/hands-making-a-flower-arrangement_1203-2409.jpg?size=626&ext=jpg&ga=GA1.1.200378776.1717871400&semt=ais_user",
@@ -238,16 +231,18 @@ factText: "Посетители могут получить консультац
           }
         ]
       }
-    }
-  ])
+    },
+   
+  ]);
 
   const handleClick = (id) => {
     navigate(`/pictures/${id}`); 
   };
+  const {t} = useTranslation()
 
   return (
-    <div className='p-4'>
-      <h1 className='text-[28px] font-bold mb-6'>Фоторепортажи</h1>
+    <div className='md:my-10'>
+      <h1 className='text-[28px] font-bold mb-6'>{t("pictures")}</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
         {data.map((item) => (
           <div
