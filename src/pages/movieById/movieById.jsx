@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react'
-import { Link, useParams } from 'react-router'
-import { Button } from '../../shared/ui/custom/button/button'
-import ReactPlayer from 'react-player'
-import CalendarComponent from '../../shared/ui/custom/calendar-swiper/calendar-swiper'
-import LocalActivityIcon from '@mui/icons-material/LocalActivity';
-import { useTranslation } from 'react-i18next'
+import React, { useRef, useState } from "react";
+import { Link, useParams } from "react-router";
+import { Button } from "../../shared/ui/custom/button/button";
+import ReactPlayer from "react-player";
+import CalendarComponent from "../../shared/ui/custom/calendar-swiper/calendar-swiper";
+import LocalActivityIcon from "@mui/icons-material/LocalActivity";
+import { useTranslation } from "react-i18next";
 
 function getRandomMovies(array, count) {
   const random = [...array].sort(() => 0.5 - Math.random());
@@ -16,6 +16,7 @@ const MovieById = () => {
     const videoRef = useRef(null);
     const ticketRef = useRef(null);
     const { t } = useTranslation();
+
     let [data] = useState([
       {
         id: 1,
@@ -200,8 +201,7 @@ const MovieById = () => {
     const scrollToTicket = () => {
       ticketRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
-
-
+ 
   return (
     <>
       <section className="my-[40px]">
@@ -209,177 +209,284 @@ const MovieById = () => {
           <Link to={"/"}>
             <h3>{t("home")}</h3>
           </Link>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-4"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m8.25 4.5 7.5 7.5-7.5 7.5"
+            />
           </svg>
           <Link to={"/movie"}>
             <h3>{t("movie")}</h3>
           </Link>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-4"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m8.25 4.5 7.5 7.5-7.5 7.5"
+            />
           </svg>
           <h3>{movie.name}</h3>
         </div>
 
-       
         <div className="w-[100%]">
-            <div className='flex md:flex-row flex-col items-start gap-[20px] justify-between'>            
-                <div className='w-[100%]'>
-                    <div className='my-[30px] w-[100%] flex md:flex-row flex-col items-start gap-[30px]'>
-                        <div className='md:w-[315px]'>
-                            <div className='relative'>
-                                <img src={movie.image} alt="image" className='md:w-[315px] h-[475px] rounded-[10px]' />
-                                <div style={{backgroundColor: movie.rating < 5 ? 'red' : movie.rating < 7 ? '#db8f00' : '#43c443', display: movie.rating == 0 ? 'none' : 'flex'}} className='absolute top-[15px] right-[15px] w-[30px] h-[20px] rounded-[4px] flex items-center justify-center text-[#FAFAFA]'>
-                                {movie.rating}
-                                </div>
-                            </div>
-                            <Button onClick={scrollToVideo} className='w-full my-[20px] h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer hover:bg-[#4040ff] transition-all duration-500 font-normal bg-[#9F00FF]'>Трейлер</Button>
-                            <Button onClick={scrollToTicket} className='w-full h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer font-normal hover:bg-[gray] transition-all duration-500 bg-[#272525]'>Купить билет</Button>
-                        </div>
-
-                        <div className='md:w-[440px] w-[100%]'>
-                            <div className='flex items-center flex-wrap gap-[20px]'>
-                                {
-                                    movie.genres.map((e) => {
-                                        return <h3 key={e.id} className='h-[35px] px-[5px] text-[gray] flex items-center justify-center rounded-[7px] bg-[#f5f5f5]'>{e.genre}</h3>
-                                    })
-                                }
-                            </div>
-                            <h2 className='my-[20px] text-[35px] font-bold'>{movie.name}</h2>
-                            <h3 className='mb-[20px] text-[#9F00FF] text-[18px] font-semibold'>Детали:</h3>
-                            <ul>
-                                <li className='font-bold text-[18px]'>Возрастная категория фильма: <span className='font-normal'>{movie.age}+</span></li>
-                                <li className='font-bold text-[18px]'>Хронометраж: <span className='font-normal'>{movie.time}</span></li>
-                                <li className='font-bold text-[18px]'>Страна: <span className='font-normal'>{movie.country}</span></li>
-                                <li style={{display: movie.rating == 0 ? 'none' : 'block'}} className='font-bold text-[18px]'>Рейтинг <span style={{backgroundColor: movie.rating < 5 ? 'red' : movie.rating < 7 ? '#db8f00' : '#43c443'}} className='font-normal text-[#FAFAFA] px-[5px] rounded-[5px] h-[20px]'>IMDb {movie.rating}</span></li>
-                                <li className='font-bold text-[18px]'>Год: <span className='font-normal'>{movie.year}</span></li>
-                                <li className='font-bold text-[18px]'>В ролях: <span className='font-normal'>{movie.role}</span></li>
-                            </ul>
-                        </div>
+          <div className="flex md:flex-row flex-col items-start gap-[20px] justify-between">
+            <div className="w-[100%]">
+              <div className="my-[30px] w-[100%] flex md:flex-row flex-col items-start gap-[30px]">
+                <div className="md:w-[315px]">
+                  <div className="relative">
+                    <img
+                      src={movie.image}
+                      alt="image"
+                      className="md:w-[315px] h-[475px] rounded-[10px]"
+                    />
+                    <div
+                      style={{
+                        backgroundColor:
+                          movie.rating < 5
+                            ? "red"
+                            : movie.rating < 7
+                            ? "#db8f00"
+                            : "#43c443",
+                        display: movie.rating == 0 ? "none" : "flex",
+                      }}
+                      className="absolute top-[15px] right-[15px] w-[30px] h-[20px] rounded-[4px] flex items-center justify-center text-[#FAFAFA]"
+                    >
+                      {movie.rating}
                     </div>
-
-                    <h3 className='my-[50px] text-[20px] font-bold'>Описание</h3>      
-                    <p className='text-[18px] md:w-[750px] mb-[50px]'>{movie.description}</p>
-                    <h3 ref={videoRef} className='mb-[35px] text-[20px] font-bold'>Трейлер</h3>  
-                    <div className='overflow-hidden w-[100%] md:w-[370px] rounded-[10px]'>
-                        <ReactPlayer
-                            controls
-                            url={movie.video}
-                            light={true}
-                            width={'100%'}
-                            height={'190px'}
-                            playIcon={
-                                <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="white"
-                                viewBox="0 0 24 24"
-                                strokeWidth={1.5}
-                                stroke="none"
-                                className="w-16 h-16 mx-auto"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 5v14l11-7z" />
-                                </svg>
-                            }   
-                            />
-                    </div>
-                    
-                    <div className='md:w-[750px]'>
-                      <CalendarComponent />
-                    </div>
-                    
-                    <div className='flex md:w-[750px] items-center dark:bg-gray-700 bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]'>
-                        <LocalActivityIcon className='text-[#9F00FF]' />
-                        <h4 ref={ticketRef} className='font-bold text-[18px]'>Чтобы купить билет, нажмите на сеанс.</h4>
-                    </div>
-
-                    <h3 className='text-[20px] my-[20px] font-bold'>Душанбе</h3>
-                    
-                    <div className='bg-gray-100 md:w-[750px] dark:bg-gray-700 p-[25px] rounded-[10px]'>
-                        <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
-                          <div>
-                            <h3 className='text-[20px] font-semibold'>Кайхон</h3>
-                            <p className='text-[#9F00FF] font-semibold text-[14px]'>№5</p>
-                            <p>(+998) 94-707-4455</p>
-                            <p>ул. Бабура, 174, внутри парка Magic Сity</p>
-                          </div>
-                          <div className='flex items-center gap-[10px]'>
-                            <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
-                              <p className='text-[18px] font-semibold'>17:40</p>
-                            </div>
-                            <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
-                              <p className='text-[18px] font-semibold'>20:45</p>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div className='p-[25px] md:w-[750px]'>
-                        <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
-                          <div>
-                            <h3 className='text-[20px] font-semibold'>Кинотеатр "Ватан"</h3>
-                            <p className='text-[#9F00FF] font-semibold text-[14px]'>№4</p>
-                            <p>(+998) 94-707-4455</p>
-                            <p>ул. Бабура, 174, внутри парка Magic Сity</p>
-                          </div>
-                          <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
-                            <p className='text-[18px] font-semibold'>18:55</p>
-                          </div>
-                        </div>
-                    </div>
-                    <div className='bg-gray-100 md:w-[750px] dark:bg-gray-700 p-[25px] rounded-[10px]'>
-                        <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
-                          <div>
-                            <h3 className='text-[20px] font-semibold'>3D Кинотеатр Навруз</h3>
-                            <p className='text-[#9F00FF] font-semibold text-[14px]'>№3</p>
-                            <p>(+998) 94-707-4455</p>
-                            <p>ул. Бабура, 174, внутри парка Magic Сity</p>
-                          </div>
-                          <div className='flex items-center gap-[10px]'>
-                            <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
-                              <p className='text-[18px] font-semibold'>17:30</p>
-                            </div>
-                            <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
-                              <p className='text-[18px] font-semibold'>20:20</p>
-                            </div>
-                            <div className='border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]'>
-                              <p className='text-[18px] font-semibold'>23:10</p>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
+                  </div>
+                  <Button
+                    onClick={scrollToVideo}
+                    className="w-full my-[20px] h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer hover:bg-[#4040ff] transition-all duration-500 font-normal bg-[#9F00FF]"
+                  >
+                    Трейлер
+                  </Button>
+                  <Button
+                    onClick={scrollToTicket}
+                    className="w-full h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer font-normal hover:bg-[gray] transition-all duration-500 bg-[#272525]"
+                  >
+                    Купить билет
+                  </Button>
                 </div>
-                
-                <div>
-                    <h3 className='text-[30px] mb-[30px] font-bold'>Смотрите так же</h3>
-                    <div className='flex flex-wrap md:w-[320px] w-[100%] gap-[20px] justify-between items-start'>    
-                        {
-                        randomProducts.slice(0, 4).map((e) => {
-                            return <div key={e.id}>
-                                <Link to={`/movie/${e.id}`}>
-                                    <div className='w-[145px] m-auto md:m-0 overflow-hidden transform transition duration-600 group cursor-pointer' key={e.id}>
-                                     <div className='overflow-hidden rounded-[10px] mb-[20px]'>
-                                        <img src={e.image} className='w-full h-[230px] object-cover transform transition duration-700 group-hover:scale-110 rounded-[10px]' alt="image" />          
-                                     </div>
-                                    <h3 className='font-bold group-hover:text-[#9F00FF] transition-all duration-500 text-[19px]'>{e.name}</h3>
-                                    <h4 className='my-[15px] text-[18px] text-[#9F00FF]'>Расписание</h4>
-                                    <div className='flex flex-wrap items-center gap-[5px]'>
-                                        {
-                                        e.genres.slice(0,3).map((e) => {
-                                            return (
-                                            <h3 key={e.id} className='h-[35px] px-[5px] text-[gray] flex items-center justify-center rounded-[7px] bg-[#f5f5f5]'>{e.genre}</h3>
-                                            )
-                                        })
-                                        }
-                                    </div>
-                                    </div>
-                                </Link>                    
-                            </div>
-                        })   
-                        }
-                    </div>
+                <div className="md:w-[440px] w-[100%]">
+                  <div className="flex items-center flex-wrap gap-[20px]">
+                    {movie.genres.map((e) => {
+                      return (
+                        <h3
+                          key={e.id}
+                          className="h-[35px] px-[5px] text-[gray] flex items-center justify-center rounded-[7px] bg-[#f5f5f5]"
+                        >
+                          {e.genre}
+                        </h3>
+                      );
+                    })}
+                  </div>
+                  <h2 className="my-[20px] text-[35px] font-bold">
+                    {movie.name}
+                  </h2>
+                  <h3 className="mb-[20px] text-[#9F00FF] text-[18px] font-semibold">
+                    Детали:
+                  </h3>
+                  <ul>
+                    <li className="font-bold text-[18px]">
+                      Возрастная категория фильма:{" "}
+                      <span className="font-normal">{movie.age}+</span>
+                    </li>
+                    <li className="font-bold text-[18px]">
+                      Хронометраж:{" "}
+                      <span className="font-normal">{movie.time}</span>
+                    </li>
+                    <li className="font-bold text-[18px]">
+                      Страна:{" "}
+                      <span className="font-normal">{movie.country}</span>
+                    </li>
+                    <li className="font-bold text-[18px]">
+                      Рейтинг{" "}
+                      <span
+                        style={{
+                          backgroundColor:
+                            movie.rating < 5
+                              ? "red"
+                              : movie.rating < 7
+                              ? "#db8f00"
+                              : "#43c443",
+                        }}
+                        className="font-normal text-[#FAFAFA] px-[5px] rounded-[5px] h-[20px]"
+                      >
+                        IMDb {movie.rating}
+                      </span>
+                    </li>
+                    <li className="font-bold text-[18px]">
+                      Год: <span className="font-normal">{movie.year}</span>
+                    </li>
+                    <li className="font-bold text-[18px]">
+                      В ролях: <span className="font-normal">{movie.role}</span>
+                    </li>
+                  </ul>
                 </div>
+              </div>
+            
+
+            <h3 className="my-[50px] text-[20px] font-bold">Описание</h3>
+            <p className="text-[18px] md:w-[790px] mb-[50px]">
+              {movie.description}
+            </p>
+            <h3 ref={videoRef} className="mb-[35px] text-[20px] font-bold">
+              Трейлер
+            </h3>
+            <div className="overflow-hidden w-[100%] md:w-[370px] rounded-[10px]">
+              <ReactPlayer
+                controls
+                url={movie.video}
+                light={true}
+                width={"100%"}
+                height={"190px"}
+                playIcon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="white"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="none"
+                    className="w-16 h-16 mx-auto"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8 5v14l11-7z"
+                    />
+                  </svg>
+                }
+              />
             </div>
-        </div> 
-        
+
+            <div className="md:w-[750px]">
+              <CalendarComponent />
+            </div>
+
+            <div className="flex md:w-[750px] items-center dark:bg-gray-700 bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]">
+              <LocalActivityIcon className="text-[#9F00FF]" />
+              <h4 ref={ticketRef} className="font-bold text-[18px]">
+                Чтобы купить билет, нажмите на сеанс.
+              </h4>
+            </div>
+
+          <h3 className="text-[20px] my-[20px] font-bold">Душанбе</h3>
+          <div className="bg-gray-100 dark:bg-gray-700 p-[25px] rounded-[10px]">
+            <div className="flex items-center md:flex-row flex-col md:gap-[150px]">
+              <div>
+                <h3 className="text-[20px] font-semibold">Кайхон</h3>
+                <p className="text-[#9F00FF] font-semibold text-[14px]">№5</p>
+                <p>(+998) 94-707-4455</p>
+                <p>ул. Бабура, 174, внутри парка Magic Сity</p>
+              </div>
+              <div className="flex items-center gap-[10px]">
+                <div className="border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]">
+                  <p className="text-[18px] font-semibold">17:40</p>
+                </div>
+                <div className="border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]">
+                  <p className="text-[18px] font-semibold">20:45</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="p-[25px]">
+            <div className="flex items-center md:flex-row flex-col md:gap-[150px]">
+              <div>
+                <h3 className="text-[20px] font-semibold">Кинотеатр "Ватан"</h3>
+                <p className="text-[#9F00FF] font-semibold text-[14px]">№4</p>
+                <p>(+998) 94-707-4455</p>
+                <p>ул. Бабура, 174, внутри парка Magic Сity</p>
+              </div>
+              <div className="border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]">
+                <p className="text-[18px] font-semibold">18:55</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-gray-100 dark:bg-gray-700 p-[25px] rounded-[10px]">
+            <div className="flex items-center md:flex-row flex-col md:gap-[150px]">
+              <div>
+                <h3 className="text-[20px] font-semibold">
+                  3D Кинотеатр Навруз
+                </h3>
+                <p className="text-[#9F00FF] font-semibold text-[14px]">№3</p>
+                <p>(+998) 94-707-4455</p>
+                <p>ул. Бабура, 174, внутри парка Magic Сity</p>
+              </div>
+              <div className="flex items-center gap-[10px]">
+                <div className="border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]">
+                  <p className="text-[18px] font-semibold">17:30</p>
+                </div>
+                <div className="border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]">
+                  <p className="text-[18px] font-semibold">20:20</p>
+                </div>
+                <div className="border border-[#9F00FF] px-[5px] hover:text-[#FAFAFA] transition-all duration-300 hover:bg-[#9F00FF] rounded-[5px]">
+                  <p className="text-[18px] font-semibold">23:10</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-[30px] mb-[30px] font-bold">Смотрите так же</h3>
+          <div className="flex flex-wrap md:w-[320px] w-[100%] gap-[20px] justify-between items-start">
+            {randomProducts.slice(0, 4).map((e) => {
+              return (
+                <div key={e.id}>
+                  <Link to={`/movie/${e.id}`}>
+                    <div
+                      className="w-[145px] m-auto md:m-0 overflow-hidden transform transition duration-600 group cursor-pointer"
+                      key={e.id}
+                    >
+                      <div className="overflow-hidden rounded-[10px] mb-[20px]">
+                        <img
+                          src={e.image}
+                          className="w-full h-[230px] object-cover transform transition duration-700 group-hover:scale-110 rounded-[10px]"
+                          alt="image"
+                        />
+                      </div>
+                      <h3 className="font-bold group-hover:text-[#9F00FF] transition-all duration-500 text-[19px]">
+                        {e.name}
+                      </h3>
+                      <h4 className="my-[15px] text-[18px] text-[#9F00FF]">
+                        Расписание
+                      </h4>
+                      <div className="flex flex-wrap items-center gap-[5px]">
+                        {e.genres.slice(0, 3).map((e) => {
+                          return (
+                            <h3
+                              key={e.id}
+                              className="h-[35px] px-[5px] text-[gray] flex items-center justify-center rounded-[7px] bg-[#f5f5f5]"
+                            >
+                              {e.genre}
+                            </h3>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+          </div>
+        </div>
       </section>
     </>
   );

@@ -193,65 +193,64 @@ const Movie = () => {
           </svg>
           <h3>{t("movie")}</h3>
         </div>
-        
-        <div className='my-[20px] flex md:flex-row flex-col gap-[10px] md:items-center justify-between'>
-          <div className='flex items-start md:items-center gap-[15px] md:flex-row flex-col'>
-            <h2 className='text-[30px] font-bold'>{t("movie")}</h2>
-            <select value={cinema} onChange={(e) => setCinema(e.target.value)} className="p-2 bg-gray-200 w-[250px] dark:bg-gray-700 text-black dark:text-white rounded-[8px]">
-              <option value="all">{t("theatres")}</option>
-              <option value="kayhon">Кайхон</option>
-              <option value="navruz">3D Кинотеатр Навруз</option>
-              <option value="siema">Кинотеатр "Премьер Зал Душанбе"</option>
-              <option value="vatan">Кинотеатр "Ватан"</option>
-            </select>
-          </div>
-          <div className='flex items-center gap-[20px]'>
-            <NavLink
-              to={"/movie"}
-              className={({ isActive }) =>
-                `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
-                before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
-                before:bg-[#9F00FF] before:transition-all before:duration-300 
-                ${
-                  isActive
-                    ? "before:w-full text-[#9F00FF]"
-                    : "before:w-0 hover:before:w-full"
-                }`
-                  }
-                >
-              <h3>Сегодня</h3>
-            </NavLink>
+          <div className='my-[20px] flex md:flex-row flex-col gap-[10px] md:items-center justify-between'>
+            <div className='flex md:items-center md:flex-row flex-col gap-[15px]'>
+              <h2 className='text-[30px] font-bold'>{t("movie")}</h2>
+              <select value={cinema} onChange={(e) => setCinema(e.target.value)} className="p-2 bg-gray-200 w-[250px] dark:bg-gray-700 text-black dark:text-white rounded-[8px]">
+                <option value="all">{t("theatres")}</option>
+                <option value="kayhon">Кайхон</option>
+                <option value="navruz">3D Кинотеатр Навруз</option>
+                <option value="siema">Кинотеатр "Премьер Зал Душанбе"</option>
+                <option value="vatan">Кинотеатр "Ватан"</option>
+              </select>
+            </div>
+            <div className='flex items-center gap-[20px]'>
               <NavLink
-              to={"/"}
-              className={({ isActive }) =>
-                `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
-                before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
-                before:bg-[#9F00FF] before:transition-all before:duration-300 
-                ${
-                  isActive
-                    ? "before:w-full text-[#9F00FF]"
-                    : "before:w-0 hover:before:w-full"
-                }`
-                  }
-                >
-              <h3>Завтра</h3>
-            </NavLink>
-              <NavLink
-              to={"/"}
-              className={({ isActive }) =>
-                `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
-                before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
-                before:bg-[#9F00FF] before:transition-all before:duration-300 
-                ${
-                  isActive
-                    ? "before:w-full text-[#9F00FF]"
-                    : "before:w-0 hover:before:w-full"
-                }`
-                  }
-                >
-              <h3>На этой неделе</h3>
-            </NavLink>
-          </div>
+                to={"/movie"}
+                className={({ isActive }) =>
+                  `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
+                  before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
+                  before:bg-[#9F00FF] before:transition-all before:duration-300 
+                  ${
+                    isActive
+                      ? "before:w-full text-[#9F00FF]"
+                      : "before:w-0 hover:before:w-full"
+                  }`
+                    }
+                  >
+                <h3>Сегодня</h3>
+              </NavLink>
+                <NavLink
+                to={"/"}
+                className={({ isActive }) =>
+                  `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
+                  before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
+                  before:bg-[#9F00FF] before:transition-all before:duration-300 
+                  ${
+                    isActive
+                      ? "before:w-full text-[#9F00FF]"
+                      : "before:w-0 hover:before:w-full"
+                  }`
+                    }
+                  >
+                <h3>Завтра</h3>
+              </NavLink>
+                <NavLink
+                to={"/"}
+                className={({ isActive }) =>
+                  `relative font-medium pb-1 text-gray-600 hover:text-[#9F00FF]
+                  before:content-[''] before:absolute before:left-0 before:bottom-0 before:h-0.5 
+                  before:bg-[#9F00FF] before:transition-all before:duration-300 
+                  ${
+                    isActive
+                      ? "before:w-full text-[#9F00FF]"
+                      : "before:w-0 hover:before:w-full"
+                  }`
+                    }
+                  >
+                <h3>На этой неделе</h3>
+              </NavLink>
+            </div>
         </div>
 
         <CalendarComponent />
@@ -286,8 +285,8 @@ const Movie = () => {
                 )
               })
             }
+            </div>
           </div>
-        </div>
       </section>
     </>
   )
