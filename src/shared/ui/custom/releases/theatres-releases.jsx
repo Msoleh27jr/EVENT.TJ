@@ -4,160 +4,151 @@ import { useTranslation } from "react-i18next";
 
 const TheatresReleases = () => {
   const { t } = useTranslation();
-
-  const [visibleCount, setVisibleCount] = useState(8);
+  const [visibleCount, setVisibleCount] = useState(10);
 
   const releasesData = [
     {
-      id: 23333,
-      title: "Каратэ-пацан: Легенды",
-      poster: "https://s1ru1.kinoplan24.ru/660/0406060506da6d741244e532/23333.jpg?mode=fit&width=1024&height=1024",
-      premiere: true,
+      id: 1,
+      title: "Аладдин",
+      image: "/src/shared/images/theatres/theatres(1).jpg",
+      theatre: "Национальный театр Исландии (Рейкьявик)",
+      genre: "Музыкальная сказка",
+      age: "3+",
+      duration: 50,
+      premiere: 2025,
+      description: "Яркий музыкальный спектакль по мотивам восточной сказки. Бедный, но добрый юноша находит волшебную лампу, исполняющую желания. Но на пути к счастью ему предстоит обхитрить коварного колдуна и завоевать сердце принцессы. Захватывающие приключения, волшебные превращения и важный урок о верности и честности. Премьера: 2025 г. Автор: С. Хельгасон Режиссер: А. Йоунсон",
+    },
+    {
+      id: 2,
+      title: "Необыкновенное состязание",
+      image: "/src/shared/images/theatres/theatres(2).jpg",
+      theatre: "Театр Ла Скала (Милан)",
+      genre: "Сказка",
+      age: "3+",
+      duration: 45,
+      premiere: 2025,
+      description: "Сказочная история о том, как зверята устроили необычное соревнование в лесу. Кто окажется самым смелым, добрым и находчивым? Маленькие герои узнают, что победа — это не всегда первое место, а помощь друзьям и умение работать в команде. Премьера: 2025 г. Автор: Л. Бруни Режиссер: Дж. Ротелли",
+    },
+    {
+      id: 3,
+      title: "Игра окончена",
+      image: "/src/shared/images/theatres/theatres(3).jpg",
+      theatre: "Берлинский драматический театр (Берлинер ансамбль)",
+      genre: "Музыкальная сказка",
+      age: "3+",
+      duration: 50,
+      premiere: 2025,
+      description: "Динамичная история о мире, где всё подчинено правилам и времени. Главный герой — ребёнок с фантазией, которую запрещено проявлять. В решающий момент он нарушает запрет, чтобы спасти воображаемого друга. Спектакль исследует темы свободы, дружбы и внутреннего сопротивления. Премьера: 2025 г. Автор: Х. Мюллер Режиссер: Ф. Кляйн",
+    },
+    {
+      id: 4,
+      title: "Моя прекрасная леди",
+      image: "/src/shared/images/theatres/theatres(4).jpg",
+      theatre: "Комеди Франсез (Париж)",
+      genre: "Мюзикл",
       age: "12+",
-      genres: ["action", "drama", "family", "sport"],
-      sessions: [
-        { time: "18:30", format: "2D", priceFrom: 40, hall: "Зал 1" },
-        { time: "20:15", format: "2D", priceFrom: 40, hall: "Зал 1" },
-        { time: "23:50", format: "2D", priceFrom: 45, hall: "Зал 2" },
-      ],
+      duration: 150,
+      premiere: 2025,
+      description: "Современная постановка знаменитого мюзикла о девушке из простонародья, которую учат быть леди. В ярких декорациях и музыкальных номерах разворачивается история преодоления предрассудков, самоопределения и силы характера. Премьера: 2025 г. Автор: А. Лернер Режиссер: М. Бланшар",
     },
     {
-      id: 23500,
-      title: "Последнее завтра",
-      poster: "https://s1ru1.kinoplan24.ru/684/0406060506ddfb61f98a878c/23500.jpg?mode=fit&width=1024&height=1024",
-      premiere: true,
-      age: "18+",
-      genres: ["thriller"],
-      sessions: [
-        { time: "22:00", format: "2D", priceFrom: 40, hall: "Зал 1" },
-        { time: "23:55", format: "2D", priceFrom: 40, hall: "Зал 1" },
-      ],
-    },
-    {
-      id: 23320,
-      title: "ФИНИКИЙСКАЯ СХЕМА",
-      poster: "https://s2ru1.kinoplan24.ru/941/0406060506e3c8ca3b990452/23320.jpg?mode=fit&width=1024&height=1024",
-      premiere: true,
-      age: "16+",
-      genres: ["action", "drama"],
-      sessions: [{ time: "22:10", format: "2D", priceFrom: 55, hall: "Зал 3" }],
-    },
-    {
-      id: 22701,
-      title: "Лило и Стич",
-      poster: "https://s2ru1.kinoplan24.ru/836/0406060506a4baa1ae971812/22701.jpg?mode=fit&width=1024&height=1024",
-      premiere: false,
+      id: 5,
+      title: "Книга Майны или Сказка о времени",
+      image: "/src/shared/images/theatres/theatres(5).jpg",
+      theatre: "Королевский театр Ковент-Гарден (Лондон)",
+      genre: "Сказка",
       age: "6+",
-      genres: ["cartoon"],
-      sessions: [
-        { time: "17:40", format: "3D", priceFrom: 45, hall: "Зал 2" },
-        { time: "19:40", format: "2D", priceFrom: 45, hall: "Зал 2" },
-      ],
+      duration: 55,
+      premiere: 2025,
+      description: "Философская сказка о девочке Майне, которая отправляется в путешествие сквозь Время, чтобы вернуть радость в своё королевство. Волшебные существа, загадки и встречи с символами прошлого и будущего делают спектакль незабываемым. Премьера: 2025 г. Автор: Д. Уитмор Режиссер: С. Нортон",
     },
     {
-      id: 22652,
-      title: "МИССИЯ НЕВЫПОЛНИМА: ФИНАЛЬНАЯ РАСПЛАТА",
-      poster: "https://s2ru1.kinoplan24.ru/661/0406060506dbaa4d5db47e81/22652.jpg?mode=fit&width=1024&height=1024",
-      premiere: false,
-      age: "16+",
-      genres: ["action", "adventure"],
-      sessions: [
-        { time: "19:00", format: "2D", priceFrom: 55, hall: "Зал 3" },
-        { time: "00:00", format: "2D", priceFrom: 55, hall: "Зал 3" },
-      ],
-    },
-    {
-      id: 23451,
-      title: "Соловей против Муромца",
-      poster: "https://s1ru1.kinoplan24.ru/685/0406060506d8c62be77b5801/23451.jpg?mode=fit&width=1024&height=1024",
-      premiere: false,
+      id: 6,
+      title: "Интервью с легендой",
+      image: "/src/shared/images/theatres/theatres(6).jpg",
+      theatre: "Национальный театр Карло Феличе (Генуя, Италия)",
+      genre: "Спектакль-концерт",
       age: "12+",
-      genres: ["fantasy", "adventure"],
-      sessions: [
-        { time: "17:00", format: "2D", priceFrom: 50, hall: "Зал 4" },
-        { time: "20:00", format: "2D", priceFrom: 55, hall: "Зал 4" },
-      ],
+      duration: 100,
+      premiere: 2025,
+      description: "Музыкально-драматическое представление, в котором знаменитый артист делится историями своей жизни. Песни, воспоминания, сцены из прошлых ролей — всё это складывается в искренний разговор со зрителем о славе, цене успеха и времени. Премьера: 2025 г. Автор: Э. Маццини Режиссер: Р. Конти",
     },
     {
-      id: 22655,
-      title: "КАК ПРИРУЧИТЬ ДРАКОНА",
-      poster: "https://s2ru1.kinoplan24.ru/669/0406060506e684d820a43ea3/22655.jpg?mode=fit&width=1024&height=1024",
-      premiere: true,
-      age: "6+",
-      genres: ["fantasy", "family"],
-      sessions: [
-        { time: "16:30", format: "3D", priceFrom: 40, hall: "Зал 5" },
-        { time: "19:30", format: "3D", priceFrom: 45, hall: "Зал 5" },
-      ],
+      id: 7,
+      title: "Золушка",
+      image: "/src/shared/images/theatres/theatres(7).jpg",
+      theatre: "МХТ имени Чехова (Москва)",
+      genre: "Музыкальная сказка",
+      age: "3+",
+      duration: 50,
+      premiere: 2025,
+      description: "Добрая и весёлая музыкальная постановка о Золушке — девушке, которая вопреки трудностям верит в мечту. Сказочные превращения, юмор и очаровательная музыка делают спектакль интересным для всей семьи. Премьера: 2025 г. Автор: Ш. Перро Режиссер: Л. Васильев",
     },
     {
-      id: 23507,
-      title: "Нэчжа побеждает Царя драконов",
-      poster: "https://s2ru1.kinoplan24.ru/682/0406060506e3bc7f534555f9/23507.jpg?mode=fit&width=1024&height=1024",
-      premiere: true,
-      age: "6+",
-      genres: ["cartoon"],
-      sessions: [
-        { time: "15:00", format: "3D", priceFrom: 40, hall: "Зал 6" },
-        { time: "18:00", format: "3D", priceFrom: 45, hall: "Зал 6" },
-      ],
+      id: 8,
+      title: "Аистенок и Пугало",
+      image: "/src/shared/images/theatres/theatres(8).jpg",
+      theatre: "Театр имени Вахтангова (Москва)",
+      genre: "Сказка",
+      age: "5+",
+      duration: 50,
+      premiere: 2025,
+      description: "Сказка о дружбе и взаимопомощи. Маленький Аистёнок сбился с пути, а Пугало решает ему помочь. По дороге они сталкиваются с трудностями, которые помогают раскрыть их характер и показать, как важно доверие. Премьера: 2025 г. Автор: Ш. Перро Режиссер: Л. Васильев",
+    },
+    {
+      id: 9,
+      title: "Приключение Буратино",
+      image: "/src/shared/images/theatres/theatres(9).jpg",
+      theatre: "Большой театр России (Москва)",
+      genre: "Музыкальная сказка",
+      age: "3+",
+      duration: 50,
+      premiere: 2025,
+    },
+    {
+      id: 10,
+      title: "Севильский цирюльник",
+      image: "/src/shared/images/theatres/theatres(10).jpg",
+      theatre: "Театр наций (Москва)",
+      genre: "Оперета",
+      age: "12+",
+      duration: 150,
+      premiere: 2025,
     },
   ];
 
-  const showMore = () => {
-    setVisibleCount((prev) => prev + 4);
-  };
-
+  const showMore = () => setVisibleCount((prev) => prev + 4);
   const isAllVisible = visibleCount >= releasesData.length;
 
   return (
-    <div>
-      <h2 className="text-2xl font-semibold text-[#2C2C2C] dark:text-gray-100 mb-6">{t("already_in_cinema")}</h2>
-      <div className="flex flex-wrap justify-center md:items-stretch md:justify-start gap-6 px-2 dark:bg-gray-900">
-        {releasesData.slice(0, visibleCount).map((movie) => (
-          <article key={movie.id} className="flex flex-col w-full md:w-[260px] rounded-[12px] shadow-md bg-[#EAE6F8] dark:bg-gray-800">
-            <Link to={`/theatres/${movie.id}`}>
-              <div className="block overflow-hidden rounded-t-[12px]">
-                <img src={movie.poster} alt={movie.title} className="w-full h-[350px] object-cover transition-transform duration-300 hover:scale-105" />
-              </div>
+    <section className="py-10 px-4">
+      <h2 className="text-4xl font-semibold text-[#2C2C2C] dark:text-white mb-8 text-center md:text-start">{t("theatres")}</h2>
+
+      <div className="flex flex-wrap justify-center md:justify-start gap-6 max-w-7xl mx-auto">
+        {releasesData.slice(0, visibleCount).map((e) => (
+          <article key={e.id} className="group flex flex-col w-full max-w-[230px] overflow-hidden cursor-pointer">
+            <Link to={`/theatres/${e.id}`} aria-label={`Перейти к спектаклю ${e.title}`} className="block rounded-2xl overflow-hidden shadow-md">
+              <img src={e.image} alt={e.title} className="w-full h-[350px] object-cover transition-transform duration-900 ease-in-out group-hover:scale-105" />
             </Link>
-            <div className="p-4 flex flex-col flex-grow">
-              <h3 className="text-lg font-semibold mb-2 text-[#2C2C2C] dark:text-white">{movie.title}</h3>
-              <div className="flex items-center text-sm mb-3 gap-3">
-                {movie.premiere && <span className="px-2 py-0.5 rounded-md text-xs uppercase font-bold select-none bg-purple-700 text-white">{t("premiere")}</span>}
-                <span className="px-4 py-1 shadow-md bg-[#f5f5f5] dark:bg-gray-700 font-semibold select-none text-[#6B6B6B] dark:text-gray-300">{movie.age}</span>
-              </div>
-              <div className="flex flex-wrap gap-3 mb-4">
-                {movie.genres.map((genre) => (
-                  <span key={genre} className="px-3 py-1 rounded-md select-none bg-[#f5f5f5] dark:bg-gray-700 text-sm">
-                    {t(genre)}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-auto flex flex-col gap-2">
-                {movie.sessions.map((session) => (
-                  <div className="flex items-center justify-between px-3 py-1 rounded-lg bg-white dark:bg-gray-700 shadow-[0_0_6px_rgba(127,0,255,0.3)]">
-                    <span className="font-semibold text-purple-700 dark:text-purple-300 min-w-[55px]">{session.time}</span>
-                    <span className={`uppercase font-bold text-xs px-2 py-0.5 rounded-md text-white text-center min-w-[30px] ${session.format === "3D" ? "bg-[#FF6F61]" : "bg-purple-700"}`}>{session.format}</span>
-                    <span className="text-[12px] ml-2 font-semibold text-[#2C2C2C] dark:text-white min-w-[60px]">
-                      {t("from")} {session.priceFrom} c
-                    </span>
-                    <span className="text-sm font-semibold text-[#6B6B6B] dark:text-gray-300 min-w-[55px] text-right">{session.hall}</span>
-                  </div>
-                ))}
+            <div className="p-4 flex flex-col justify-between">
+              <h3 className="text-lg font-semibold text-[#2C2C2C] dark:text-white mb-1 transition-colors duration-900 ease-in-out group-hover:text-[#7F00FF]">{e.title}</h3>
+              <p className="text-base text-[#7F00FF] font-semibold mb-2">{e.theatre}</p>
+              <div className="text-sm font-semibold space-y-1">
+                <p className="inline-block p-2 rounded-[6px] bg-gray-100 dark:bg-gray-800 text-[#68617a] dark:text-white transition-colors duration-900 ease-in-out group-hover:bg-[#7F00FF] group-hover:text-white tracking-normal">{e.genre}</p>
               </div>
             </div>
           </article>
         ))}
       </div>
+
       {!isAllVisible && (
-        <div className="flex justify-center">
+        <div className="mt-10 text-center">
           <button onClick={showMore} className="w-[260px] mx-auto py-3 mt-4 rounded-md font-semibold text-white bg-purple-700 hover:bg-purple-800 transition">
             {t("show_more")}
           </button>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

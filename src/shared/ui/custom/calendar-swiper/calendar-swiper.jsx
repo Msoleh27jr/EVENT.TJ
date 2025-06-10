@@ -107,7 +107,7 @@ export default function CalendarComponent() {
   };
 
   return (
-    <div className="flex flex-col items-center h-[200px] bg-transparent mx-auto rounded-2xl m-4 sm:m-6 lg:m-10 p-4 sm:p-6 w-full max-w-6xl">
+    <div className={`flex flex-col items-center h-[200px] bg-transparent mx-auto rounded-2xl w-full max-w-6xl`}>
       {/* Заголовок */}
       <div className="mb-4">
         <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">{currentMonth}</h2>

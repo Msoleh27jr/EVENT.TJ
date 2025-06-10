@@ -6,21 +6,56 @@ import CalendarComponent from "../../shared/ui/custom/calendar-swiper/calendar-s
 import TheatresReleases from "../../shared/ui/custom/releases/theatres-releases";
 import TheatresSoon from "../../shared/ui/custom/soon/theatres-soon";
 
-const data = [
+const theatresData = [
   {
     id: 1,
-    name: "Кинотеатр «Навруз» Душанбе",
-    link: "https://tamosho.tj/",
+    name: "Театр наций (Москва)",
+    link: "https://www.bolshoi.ru/",
   },
   {
     id: 2,
-    name: "Кинотеатр «Кайхон» в Душанбе",
-    link: "https://kayhon.tj",
+    name: "Театр Ла Скала (Милан)",
+    link: "https://vakhtangov.ru/",
   },
   {
     id: 3,
-    name: "Кинотеатр «Премьер Зал» Душанбе",
-    link: "https://kinopremierzal.tj/",
+    name: "Комеди Франсез (Париж)",
+    link: "https://mxat.ru/",
+  },
+  {
+    id: 4,
+    name: "МХТ имени Чехова (Москва)",
+    link: "https://www.carlofelicegenova.it/",
+  },
+  {
+    id: 5,
+    name: "Большой театр России (Москва)",
+    link: "https://www.roh.org.uk/",
+  },
+  {
+    id: 6,
+    name: "Театр имени Вахтангова (Москва)",
+    link: "https://www.comedie-francaise.fr/",
+  },
+  {
+    id: 7,
+    name: "Национальный театр Исландии (Рейкьявик)",
+    link: "https://www.berliner-ensemble.de/",
+  },
+  {
+    id: 8,
+    name: "Королевский театр Ковент-Гарден (Лондон)",
+    link: "https://www.teatroallascala.org/",
+  },
+  {
+    id: 9,
+    name: "Национальный театр Карло Феличе (Генуя, Италия)",
+    link: "https://theatreofnations.ru/",
+  },
+  {
+    id: 10,
+    name: "Берлинский драматический театр (Берлинер ансамбль)",
+    link: "https://www.leikhusid.is/",
   },
 ];
 
@@ -34,17 +69,17 @@ const Theatres = () => {
         <div className="w-full relative bottom-[5px] flex flex-col md:flex-row items-center gap-5 md:items-baseline justify-between">
           <select
             onChange={(e) => {
-              const selected = data.find((item) => item.name === e.target.value);
+              const selected = theatresData.find((item) => item.name === e.target.value);
               if (selected) {
                 window.open(selected.link, "_blank", "noopener,noreferrer");
               }
             }}
-            className="p-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-[8px]"
+            className="w-[80%] md:w-auto p-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-[8px]"
           >
             <option value="" disabled selected hidden>
               {t("theatres")}
             </option>
-            {data.map((e) => (
+            {theatresData.map((e) => (
               <option key={e.id} value={e.name}>
                 {e.name}
               </option>
@@ -57,10 +92,10 @@ const Theatres = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center">
+      <div className="flex mt-20 flex-col items-center">
         <CalendarComponent />
         <TheatresReleases />
-        <TheatresSoon />
+        {/* <TheatresSoon /> */}
       </div>
     </div>
   );
