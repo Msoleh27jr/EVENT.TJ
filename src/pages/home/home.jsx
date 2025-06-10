@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { News } from "../../app/providers/lazy/lazy";
-import TheatresReleases from "../../shared/ui/custom/releases/theatres-releases";
-import Soon from "../../shared/ui/custom/soon/theatres-soon";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import FirstSecton from "../../shared/firstSectionHomePage/firstSecton";
 import TheatresSoon from "../../shared/ui/custom/soon/theatres-soon";
+import { data } from "../digets/dataBase";
 
 const eventsData = [
   {
@@ -163,7 +162,7 @@ const eventsData = [
 const Home = () => {
   const { t } = useTranslation();
 
-  let [data] = useState([
+  let [datas] = useState([
     {
       id: 1,
       image: "https://www.kino-teatr.ru/movie/posters/big/4/0/176904.jpg",
@@ -353,11 +352,39 @@ const Home = () => {
           </button>
         )}
       </section>
+      {/* /////////// digits */}
+      <section className="my-10">
+        <hr />
+        <h3 className="text-4xl font-bold my-5">{t("digets")}</h3>
+        {data &&
+          data.map((el, i) => (
+            <div
+              key={i}
+              className="flex w-[100%] md:w-[65%] gap-[50px] items-center"
+            >
+              <p className="text-[52px] text-[#9F00FF] font-[700]">{i + 1}</p>
+              <div
+                className="py-[20px] w-[100%]"
+                style={{
+                  borderBottom:
+                    i != datas.length - 1 ? "1px solid #ccc" : "none",
+                }}
+              >
+                <h1 className="text-[#9F00FF] text-[18px] font-[600]">
+                  {t(el.category)}
+                </h1>
+                <p className="text-[22px] font-[700] cursor-pointer hover:text-[#9F00FF]">
+                  {t(el.name)}
+                </p>
+              </div>
+            </div>
+          ))}
+      </section>
       {/* ....... movie */}
       <hr className="my-6" />
       <h2 className="text-4xl font-bold">{t("movie")}</h2>
       <section className="flex gap-[5%] my-5 overflow-x-scroll md:overflow-auto">
-        {data.map((e) => {
+        {datas?.map((e) => {
           return (
             <Link key={e.id} to={`movie/${e.id}`}>
               <div className="w-[215px] m-auto md:m-0 h-[550px] overflow-hidden transform transition duration-600 group cursor-pointer">

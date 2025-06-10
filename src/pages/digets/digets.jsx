@@ -53,7 +53,6 @@ const Digets = () => {
               </p>
             </div>
           </div>
-        </div>
       ))}
     </div>
   )
