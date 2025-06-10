@@ -192,10 +192,14 @@ const MovieById = () => {
     let movie = data.find((e) => e.id == id)
     let movies = data.filter((e) => e.id != id)
     const randomProducts = getRandomMovies(movies, 4);
+const scrollToVideo = () => {
+  videoRef.current?.scrollIntoView({ behavior: 'smooth' });
+};
 
-    const scrollToVideo = () => {
-      videoRef.current?.scrollIntoView({ behavior: 'smooth' });
-    };
+const scrollToTicket = () => {
+  ticketRef.current?.scrollIntoView({ behavior: 'smooth' });
+};
+
 
     const scrollToTicket = () => {
       ticketRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -219,7 +223,7 @@ const MovieById = () => {
           </svg>
           <h3>{movie.name}</h3>
         </div>
-
+        <div className="w-[100%]">
             <div className='flex md:flex-row flex-col items-start gap-[20px] justify-between'>            
                 <div className='w-[100%]'>
                     <div className='my-[30px] w-[100%] flex md:flex-row flex-col items-start gap-[30px]'>
@@ -233,8 +237,6 @@ const MovieById = () => {
                             <Button onClick={scrollToVideo} className='w-full my-[20px] h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer hover:bg-[#4040ff] transition-all duration-500 font-normal bg-[#9F00FF]'>Трейлер</Button>
                             <Button onClick={scrollToTicket} className='w-full h-[50px] text-[#FAFAFA] text-[18px] cursor-pointer font-normal hover:bg-[gray] transition-all duration-500 bg-[#272525]'>Купить билет</Button>
                         </div>
-
-
               <div className="md:w-[440px] w-[100%]">
                 <div className="flex items-center flex-wrap gap-[20px]">
                   {movie.genres.map((e) => {
@@ -320,15 +322,20 @@ const MovieById = () => {
                             />
                     </div>
                     
-                    <CalendarComponent />
-                    
-                    <div className='flex items-center dark:bg-gray-700 bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]'>
+<div className='md:w-[750px]'>
+  <CalendarComponent />
+</div>
+
+<div className='flex md:w-[750px] items-center dark:bg-gray-700 bg-gray-100 rounded-[10px] py-[20px] px-[15px] gap-[10px]'>
+  <LocalActivityIcon className='text-[#9F00FF]' />
+  <h4 ref={ticketRef} className='font-bold text-[18px]'>Чтобы купить билет, нажмите на сеанс.</h4>
+</div>
+
                         <LocalActivityIcon className='text-[#9F00FF]' />
                         <h4 ref={ticketRef} className='font-bold text-[18px]'>Чтобы купить билет, нажмите на сеанс.</h4>
                     </div>
 
                     <h3 className='text-[20px] my-[20px] font-bold'>Душанбе</h3>
-                    
                     <div className='bg-gray-100 dark:bg-gray-700 p-[25px] rounded-[10px]'>
                         <div className='flex items-center md:flex-row flex-col md:gap-[150px]'>
                           <div>
@@ -412,7 +419,6 @@ const MovieById = () => {
                         }
                     </div>
                 </div>
-            
         </section>
     </>
   );

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router'
 import CalendarComponent from '../../shared/ui/custom/calendar-swiper/calendar-swiper'
+import { useTranslation } from 'react-i18next'
 
 const Movie = () => {
   const [cinema, setCinema] = useState('all')
+  const { t } = useTranslation();
   let [data] = useState([
         {
           id: 1,

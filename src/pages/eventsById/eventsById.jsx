@@ -287,7 +287,7 @@ const EventsById = () => {
             Маълумоти иловагӣ:
             </h1>
             <div className="flex gap-[16px]">
-              <CampaignIcon className="text-[#9F00FF]" />
+              {/* <CampaignIcon className="text-[#9F00FF]" /> */}
               <p className="font-bold">{t("events")} :</p>
               <p>{events.eventName}</p>
             </div>

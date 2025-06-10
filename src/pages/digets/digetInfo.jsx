@@ -10,8 +10,12 @@ const DigetInfo = () => {
     let recomended = data.filter((el, i) => i != id)
 
     let navigate = useNavigate()
+    const { t } = useTranslation();
 
-    const { t, i18n } = useTranslation();
+    function routeById(i){
+        if(i<id) navigate(`/digets/${i}`)
+        else navigate(`/digets/${i+1}`)
+    }
 
     return (
         <div className='flex flex-row justify-between'>
