@@ -20,9 +20,9 @@
   
 ## 🖼️ Picutes of Event.tj
 ![image](https://github.com/user-attachments/assets/0d121d6b-b16d-4129-8aef-50d309b58c16)
-</br>
-**Come with us — every moment becomes a sweet memory**
-</br>
+<br><br>
+## **Come with us — every moment becomes a sweet memory**
+<br><br>
 ![image](https://github.com/user-attachments/assets/64c2e4db-d66f-404a-b997-6c329af0ac45)
 
 
