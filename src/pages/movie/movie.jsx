@@ -241,56 +241,55 @@ const Movie = () => {
         <div className="my-[50px]">
           <h2 className="text-[30px] my-[20px] font-bold">{t("movie")}</h2>
           <div className="flex items-start justify-center md:justify-start gap-[18px] flex-wrap">
-            {(filterDate.length > 0
-              ? filterDate
-              : data.filter((e) => cinema == "all" || e.cinema == cinema)
-            ).map((e) => {
-              return (
-                <Link key={e.id} to={`${e.id}`} className="max-md:w-[45%]">
-                  <div className="md:w-[215px] m-auto md:m-0 md:h-[560px] overflow-hidden transform transition duration-600 group cursor-pointer">
-                    <div className="overflow-hidden rounded-[10px] mb-[20px] relative">
-                      <img
-                        src={e.image}
-                        className="w-full h-[250px] md:h-[325px] object-cover transform transition duration-700 group-hover:scale-110 rounded-[10px]"
-                        alt="image"
-                      />
-                      <div
-                        style={{
-                          backgroundColor:
-                            e.rating < 5
-                              ? "red"
-                              : e.rating < 7
-                              ? "#db8f00"
-                              : "#43c443",
-                          display: e.rating == 0 ? "none" : "flex",
-                        }}
-                        className="absolute top-[15px] right-[15px] w-[30px] h-[20px] rounded-[4px] flex items-center justify-center text-[#FAFAFA]"
-                      >
-                        {e.rating}
+            {data
+              .filter((e) => cinema == "all" || e.cinema == cinema)
+              .map((e) => {
+                return (
+                  <Link key={e.id} to={`${e.id}`} className="max-md:w-[45%]">
+                    <div className="md:w-[215px] m-auto md:m-0 md:h-[560px] overflow-hidden transform transition duration-600 group cursor-pointer">
+                      <div className="overflow-hidden rounded-[10px] mb-[20px] relative">
+                        <img
+                          src={e.image}
+                          className="w-full h-[250px] md:h-[325px] object-cover transform transition duration-700 group-hover:scale-110 rounded-[10px]"
+                          alt="image"
+                        />
+                        <div
+                          style={{
+                            backgroundColor:
+                              e.rating < 5
+                                ? "red"
+                                : e.rating < 7
+                                ? "#db8f00"
+                                : "#43c443",
+                            display: e.rating == 0 ? "none" : "flex",
+                          }}
+                          className="absolute top-[15px] right-[15px] w-[30px] h-[20px] rounded-[4px] flex items-center justify-center text-[#FAFAFA]"
+                        >
+                          {e.rating}
+                        </div>
+                      </div>
+                      <h3 className="font-bold group-hover:text-[#9F00FF] transition-all duration-500 text-[19px]">
+                        {e.name}
+                      </h3>
+                      <h4 className="my-[15px] text-[18px] text-[#9F00FF]">
+                        Расписание
+                      </h4>
+                      <div className="flex flex-wrap items-center gap-[5px]">
+                        {e.genres.map((e) => {
+                          return (
+                            <h3
+                              key={e.id}
+                              className="h-[30px] flex items-center justify-center group-hover:text-[#FAFAFA] transition-all duration-500 px-[5px] group-hover:bg-[#9F00FF] rounded-[8px] text-[14px]"
+                            >
+                              {e.genre}
+                            </h3>
+                          );
+                        })}
                       </div>
                     </div>
-                    <h3 className="font-bold group-hover:text-[#9F00FF] transition-all duration-500 text-[19px]">
-                      {e.name}
-                    </h3>
-                    <h4 className="my-[15px] text-[18px] text-[#9F00FF]">
-                      Расписание
-                    </h4>
-                    <div className="flex flex-wrap items-center gap-[5px]">
-                      {e.genres.map((e) => {
-                        return (
-                          <h3
-                            key={e.id}
-                            className="h-[30px] flex items-center justify-center group-hover:text-[#FAFAFA] transition-all duration-500 px-[5px] group-hover:bg-[#9F00FF] rounded-[8px] text-[14px]"
-                          >
-                            {e.genre}
-                          </h3>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
+                  </Link>
+                );
+              })}
           </div>
         </div>
       </section>
