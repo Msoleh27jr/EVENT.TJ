@@ -1,41 +1,64 @@
-import { useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { videos } from "../video/video";
 import ReactPlayer from "react-player";
 
 const VideoById = () => {
   const { id } = useParams();
   const navigation = useNavigate();
-  let obj = videos.find((elem) => elem.id == Number(id));
-  console.log(obj);
+  const obj = videos.find((elem) => elem.id === Number(id));
 
-  function getById(id) {
+  const getById = (id) => {
     navigation(`/video/${id}`);
-  }
+  };
+
+  if (!obj)
+    return <p className="text-center text-red-500 mt-10">Видео не найдено</p>;
 
   return (
-    <div>
-      <div className=" md:flex justify-around">
-        <div className="w-[90%] m-auto md:w-[60%]">
-          <p className="text-[25px] md:text-[40px]">{obj.title}</p>
-          <p className="text-gray-500">{obj.views} {obj.date}</p>
-          <img className="w-[90%] rounded-2xl" src={obj.img} alt="" />
-          <br />
-          <p className="text-gray-500">{obj.description}</p>
-          <div className="w-[100%] mt-[50px] overflow-hidden rounded-2xl">
+    <div className="container mx-auto px-4 py-6">
+      <div className="flex gap-[10px]">
+        <Link to="/">
+          <div className="">
+            <p>Главная -</p>
+          </div>
+        </Link>
+        <Link to="/video">
+          <div className="">
+            <p>Видео -</p>
+          </div>
+        </Link>
+        <div className="">
+          <p>{obj.title}</p>
+        </div>
+      </div>
+      <div className="flex flex-col md:flex-row gap-10">
+        <div className="md:w-2/3">
+          <h1 className="text-2xl md:text-4xl font-bold mb-2">{obj.title}</h1>
+          <p className="text-sm text-gray-500 mb-4">
+            {obj.views} просмотров • {obj.date}
+          </p>
+          <img
+            src={obj.img}
+            alt="Preview"
+            className="w-full h-auto rounded-2xl mb-6 shadow"
+          />
+          <p className="text-gray-600 dark:text-[#FAFAFA] leading-relaxed mb-8">
+            {obj.description}
+          </p>
+          <div className="overflow-hidden rounded-2xl shadow-lg">
             <ReactPlayer
               controls
-              playing={true}
+              playing
               url={obj.url}
-              light={true}
-              width={"80%"}
-              height={"400px"}
+              light
+              width="100%"
+              height="400px"
               muted
               playIcon={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="white"
                   viewBox="0 0 24 24"
-                  strokeWidth={1.5}
                   stroke="none"
                   className="w-16 h-16 mx-auto"
                 >
@@ -49,23 +72,24 @@ const VideoById = () => {
             />
           </div>
         </div>
-        <div className="w-[90%] m-auto md:w-[35%] mt-[50px]">
+
+        <div className="md:w-1/3 space-y-6">
           {videos.map((video) => (
             <div
-              key={video.url}
-              className="group flex overflow-hidden border-1 border-gray-500 rounded-[10px] shadow-[5px_5px_5px_5px] shadow-gray-300 md:shadow-0 md:border-0 mt-[50px] md:mt-[20px] w-[100%] h-[100px] md:w-[100%]"
+              key={video.id}
+              className="flex items-center gap-4 rounded-xl dark:bg-gray-700 shadow hover:shadow-md transition p-3 bg-white cursor-pointer"
+              onClick={() => getById(video.id)}
             >
               <img
-                className="rounded-[10px] w-[150px] h-[100px] object-cover transform transition duration-700 group-hover:scale-110"
                 src={video.img}
-                alt=""
-                onClick={() => getById(video.id)}
+                alt={video.title}
+                className="w-32 h-20 rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="p-[10px]">
-                <p className="text-gray-500 transition">{video.date}</p>
-                <p className="transition group-hover:text-purple-400">
-                  {video.title} — <a href={video.url}>Смотреть</a>
-                </p>
+              <div className="flex flex-col">
+                <span className="text-xs dark:text-[#FAFAFA] text-gray-400">{video.date}</span>
+                <span className="text-sm font-medium dark:text-[#FAFAFA] text-gray-800 hover:text-purple-500 line-clamp-2">
+                  {video.title}
+                </span>
               </div>
             </div>
           ))}
