@@ -15,3 +15,6 @@ export const PictureById = lazy(()=> import('../../../pages/picturesById/picture
 export const NewsById = lazy(()=> import('../../../pages/newsById/newsById.jsx'))
 export const MovieById = lazy(()=> import('../../../pages/movieById/movieById.jsx'))
 export const TheatresById = lazy(()=> import('../../../pages/theatresById/theatresById.jsx'))
+export const DigetInfo = lazy(()=>import("../../../pages/digets/digetInfo.jsx"))
+export const TheatresToday = lazy(() =>import("../../../pages/theatres-today/theatres-today.jsx"))
+export const TheatresTomorrow = lazy(() =>import("../../../pages/theatres-tomorrow/theatres-tomorrow.jsx"))
