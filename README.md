@@ -11,7 +11,7 @@
 - 🎟 **Buy tickets** for movies or live theater performances  
 - 📊 See statistics and media insights
 
-[Visit our website](https://event-tjk.vercel.app/)
+[Visit our website](https://event-tj.vercel.app/)
 
 ## 🔧 Tech Stack
 
