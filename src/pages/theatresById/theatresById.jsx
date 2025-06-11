@@ -10,7 +10,7 @@ const TheatresById = () => {
     {
       id: 1,
       title: "Аладдин",
-      image: "/src/shared/images/theatres/theatres(1).jpg",
+      image: "/public/images/theatres/theatres(1).jpg",
       theatre: "Национальный театр Исландии (Рейкьявик)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -21,7 +21,7 @@ const TheatresById = () => {
     {
       id: 2,
       title: "Необыкновенное состязание",
-      image: "/src/shared/images/theatres/theatres(2).jpg",
+      image: "/public/images/theatres/theatres(2).jpg",
       theatre: "Театр Ла Скала (Милан)",
       genre: "Сказка",
       age: "3+",
@@ -32,7 +32,7 @@ const TheatresById = () => {
     {
       id: 3,
       title: "Игра окончена",
-      image: "/src/shared/images/theatres/theatres(3).jpg",
+      image: "/public/images/theatres/theatres(3).jpg",
       theatre: "Берлинский драматический театр (Берлинер ансамбль)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -43,7 +43,7 @@ const TheatresById = () => {
     {
       id: 4,
       title: "Моя прекрасная леди",
-      image: "/src/shared/images/theatres/theatres(4).jpg",
+      image: "/public/images/theatres/theatres(4).jpg",
       theatre: "Комеди Франсез (Париж)",
       genre: "Мюзикл",
       age: "12+",
@@ -54,7 +54,7 @@ const TheatresById = () => {
     {
       id: 5,
       title: "Книга Майны или Сказка о времени",
-      image: "/src/shared/images/theatres/theatres(5).jpg",
+      image: "/public/images/theatres/theatres(5).jpg",
       theatre: "Королевский театр Ковент-Гарден (Лондон)",
       genre: "Сказка",
       age: "6+",
@@ -65,7 +65,7 @@ const TheatresById = () => {
     {
       id: 6,
       title: "Интервью с легендой",
-      image: "/src/shared/images/theatres/theatres(6).jpg",
+      image: "/public/images/theatres/theatres(6).jpg",
       theatre: "Национальный театр Карло Феличе (Генуя, Италия)",
       genre: "Спектакль-концерт",
       age: "12+",
@@ -76,7 +76,7 @@ const TheatresById = () => {
     {
       id: 7,
       title: "Золушка",
-      image: "/src/shared/images/theatres/theatres(7).jpg",
+      image: "/public/images/theatres/theatres(7).jpg",
       theatre: "МХТ имени Чехова (Москва)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -87,7 +87,7 @@ const TheatresById = () => {
     {
       id: 8,
       title: "Аистенок и Пугало",
-      image: "/src/shared/images/theatres/theatres(8).jpg",
+      image: "/public/images/theatres/theatres(8).jpg",
       theatre: "Театр имени Вахтангова (Москва)",
       genre: "Сказка",
       age: "5+",
@@ -98,7 +98,7 @@ const TheatresById = () => {
     {
       id: 9,
       title: "Приключение Буратино",
-      image: "/src/shared/images/theatres/theatres(9).jpg",
+      image: "/public/images/theatres/theatres(9).jpg",
       theatre: "Большой театр России (Москва)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -108,7 +108,7 @@ const TheatresById = () => {
     {
       id: 10,
       title: "Севильский цирюльник",
-      image: "/src/shared/images/theatres/theatres(10).jpg",
+      image: "/public/images/theatres/theatres(10).jpg",
       theatre: "Театр наций (Москва)",
       genre: "Оперета",
       age: "12+",
@@ -118,13 +118,11 @@ const TheatresById = () => {
   ];
 
   const { id } = useParams();
-  const movie = releasesData.find((item) => item.id === Number(id)) || soonData.find((item) => item.id === Number(id));
+  const obj = releasesData.find((item) => item.id === Number(id)) || soonData.find((item) => item.id === Number(id));
 
-  if (!movie) {
+  if (!obj) {
     return <h2 className="text-center mt-10 text-2xl">{t("movie_not_found")}</h2>;
   }
-
-  // const isRelease = !!movie.sessions;
 
   return (
     <section className="my-12 px-4 md:px-0 max-w-6xl mx-auto">
@@ -137,13 +135,13 @@ const TheatresById = () => {
           {t("theatres")}
         </Link>
         <span>›</span>
-        <span className="text-gray-800 dark:text-gray-100 font-semibold truncate max-w-xs">{movie.title}</span>
+        <span className="text-gray-800 dark:text-gray-100 font-semibold truncate max-w-xs">{obj.title}</span>
       </nav>
       <div className="flex flex-col md:flex-row gap-10">
         <div className="md:w-80 shrink-0 relative">
-          <img src="/src/shared/images/theatres/theatres(1).jpg" alt={movie.title} className="rounded-xl shadow-lg object-cover w-full h-[475px]" />
+          <img src={obj.image} alt={obj.title} className="rounded-xl shadow-lg object-cover w-full h-[475px]" />
 
-          <div className="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-1 rounded-full text-white font-semibold text-xs uppercase shadow-lg select-none hover:brightness-110 transition">{movie.premiere}</div>
+          <div className="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-1 rounded-full text-white font-semibold text-xs uppercase shadow-lg select-none hover:brightness-110 transition">{obj.premiere}</div>
 
           <div className="w-full flex justify-center">
             <button className="w-full py-3 mt-4 rounded-md font-semibold bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200">{t("buy_ticket")}</button>
@@ -151,32 +149,32 @@ const TheatresById = () => {
         </div>
         <div className="flex-1">
           <div className="mb-4">
-            <span className="inline-block px-3 py-1 rounded-md bg-gray-100 text-[#68617a] font-medium text-sm tracking-wide">{movie.genre}</span>
+            <span className="inline-block px-3 py-1 rounded-md bg-gray-100 text-[#68617a] font-medium text-sm tracking-wide">{obj.genre}</span>
           </div>
-          <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-6">{movie.title}</h1>
+          <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-6">{obj.title}</h1>
           <h2 className="text-xl font-bold text-[#7F00FF] mb-6">{t("about_movie")}:</h2>
           <ul className="space-y-3 text-gray-700 dark:text-gray-300 text-lg">
             <li>
               <span className="font-semibold text-gray-900 dark:text-white">{t("age_limit")}: </span>
-              {movie.age}
+              {obj.age}
             </li>
             <li>
               <span className="font-semibold text-gray-900 dark:text-white">{t("sessions")}: </span>
-              {movie.duration} мин.
+              {obj.duration} мин.
             </li>
             <li>
               <span className="font-semibold text-gray-900 dark:text-white">{t("theatres")}: </span>
-              {movie.theatre}
+              {obj.theatre}
             </li>
             <li>
               <span className="font-semibold text-gray-900 dark:text-white">{t("premiere")}: </span>
-              {movie.premiere}
+              {obj.premiere}
             </li>
           </ul>
         </div>
       </div>
       <div className="md:w-[70%] space-y-10 mt-10 font-medium text-gray-900 dark:text-white">
-        <p>{movie.description}</p>
+        <p>{obj.description}</p>
 
         <CalendarComponent />
 

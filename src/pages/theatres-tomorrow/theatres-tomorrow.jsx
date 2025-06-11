@@ -59,7 +59,7 @@ const theatresData = [
   },
 ];
 
-const Theatres = () => {
+const TheatresTomorrow = () => {
   const { t } = useTranslation();
 
   return (
@@ -86,19 +86,18 @@ const Theatres = () => {
             ))}
           </select>
           <div className="flex gap-5 font-semibold text-black dark:text-white">
-            <Link to="today">{t("today")}</Link>
-            <Link to="tomorrow">{t("tomorrow")}</Link>
+            <Link to="/theatres/today">{t("today")}</Link>
+            <Link to="/theatres/tomorrow">{t("tomorrow")}</Link>
             <Link to="#">{t("this_week")}</Link>
           </div>
         </div>
       </div>
       <div className="flex mt-20 flex-col items-center">
         <CalendarComponent />
-        <TheatresReleases count="10" />
-        {/* <TheatresSoon /> */}
+        <TheatresReleases count="4" />
       </div>
     </div>
   );
 };
 
-export default Theatres;
+export default TheatresTomorrow;
