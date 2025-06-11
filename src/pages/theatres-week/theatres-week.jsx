@@ -4,7 +4,7 @@ import CalendarComponent from "../../shared/ui/custom/calendar-swiper/calendar-s
 import TheatresReleases from "../../shared/ui/custom/releases/theatres-releases";
 import TheatreSelect from "../../shared/ui/custom/theatres-select/theatres-select";
 
-const TheatresToday = () => {
+const TheatresWeek = () => {
   return (
     <div className="max-w-[1440px] mx-auto">
       <div className="flex flex-col md:flex-row items-start md:items-end gap-5">
@@ -13,10 +13,10 @@ const TheatresToday = () => {
       </div>
       <div className="flex mt-20 flex-col items-center md:items-start">
         <CalendarComponent />
-        <TheatresReleases button={false} count="3" />
+        <TheatresReleases button={false} count="5" />
       </div>
     </div>
   );
 };
 
-export default TheatresToday;
+export default TheatresWeek;

@@ -6,7 +6,7 @@ import CalendarComponent from "../../shared/ui/custom/calendar-swiper/calendar-s
 const TheatresById = () => {
   const { t } = useTranslation();
 
-  const releasesData = [
+  const data = [
     {
       id: 1,
       title: "Аладдин",
@@ -118,14 +118,14 @@ const TheatresById = () => {
   ];
 
   const { id } = useParams();
-  const obj = releasesData.find((item) => item.id === Number(id)) || soonData.find((item) => item.id === Number(id));
+  const obj = data.find((item) => item.id === Number(id));
 
   if (!obj) {
     return <h2 className="text-center mt-10 text-2xl">{t("movie_not_found")}</h2>;
   }
 
   return (
-    <section className="my-12 px-4 md:px-0 max-w-6xl mx-auto">
+    <section className="my-12 px-4 md:px-0 max-w-6xl">
       <nav className="flex items-center gap-2 text-base text-gray-500 dark:text-gray-400 mb-8 select-none">
         <Link to="/" className="hover:underline hover:text-gray-700 dark:hover:text-gray-200">
           {t("home")}
@@ -140,9 +140,7 @@ const TheatresById = () => {
       <div className="flex flex-col md:flex-row gap-10">
         <div className="md:w-80 shrink-0 relative">
           <img src={obj.image} alt={obj.title} className="rounded-xl shadow-lg object-cover w-full h-[475px]" />
-
           <div className="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-1 rounded-full text-white font-semibold text-xs uppercase shadow-lg select-none hover:brightness-110 transition">{obj.premiere}</div>
-
           <div className="w-full flex justify-center">
             <button className="w-full py-3 mt-4 rounded-md font-semibold bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-200">{t("buy_ticket")}</button>
           </div>
@@ -175,9 +173,7 @@ const TheatresById = () => {
       </div>
       <div className="md:w-[70%] space-y-10 mt-10 font-medium text-gray-900 dark:text-white">
         <p>{obj.description}</p>
-
         <CalendarComponent />
-
         <div className="flex items-center dark:bg-gray-700 bg-gray-100 text-gray-900 dark:text-white rounded-[10px] py-[20px] px-[15px] gap-[10px]">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#9F00FF" className="size-6">
             <path fillRule="evenodd" d="M1.5 6.375c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v3.026a.75.75 0 0 1-.375.65 2.249 2.249 0 0 0 0 3.898.75.75 0 0 1 .375.65v3.026c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 0 1 1.5 17.625v-3.026a.75.75 0 0 1 .374-.65 2.249 2.249 0 0 0 0-3.898.75.75 0 0 1-.374-.65V6.375Zm15-1.125a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0V6a.75.75 0 0 1 .75-.75Zm.75 4.5a.75.75 0 0 0-1.5 0v.75a.75.75 0 0 0 1.5 0v-.75Zm-.75 3a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0v-.75a.75.75 0 0 1 .75-.75Zm.75 4.5a.75.75 0 0 0-1.5 0V18a.75.75 0 0 0 1.5 0v-.75ZM6 12a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 0 1.5H6.75A.75.75 0 0 1 6 12Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clipRule="evenodd" />

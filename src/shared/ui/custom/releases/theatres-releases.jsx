@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const TheatresReleases = ({ count }) => {
+const TheatresReleases = () => {
   const { t } = useTranslation();
-  const [visibleCount, setVisibleCount] = useState(count);
+  const [visibleCount, setVisibleCount] = useState(10);
 
-  const releasesData = [
+  const data = [
     {
       id: 1,
       title: "Аладдин",
-      image: "/public/images/theatres/theatres(1).jpg",
+      image: "/images/theatres/theatres-1.jpg",
       theatre: "Национальный театр Исландии (Рейкьявик)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -21,7 +21,7 @@ const TheatresReleases = ({ count }) => {
     {
       id: 2,
       title: "Необыкновенное состязание",
-      image: "/public/images/theatres/theatres(2).jpg",
+      image: "/images/theatres/theatres-2.jpg",
       theatre: "Театр Ла Скала (Милан)",
       genre: "Сказка",
       age: "3+",
@@ -32,7 +32,7 @@ const TheatresReleases = ({ count }) => {
     {
       id: 3,
       title: "Игра окончена",
-      image: "/public/images/theatres/theatres(3).jpg",
+      image: "/images/theatres/theatres-3.jpg",
       theatre: "Берлинский драматический театр (Берлинер ансамбль)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -43,7 +43,7 @@ const TheatresReleases = ({ count }) => {
     {
       id: 4,
       title: "Моя прекрасная леди",
-      image: "/public/images/theatres/theatres(4).jpg",
+      image: "/images/theatres/theatres-4.jpg",
       theatre: "Комеди Франсез (Париж)",
       genre: "Мюзикл",
       age: "12+",
@@ -54,7 +54,7 @@ const TheatresReleases = ({ count }) => {
     {
       id: 5,
       title: "Книга Майны или Сказка о времени",
-      image: "/public/images/theatres/theatres(5).jpg",
+      image: "/images/theatres/theatres-5.jpg",
       theatre: "Королевский театр Ковент-Гарден (Лондон)",
       genre: "Сказка",
       age: "6+",
@@ -65,7 +65,7 @@ const TheatresReleases = ({ count }) => {
     {
       id: 6,
       title: "Интервью с легендой",
-      image: "/public/images/theatres/theatres(6).jpg",
+      image: "/images/theatres/theatres-6.jpg",
       theatre: "Национальный театр Карло Феличе (Генуя, Италия)",
       genre: "Спектакль-концерт",
       age: "12+",
@@ -76,7 +76,7 @@ const TheatresReleases = ({ count }) => {
     {
       id: 7,
       title: "Золушка",
-      image: "/public/images/theatres/theatres(7).jpg",
+      image: "/images/theatres/theatres-7.jpg",
       theatre: "МХТ имени Чехова (Москва)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -87,7 +87,7 @@ const TheatresReleases = ({ count }) => {
     {
       id: 8,
       title: "Аистенок и Пугало",
-      image: "/public/images/theatres/theatres(8).jpg",
+      image: "/images/theatres/theatres-8.jpg",
       theatre: "Театр имени Вахтангова (Москва)",
       genre: "Сказка",
       age: "5+",
@@ -98,7 +98,7 @@ const TheatresReleases = ({ count }) => {
     {
       id: 9,
       title: "Приключение Буратино",
-      image: "/public/images/theatres/theatres(9).jpg",
+      image: "/images/theatres/theatres-9.jpg",
       theatre: "Большой театр России (Москва)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -108,7 +108,7 @@ const TheatresReleases = ({ count }) => {
     {
       id: 10,
       title: "Севильский цирюльник",
-      image: "/public/images/theatres/theatres(10).jpg",
+      image: "/images/theatres/theatres-10.jpg",
       theatre: "Театр наций (Москва)",
       genre: "Оперета",
       age: "12+",
@@ -118,14 +118,13 @@ const TheatresReleases = ({ count }) => {
   ];
 
   const showMore = () => setVisibleCount((prev) => prev + 4);
-  const isAllVisible = visibleCount >= releasesData.length;
+  const isAllVisible = visibleCount >= data.length;
 
   return (
     <section className="py-10 px-4">
       <h2 className="text-4xl font-semibold text-[#2C2C2C] dark:text-white mb-8 text-center md:text-start">{t("theatres")}</h2>
-
       <div className="flex flex-wrap justify-center md:justify-start gap-6 max-w-7xl mx-auto">
-        {releasesData.slice(0, visibleCount).map((e) => (
+        {data.slice(0, visibleCount).map((e) => (
           <article key={e.id} className="group flex flex-col w-full max-w-[230px] overflow-hidden cursor-pointer">
             <Link to={`/theatres/${e.id}`} aria-label={`Перейти к спектаклю ${e.title}`} className="block rounded-2xl overflow-hidden shadow-md">
               <img src={e.image} alt={e.title} className="w-full h-[350px] object-cover transition-transform duration-900 ease-in-out group-hover:scale-105" />
@@ -140,7 +139,6 @@ const TheatresReleases = ({ count }) => {
           </article>
         ))}
       </div>
-
       {!isAllVisible && (
         <div className="mt-10 text-center">
           <button onClick={showMore} className="w-[260px] mx-auto py-3 mt-4 rounded-md font-semibold text-white bg-purple-700 hover:bg-purple-800 transition">
