@@ -74,7 +74,7 @@ const VideoById = () => {
         </div>
 
         <div className="md:w-1/3 space-y-6">
-          {videos.map((video) => (
+          {videos.filter((e) => e.id != id).map((video) => (
             <div
               key={video.id}
               className="flex items-center gap-4 rounded-xl dark:bg-gray-700 shadow hover:shadow-md transition p-3 bg-white cursor-pointer"
