@@ -35,7 +35,7 @@ const VideoById = () => {
         <div className="md:w-2/3">
           <h1 className="text-2xl md:text-4xl font-bold mb-2">{obj.title}</h1>
           <p className="text-sm text-gray-500 mb-4">
-            {obj.views} просмотров • {obj.date}
+            {obj.views} {obj.date}
           </p>
           <img
             src={obj.img}
