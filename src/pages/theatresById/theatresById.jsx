@@ -10,7 +10,7 @@ const TheatresById = () => {
     {
       id: 1,
       title: "Аладдин",
-      image: "/public/images/theatres/theatres(1).jpg",
+      image: "/images/theatres/theatres-1.jpg",
       theatre: "Национальный театр Исландии (Рейкьявик)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -21,7 +21,7 @@ const TheatresById = () => {
     {
       id: 2,
       title: "Необыкновенное состязание",
-      image: "/public/images/theatres/theatres(2).jpg",
+      image: "/images/theatres/theatres-2.jpg",
       theatre: "Театр Ла Скала (Милан)",
       genre: "Сказка",
       age: "3+",
@@ -32,7 +32,7 @@ const TheatresById = () => {
     {
       id: 3,
       title: "Игра окончена",
-      image: "/public/images/theatres/theatres(3).jpg",
+      image: "/images/theatres/theatres-3.jpg",
       theatre: "Берлинский драматический театр (Берлинер ансамбль)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -43,7 +43,7 @@ const TheatresById = () => {
     {
       id: 4,
       title: "Моя прекрасная леди",
-      image: "/public/images/theatres/theatres(4).jpg",
+      image: "/images/theatres/theatres-4.jpg",
       theatre: "Комеди Франсез (Париж)",
       genre: "Мюзикл",
       age: "12+",
@@ -54,7 +54,7 @@ const TheatresById = () => {
     {
       id: 5,
       title: "Книга Майны или Сказка о времени",
-      image: "/public/images/theatres/theatres(5).jpg",
+      image: "/images/theatres/theatres-5.jpg",
       theatre: "Королевский театр Ковент-Гарден (Лондон)",
       genre: "Сказка",
       age: "6+",
@@ -65,7 +65,7 @@ const TheatresById = () => {
     {
       id: 6,
       title: "Интервью с легендой",
-      image: "/public/images/theatres/theatres(6).jpg",
+      image: "/images/theatres/theatres-6.jpg",
       theatre: "Национальный театр Карло Феличе (Генуя, Италия)",
       genre: "Спектакль-концерт",
       age: "12+",
@@ -76,7 +76,7 @@ const TheatresById = () => {
     {
       id: 7,
       title: "Золушка",
-      image: "/public/images/theatres/theatres(7).jpg",
+      image: "/images/theatres/theatres-7.jpg",
       theatre: "МХТ имени Чехова (Москва)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -87,7 +87,7 @@ const TheatresById = () => {
     {
       id: 8,
       title: "Аистенок и Пугало",
-      image: "/public/images/theatres/theatres(8).jpg",
+      image: "/images/theatres/theatres-8.jpg",
       theatre: "Театр имени Вахтангова (Москва)",
       genre: "Сказка",
       age: "5+",
@@ -98,7 +98,7 @@ const TheatresById = () => {
     {
       id: 9,
       title: "Приключение Буратино",
-      image: "/public/images/theatres/theatres(9).jpg",
+      image: "/images/theatres/theatres-9.jpg",
       theatre: "Большой театр России (Москва)",
       genre: "Музыкальная сказка",
       age: "3+",
@@ -108,7 +108,7 @@ const TheatresById = () => {
     {
       id: 10,
       title: "Севильский цирюльник",
-      image: "/public/images/theatres/theatres(10).jpg",
+      image: "/images/theatres/theatres-10.jpg",
       theatre: "Театр наций (Москва)",
       genre: "Оперета",
       age: "12+",
