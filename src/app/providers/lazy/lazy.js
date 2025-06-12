@@ -2,9 +2,6 @@ import { lazy } from "react";
 
 export const Home = lazy(() => import('../../../pages/home/home.jsx'))
 export const Theatres = lazy(() => import('../../../pages/theatres/theatres.jsx'))
-export const TheatresToday = lazy(() => import('../../../pages/theatres-today/theatres-today.jsx'))
-export const TheatresTomorrow = lazy(() => import('../../../pages/theatres-tomorrow/theatres-tomorrow.jsx'))
-export const TheatresWeek = lazy(() => import('../../../pages/theatres-week/theatres-week.jsx'))
 export const TheatresById = lazy(() => import('../../../pages/theatresById/theatresById.jsx'))
 export const Movie = lazy(() => import('../../../pages/movie/movie.jsx'))
 export const MovieById = lazy(() => import('../../../pages/movieById/movieById.jsx'))
