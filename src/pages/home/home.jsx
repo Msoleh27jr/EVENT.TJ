@@ -3,8 +3,8 @@ import { News } from "../../app/providers/lazy/lazy";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import FirstSecton from "../../shared/firstSectionHomePage/firstSecton";
-import TheatresSoon from "../../shared/ui/custom/soon/theatres-soon";
 import { data } from "../digets/dataBase";
+import TheatresReleases from "../../shared/ui/custom/releases/theatres-releases";
 
 const eventsData = [
   {
@@ -700,8 +700,7 @@ const Home = () => {
         })}
       </section>
       <hr />
-      <h2 className="my-5 font-bold text-4xl">{t("theatres")}</h2>
-      <TheatresSoon />
+      <TheatresReleases/>
       <hr />
       <News />
       <hr />

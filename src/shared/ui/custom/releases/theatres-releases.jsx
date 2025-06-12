@@ -123,7 +123,7 @@ const TheatresReleases = () => {
   return (
     <section className="py-10 px-4">
       <h2 className="text-4xl font-semibold text-[#2C2C2C] dark:text-white mb-8 text-center md:text-start">{t("theatres")}</h2>
-      <div className="flex flex-wrap justify-center md:justify-start gap-6 max-w-7xl mx-auto">
+      <div className="flex flex-wrap justify-center md:justify-start gap-6 mx-auto">
         {data.slice(0, visibleCount).map((e) => (
           <article key={e.id} className="group flex flex-col w-full max-w-[230px] overflow-hidden cursor-pointer">
             <Link to={`/theatres/${e.id}`} aria-label={`Перейти к спектаклю ${e.title}`} className="block rounded-2xl overflow-hidden shadow-md">
