@@ -74,25 +74,31 @@ const VideoById = () => {
         </div>
 
         <div className="md:w-1/3 space-y-6">
-          {videos.filter((e) => e.id != id).map((video) => (
-            <div
-              key={video.id}
-              className="flex items-center gap-4 rounded-xl dark:bg-gray-700 shadow hover:shadow-md transition p-3 bg-white cursor-pointer"
-              onClick={() => getById(video.id)}
-            >
-              <img
-                src={video.img}
-                alt={video.title}
-                className="w-32 h-20 rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="flex flex-col">
-                <span className="text-xs dark:text-[#FAFAFA] text-gray-400">{video.date}</span>
-                <span className="text-sm font-medium dark:text-[#FAFAFA] text-gray-800 hover:text-purple-500 line-clamp-2">
-                  {video.title}
-                </span>
+          {videos
+            .filter((e) => e.id != id)
+            .map((video) => (
+              <div
+                key={video.id}
+                className="flex items-center rounded-xl dark:bg-gray-700 shadow hover:shadow-md transition p-3 bg-white cursor-pointer"
+                onClick={() => getById(video.id)}
+              >
+                <div className="w-[200px]">
+                  <img
+                    src={video.img}
+                    alt={video.title}
+                    className="w-[150px] h-20 rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="w-[200px] flex flex-col">
+                  <span className="text-xs dark:text-[#FAFAFA] text-gray-400">
+                    {video.date}
+                  </span>
+                  <span className="text-sm font-medium dark:text-[#FAFAFA] text-gray-800 hover:text-purple-500 line-clamp-2">
+                    {video.title}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
