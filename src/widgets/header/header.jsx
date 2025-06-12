@@ -51,9 +51,6 @@ const Header = () => {
   const currentLang =
     LANGUAGES.find((l) => l.code === i18n.language) || LANGUAGES[0];
 
-  useEffect(() => {
-    handleClick();
-  }, []);
 
   return (
     <div>

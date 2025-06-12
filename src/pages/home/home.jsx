@@ -560,7 +560,7 @@ const Home = () => {
         {eventsData.slice(0, 9).map((event) => (
           <div
             key={event.id}
-            class="max-w-sm rounded-2xl shadow-lg overflow-hidden transform transition duration-600 group cursor-pointer dark:shadow-[#bababaae]"
+            class="max-w-sm dark:bg-gray-800 rounded-2xl  shadow-lg bg-white overflow-hidden transform transition duration-600 group cursor-pointer"
           >
             <Link to={`events/${event.id}`}>
               <img
