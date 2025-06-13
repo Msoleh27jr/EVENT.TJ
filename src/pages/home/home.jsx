@@ -578,7 +578,9 @@ const Home = () => {
                 <h2 class="text-lg font-bold mb-1 group-hover:text-[#9F00FF] transition-all duration-500 text-[19px]">
                   {event.eventName}
                 </h2>
-                <p class="text-sm text-gray-700">{event.eventDescription}</p>
+                <p class="text-sm text-gray-700 dark:text-gray-200">
+                  {event.eventDescription}
+                </p>
               </div>
             </Link>
           </div>
@@ -587,7 +589,7 @@ const Home = () => {
           eventsData.slice(9).map((event) => (
             <div
               key={event.id}
-              class="max-w-sm rounded-2xl  shadow-lg bg-white overflow-hidden transform transition duration-600 group cursor-pointer"
+              class="max-w-sm rounded-2xl dark:bg-gray-800 shadow-lg overflow-hidden transform transition duration-600 group cursor-pointer"
             >
               <img
                 class="w-full h-48 object-cover transform transition duration-700 group-hover:scale-110"
@@ -604,7 +606,9 @@ const Home = () => {
                 <h2 class="text-lg font-bold mb-1 group-hover:text-[#9F00FF] transition-all duration-500 text-[19px]">
                   {event.eventName}
                 </h2>
-                <p class="text-sm text-gray-700">{event.eventDescription}</p>
+                <p class="text-sm text-gray-700 dark:text-gray-200">
+                  {event.eventDescription}
+                </p>
               </div>
             </div>
           ))}
@@ -700,23 +704,23 @@ const Home = () => {
         })}
       </section>
       <hr />
-      <TheatresReleases/>
+      <TheatresReleases />
       <hr />
       <News />
       <hr />
       <section className="md:my-20 my-10">
         <h1 className="text-[28px] font-bold mb-6">{t("pictures")}</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 transition duration-500 overflow-hidden">
           {dataPic.map((item) => (
             <div
               key={item.id}
-              className="rounded-xl overflow-hidden shadow-md border cursor-pointer hover:shadow-lg transition-shadow duration-200"
+              className="overflow-hidden cursor-pointer duration-200 rounded-xl group"
             >
-              <Link to={`pictures/${item.id}`}>
+              <Link to={`/pictures/${item.id}`}>
                 <img
                   src={item.imageUrl}
                   alt={item.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover rounded-xl transition duration-500 group-hover:scale-110"
                   onError={(e) => {
                     e.currentTarget.onerror = null;
                     e.currentTarget.src =
@@ -724,10 +728,12 @@ const Home = () => {
                   }}
                 />
                 <div className="p-4">
-                  <p className="text-sm text-gray-500">
+                  <p className="text-[18px] text-gray-500">
                     {item.date} · {item.category}
                   </p>
-                  <h2 className="text-lg font-semibold mt-2">{item.title}</h2>
+                  <h2 className="text-xl font-semibold mt-2 group-hover:text-[#9F00FF]">
+                    {item.title}
+                  </h2>
                 </div>
               </Link>
             </div>
