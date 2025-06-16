@@ -55,7 +55,7 @@ const Footer = () => {
           <p className="underline cursor-pointer text-gray-300 md:text-start text-center my-3">{t("Privacy")}</p>
         </section>
         <section className="my-5">
-          <p className="text-[18px] text-gray-400">© 2025 — 20&&. {t("reserved")}</p>
+          <p className="text-[18px] text-gray-400">© 2025 — 2027. {t("reserved")}</p>
         </section>
       </footer>
     </div>
